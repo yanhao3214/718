@@ -1,4 +1,4 @@
-package com.yh.myapplication;
+package com.yh.jiran;
 
 import org.junit.Test;
 
