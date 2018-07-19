@@ -7,12 +7,22 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
+
 /**
  * @author: 闫昊
  * @date: 2018/7/19
  * @function:
  */
 public abstract class BaseActivity extends AppCompatActivity {
+
+    /**
+     * 设置布局资源
+     *
+     * @return 布局ID
+     */
+    protected abstract int setContent();
+    // TODO: 2018/7/19  重载View
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,17 +56,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * 设置布局资源
-     *
-     * @return 布局ID
-     */
-    protected abstract int setContent();
-    // TODO: 2018/7/19  重载View
-
-    /**
      * 初始化控件
      */
     protected void initView() {
+        ButterKnife.bind(this);
     }
 
     /**

@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * @author: 闫昊
  * @date: 2018/7/19
@@ -16,6 +19,14 @@ import android.view.ViewGroup;
  */
 public abstract class BaseFragment extends Fragment {
     protected View mRootView;
+    protected Unbinder mUnbinder;
+
+    /**
+     * 设置布局资源
+     *
+     * @return 布局ID
+     */
+    protected abstract int setContent();
 
     @Override
     public void onAttach(Context context) {
@@ -49,13 +60,6 @@ public abstract class BaseFragment extends Fragment {
     }
 
     /**
-     * 设置布局资源
-     *
-     * @return 布局ID
-     */
-    protected abstract int setContent();
-
-    /**
      * 初始化数据
      */
     protected void initData() {
@@ -67,7 +71,7 @@ public abstract class BaseFragment extends Fragment {
      * @param rootView
      */
     protected void initView(View rootView) {
-
+        mUnbinder = ButterKnife.bind(this, rootView);
     }
 
     /**
@@ -79,9 +83,8 @@ public abstract class BaseFragment extends Fragment {
     }
 
     /**
-     *
      * @return true表示拦截返回逻辑，fragment返回上层、Activity不销毁
-     *          false表示不拦截返回逻辑，Activity自行处理返回逻辑（销毁）
+     * false表示不拦截返回逻辑，Activity自行处理返回逻辑（销毁）
      */
     protected boolean onBackPressed() {
         return false;
