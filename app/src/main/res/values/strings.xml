@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">My Application</string>
+
+    <!-- Manifest -->
+    <string name="manifest_app">伊甸</string>
+    <string name="manifest_login">登录</string>
+    <string name="manifest_main">主页</string>
+    <string name="manifest_register">注册</string>
+    <string name="manifest_forget_password">忘记密码</string>
+    <string name="manifest_setting">设置</string>
+
+    <!-- 主页 -->
+    <string name="app_name">Jiran</string>
+    <string name="guide_turn_main">进入主页</string>
+    <string name="tv_username_login">用户名</string>
+    <string name="user_age">年龄</string>
+
 </resources>

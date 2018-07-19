@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 验证码自定义属性 -->
+    <declare-styleable name="CodeView">
+        <attr name="code_size" format="float" />
+        <attr name="lines" format="integer" />
+        <attr name="points" format="integer" />
+        <attr name="with_lines" format="boolean" />
+        <attr name="with_points" format="boolean" />
+        <attr name="with_frame" format="boolean" />
+        <attr name="frame_width" format="float" />
+        <attr name="frame_color" format="color" />
+        <attr name="code_type" format="enum">
+            <enum name="mixed" value="0" />
+            <enum name="number" value="1" />
+            <enum name="letter" value="2" />
+            <enum name="Chinese" value="3" />
+        </attr>
+    </declare-styleable>
+
+</resources>
