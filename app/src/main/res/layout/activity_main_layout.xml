@@ -1,31 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/tv_test"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test" />
+        android:orientation="vertical">
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/tv_test_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test1" />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test" />
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/tv_test_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test2" />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_test_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test1" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="button_test" />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_test_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test2" />
 
-</LinearLayout>
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="button_test" />
+
+        <Button
+            android:id="@+id/btn_retrofit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Path" />
+
+        <TextView
+            android:id="@+id/tv_gank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_blue_light" />
+
+        <Button
+            android:id="@+id/btn_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Query"/>
+
+        <TextView
+            android:id="@+id/tv_Query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_orange_light" />
+
+    </LinearLayout>
+</ScrollView>
