@@ -1,4 +1,4 @@
-package com.yh.jiran;
+package com.yh.jiran.mvp.ui.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +20,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.btn_test)
     public void jump() {
-        startActivity(new Intent(this, MvpActivity.class));
+        startActivity(new Intent(this, CourierActivity.class));
     }
 
     @Override

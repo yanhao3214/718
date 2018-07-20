@@ -9,10 +9,11 @@ import android.text.TextUtils;
  */
 public class Presenter implements IPresenter {
     private IView mView;
-    private IModel mModel = new Model();
+    private IModel mModel;
 
     public Presenter(IView view) {
         this.mView = view;
+        mModel = new Model();
     }
 
     @Override

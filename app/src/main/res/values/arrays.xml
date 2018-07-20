@@ -15,4 +15,12 @@
         <item>直播</item>
     </string-array>
 
+    <string-array name="distribution_company">
+        <item>顺丰</item>
+        <item>申通</item>
+        <item>圆通</item>
+        <item>韵达</item>
+        <item>天天</item>
+    </string-array>
+
 </resources>
