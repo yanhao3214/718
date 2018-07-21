@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author: 闫昊
  * @date: 2018/7/20
- * @function:
+ * @function: Courier契约类，集中管理相关接口
  */
 public interface CourierContract {
 
