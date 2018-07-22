@@ -1,8 +1,8 @@
-package com.yh.jiran.mvp.contact;
+package com.yh.jiran.mvp.contract;
 
-import com.yh.jiran.mvp.contact.base.IModel;
-import com.yh.jiran.mvp.contact.base.IPresenter;
-import com.yh.jiran.mvp.contact.base.IView;
+import com.yh.jiran.mvp.contract.base.IModel;
+import com.yh.jiran.mvp.contract.base.IPresenter;
+import com.yh.jiran.mvp.contract.base.IView;
 import com.yh.jiran.mvp.model.entity.CourierInfo;
 
 import java.util.List;

@@ -1,24 +1,22 @@
 package com.yh.jiran.mvp.ui.activity;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.AppCompatTextView;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.yh.core.app.BaseActivity;
 import com.yh.jiran.R;
-import com.yh.jiran.test.GankService;
-import com.yh.jiran.test.QueryService;
+import com.yh.jiran.module.test.GankService;
+import com.yh.jiran.module.test.QueryService;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -56,9 +54,24 @@ public class MainActivity extends BaseActivity {
         return R.layout.activity_main_layout;
     }
 
+    @Override
+    protected void initView() {
+        super.initView();
+        String html = "<p><a href=\"arouter://jiran/com/URLActivity1\">arouter://jiran/com/URLActivity1 </a></p>";
+    }
+
     @OnClick(R.id.btn_test)
     public void jump() {
-        startActivity(new Intent(this, CourierActivity.class));
+        ARouter.getInstance().build("/test/CourierActivity").navigation();
+    }
+
+    @OnClick(R.id.btn_router)
+    public void router() {
+        ARouter.getInstance()
+                .build("/test/router.activity")
+                .withBoolean("success", true)
+                .withString("text","跳转成功")
+                .navigation();
     }
 
     @OnClick(R.id.btn_retrofit)

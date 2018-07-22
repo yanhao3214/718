@@ -1,8 +1,6 @@
 package com.yh.jiran.mvp.model;
 
-import android.util.Log;
-
-import com.yh.jiran.mvp.contact.CourierContract;
+import com.yh.jiran.mvp.contract.CourierContract;
 import com.yh.jiran.mvp.model.entity.CourierInfo;
 
 import java.util.ArrayList;

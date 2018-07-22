@@ -1,4 +1,4 @@
-package com.yh.jiran.test;
+package com.yh.jiran.module.test;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

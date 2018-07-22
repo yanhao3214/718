@@ -12,7 +12,8 @@
             android:id="@+id/tv_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="test" />
+            android:text="test"
+            android:clickable="true"/>
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_test_1"
@@ -31,6 +32,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="button_test" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_router"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="router" />
 
         <Button
             android:id="@+id/btn_retrofit"

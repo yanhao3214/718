@@ -1,4 +1,4 @@
-package com.yh.jiran.mvp.contact.base;
+package com.yh.jiran.mvp.contract.base;
 
 /**
  * @author: 闫昊

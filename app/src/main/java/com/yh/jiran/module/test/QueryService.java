@@ -1,4 +1,4 @@
-package com.yh.jiran.test;
+package com.yh.jiran.module.test;
 
 import java.util.WeakHashMap;
 

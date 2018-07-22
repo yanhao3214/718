@@ -1,18 +1,22 @@
 package com.yh.jiran.mvp.ui.activity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yh.core.app.BaseActivity;
 import com.yh.jiran.R;
 import com.yh.jiran.mvp.presenter.CourierPresenter;
 import com.yh.jiran.mvp.ui.adapter.CourierBaseAdapter;
-import com.yh.jiran.mvp.contact.CourierContract;
+import com.yh.jiran.mvp.contract.CourierContract;
 import com.yh.jiran.mvp.model.entity.CourierInfo;
+import com.yh.jiran.utils.Paths;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +29,7 @@ import butterknife.OnClick;
  * @date: 2018/7/20
  * @function:
  */
+@Route(path = Paths.PATH_COURIER_ACTIVITY)
 public class CourierActivity extends BaseActivity implements AdapterView.OnItemSelectedListener, CourierContract.View {
     private List<CourierInfo> mInfoList = new ArrayList<>();
     private CourierBaseAdapter mCourierAdapter;
@@ -47,6 +52,7 @@ public class CourierActivity extends BaseActivity implements AdapterView.OnItemS
 
     @Override
     protected void initView() {
+        Log.d("yh", "CourierActivity: onCreate()");
         super.initView();
         edtNumber.setText("438532650175");
         edtNumber.setSelection(0, edtNumber.getText().toString().length());
@@ -116,21 +122,20 @@ public class CourierActivity extends BaseActivity implements AdapterView.OnItemS
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 
     @Override
     public void showError(int str) {
-
+        Toast.makeText(this, "加载错误", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showLoading() {
-
+        Toast.makeText(this, "正在加载", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void hideLoading() {
-
+        Toast.makeText(this, "加载完成", Toast.LENGTH_SHORT).show();
     }
 }

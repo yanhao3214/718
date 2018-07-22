@@ -1,8 +1,6 @@
 package com.yh.jiran.mvp.presenter;
 
-import android.util.Log;
-
-import com.yh.jiran.mvp.contact.CourierContract;
+import com.yh.jiran.mvp.contract.CourierContract;
 import com.yh.jiran.mvp.model.CourierModel;
 
 /**
