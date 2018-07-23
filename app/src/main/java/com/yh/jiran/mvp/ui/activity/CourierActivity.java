@@ -1,27 +1,34 @@
 package com.yh.jiran.mvp.ui.activity;
 
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.core.app.BaseActivity;
 import com.yh.jiran.R;
-import com.yh.jiran.mvp.presenter.CourierPresenter;
-import com.yh.jiran.mvp.ui.adapter.CourierBaseAdapter;
 import com.yh.jiran.mvp.contract.CourierContract;
 import com.yh.jiran.mvp.model.entity.CourierInfo;
+import com.yh.jiran.mvp.presenter.CourierPresenter;
+import com.yh.jiran.mvp.ui.adapter.CourierBaseAdapter;
 import com.yh.jiran.utils.Paths;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -31,6 +38,8 @@ import butterknife.OnClick;
  */
 @Route(path = Paths.PATH_COURIER_ACTIVITY)
 public class CourierActivity extends BaseActivity implements AdapterView.OnItemSelectedListener, CourierContract.View {
+    @BindView(R.id.iv_beauty_1)
+    ImageView ivBeauty1;
     private List<CourierInfo> mInfoList = new ArrayList<>();
     private CourierBaseAdapter mCourierAdapter;
     private String company;
@@ -98,6 +107,20 @@ public class CourierActivity extends BaseActivity implements AdapterView.OnItemS
     }
 
     @Override
+    public void showBeauties(List<String> urls) {
+        Glide.with(this).load(urls.get(0)).into(ivBeauty1);
+    }
+
+    @Override
+    public void showBing(String url) {
+        RequestOptions options = new RequestOptions()
+                .placeholder(R.drawable.xxx1)
+                .error(R.drawable.xxx2)
+                .override(300,300);
+        Glide.with(this).load(url).thumbnail(0.1f).apply(options).into(ivBeauty1);
+    }
+
+    @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         switch (i) {
             case 0:
@@ -122,6 +145,15 @@ public class CourierActivity extends BaseActivity implements AdapterView.OnItemS
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+    }
+
+    /**
+     * 绑定RxJava生命周期，再Presenter中调用
+     * @return
+     */
+    @Override
+    public LifecycleTransformer bindLifecycle() {
+        return bindToLifecycle();
     }
 
     @Override

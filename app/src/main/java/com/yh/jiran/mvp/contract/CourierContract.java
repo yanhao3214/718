@@ -18,12 +18,14 @@ public interface CourierContract {
 
         /**
          * 获取快递公司信息
+         *
          * @return 快递公司代号
          */
         String getCom();
 
         /**
          * 获取快递单号
+         *
          * @return 快递单号
          */
         String getNumber();
@@ -35,15 +37,31 @@ public interface CourierContract {
 
         /**
          * 显示查询结果
+         *
          * @param list 结果列表
          */
         void updateUi(List<CourierInfo> list);
+
+        /**
+         * 加载图片
+         *
+         * @param urls
+         */
+        void showBeauties(List<String> urls);
+
+        /**
+         * 加载必应图片
+         *
+         * @param url
+         */
+        void showBing(String url);
     }
 
     interface Model extends IModel<List<CourierInfo>> {
 
         /**
          * 获取数据
+         *
          * @param com
          * @param num
          * @return

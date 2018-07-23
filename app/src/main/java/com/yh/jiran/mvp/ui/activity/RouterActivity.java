@@ -12,9 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.trello.rxlifecycle2.LifecycleProvider;
+import com.trello.rxlifecycle2.RxLifecycle;
+import com.trello.rxlifecycle2.android.RxLifecycleAndroid;
 import com.yh.core.app.BaseActivity;
 import com.yh.jiran.R;
 import com.yh.jiran.utils.Paths;
+
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +28,10 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -124,13 +133,18 @@ public class RouterActivity extends BaseActivity {
         Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
             public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-                Log.e("yh", "Observable thread == " + Thread.currentThread().getName());
-                emitter.onNext(1);
-                emitter.onNext(2);
-                emitter.onComplete();
+                if (!emitter.isDisposed()) {
+                    Log.e("yh", "Observable thread == " + Thread.currentThread().getName());
+                    emitter.onNext(1);
+                    emitter.onNext(2);
+                    emitter.onComplete();
+                }
             }
-        }).subscribeOn(Schedulers.newThread())
+        })
+                //发射时候所在的线程，只能设置一次，多次设置不改变
+                .subscribeOn(Schedulers.newThread())
                 .subscribeOn(Schedulers.io())
+                //接受事件所在的线程，可多次设置，每次设置都改变线程
                 .observeOn(Schedulers.newThread())
                 .doOnNext(new Consumer<Integer>() {
                     @Override
@@ -145,6 +159,39 @@ public class RouterActivity extends BaseActivity {
                     public void accept(Integer integer) throws Exception {
                         Log.e("yh", "subscribe: accept : " + Thread.currentThread().getName());
                         Log.e("yh", "subscribe: accept : i == " + integer);
+                    }
+                });
+
+        Flowable.create(new FlowableOnSubscribe<String>() {
+            @Override
+            public void subscribe(FlowableEmitter<String> emitter) throws Exception {
+                if (!emitter.isCancelled()) {
+                    emitter.onNext("Hello World");
+                    emitter.onNext("Hello You");
+                }
+            }
+        }, BackpressureStrategy.DROP)
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(Schedulers.io())
+                .subscribe(new Subscriber<String>() {
+                    @Override
+                    public void onSubscribe(Subscription s) {
+                        s.request(Long.MAX_VALUE);
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
                     }
                 });
     }
@@ -203,7 +250,8 @@ public class RouterActivity extends BaseActivity {
     protected void onStart() {
         super.onStart();
         Observable<String> searchObservable = createButtonClickObservable();
-        searchObservable.observeOn(AndroidSchedulers.mainThread())
+        searchObservable
+                .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(new Consumer<String>() {
                     @Override
                     public void accept(String s) throws Exception {
@@ -218,6 +266,8 @@ public class RouterActivity extends BaseActivity {
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
+                // TODO: 2018/7/23 RxJava生命周期绑定，位置？使用？
+                .compose(RxLifecycle.bind(lifecycle()))
                 .subscribe(new Consumer<List<String>>() {
                     @Override
                     public void accept(List<String> strings) throws Exception {

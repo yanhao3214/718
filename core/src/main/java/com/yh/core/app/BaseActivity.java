@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -14,7 +16,7 @@ import butterknife.ButterKnife;
  * @date: 2018/7/19
  * @function:
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends RxAppCompatActivity {
 
     /**
      * 设置布局资源

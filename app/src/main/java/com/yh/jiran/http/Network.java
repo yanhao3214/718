@@ -2,6 +2,7 @@
 
 package com.yh.jiran.http;
 
+import com.yh.jiran.http.api.BingApi;
 import com.yh.jiran.http.api.GankApi;
 
 import okhttp3.OkHttpClient;
@@ -41,5 +42,15 @@ public class Network {
             gankApi = retrofit.create(GankApi.class);
         }
         return gankApi;
+    }
+
+    public static BingApi getBingApi() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://guolin.tech/api/")
+                .client(new OkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
+        return retrofit.create(BingApi.class);
     }
 }

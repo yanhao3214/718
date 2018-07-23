@@ -2,12 +2,20 @@ package com.yh.jiran.mvp.contract.base;
 
 import android.support.annotation.StringRes;
 
+import com.trello.rxlifecycle2.LifecycleTransformer;
+
 /**
  * @author: 闫昊
  * @date: 2018/7/20
  * @function: View层基本契约
  */
 public interface IView {
+
+    /**
+     * 绑定RxJava生命周期
+     * @return
+     */
+    LifecycleTransformer bindLifecycle();
 
     /**
      * 显示错误：字符串
