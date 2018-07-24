@@ -5,23 +5,23 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".application.JiranApplication"
+        android:name=".base.JiranApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mvp.ui.activity.MainActivity">
+        <activity android:name=".base.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mvp.ui.activity.CourierActivity" />
-        <activity android:name=".mvp.ui.activity.RouterActivity" />
-        <activity android:name=".module.test.UrlReceiveActivity">
+        <activity android:name=".module.courier.view.CourierActivity" />
+        <activity android:name=".base.RouterActivity" />
+        <activity android:name=".base.UrlReceiveActivity">
             <intent-filter>
                 <data
                     android:host="jiran"
@@ -32,7 +32,11 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.test.UrlReceiveActivity1" />
+        <activity android:name=".module.test.view.UrlReceiveActivity1" />
+        <activity android:name=".module.search.view.SearchActivity" />
+        <activity android:name=".module.wallet.view.WalletActivity" />
+        <activity android:name=".module.login.view.LoginActivity" />
+        <activity android:name=".module.star.view.StarActivity" />
     </application>
 
 </manifest>

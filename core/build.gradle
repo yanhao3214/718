@@ -27,18 +27,26 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //注解依赖
-    implementation 'com.jakewharton:butterknife:8.8.1'
+    api 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    //网络请求依赖
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
-    //RxLifecycle依赖
-    implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
-    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+    //路由依赖
+    api 'com.alibaba:arouter-api:1.3.1'
+    //Retrofit相关依赖
+    api 'com.squareup.retrofit2:retrofit:2.4.0'
+    api 'com.squareup.retrofit2:converter-scalars:2.3.0'
+    api 'com.squareup.retrofit2:converter-gson:2.3.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    //RxJava相关依赖
+    api "io.reactivex.rxjava2:rxjava:2.1.16"
+    api "io.reactivex.rxjava2:rxandroid:2.0.2"
+    api 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
+    api 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+    //Gson依赖
+    api 'com.google.code.gson:gson:2.8.5'
+    //图片加载依赖
+    api 'com.github.bumptech.glide:glide:4.7.1'
 }

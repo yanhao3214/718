@@ -2,7 +2,7 @@
 
 package com.yh.jiran.http.api;
 
-import com.yh.jiran.module.test.model.GankBeautyResult;
+import com.yh.jiran.module.test.model.entity.GankBeautyResult;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
