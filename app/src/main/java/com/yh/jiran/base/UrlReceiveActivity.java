@@ -10,7 +10,7 @@ import com.yh.core.app.BaseActivity;
 /**
  * @author: 闫昊
  * @date: 2018/7/21
- * @function:
+ * @function: 页面跳转中介
  */
 public class UrlReceiveActivity extends BaseActivity {
     @Override

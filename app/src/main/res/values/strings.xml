@@ -9,9 +9,9 @@
     <string name="manifest_setting">设置</string>
 
     <!-- 主页 -->
-    <string name="app_name">Jiran</string>
-    <string name="guide_turn_main">进入主页</string>
-    <string name="tv_username_login">用户名</string>
-    <string name="user_age">年龄</string>
+    <string name="home_tab_home">首页</string>
+    <string name="home_tab_dynamic">动态</string>
+    <string name="home_tab_message">消息</string>
+    <string name="home_tab_user">个人</string>
 
 </resources>

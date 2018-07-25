@@ -13,11 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".base.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".module.courier.view.CourierActivity" />
         <activity android:name=".base.RouterActivity" />
@@ -36,7 +32,17 @@
         <activity android:name=".module.search.view.SearchActivity" />
         <activity android:name=".module.wallet.view.WalletActivity" />
         <activity android:name=".module.login.view.LoginActivity" />
-        <activity android:name=".module.star.view.StarActivity" />
+        <activity android:name=".module.home.view.StarActivity" />
+        <activity android:name=".module.test.view.TestActivity">
+
+        </activity>
+        <activity android:name=".base.HomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.yh.ui.utils;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
@@ -37,5 +38,10 @@ public class DimenUtil {
             manager.getDefaultDisplay().getMetrics(metrics);
         }
         return metrics.heightPixels;
+    }
+
+    public static Drawable sizeDrawable(Drawable drawable) {
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        return drawable;
     }
 }

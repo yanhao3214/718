@@ -47,7 +47,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * @author: 闫昊
  * @date: 2018/7/18
- * @function: 主界面
+ * @function: 测试界面，测试代码，待删除
  */
 @Route(path = Paths.PATH_ROUTER_ACTIVITY)
 public class RouterActivity extends BaseActivity {

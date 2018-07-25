@@ -1,4 +1,4 @@
-package com.yh.jiran.module.star;
+package com.yh.jiran.module.home;
 
 import com.yh.jiran.base.contract.IModel;
 import com.yh.jiran.base.contract.IPresenter;
@@ -9,7 +9,7 @@ import com.yh.jiran.base.contract.IView;
  * @date: 2018/7/24
  * @function:
  */
-public interface StarContract {
+public interface HomeMineContract {
 
     interface Model extends IModel {
 

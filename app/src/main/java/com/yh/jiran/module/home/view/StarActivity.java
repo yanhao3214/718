@@ -1,15 +1,15 @@
-package com.yh.jiran.module.star.view;
+package com.yh.jiran.module.home.view;
 
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.core.app.BaseActivity;
-import com.yh.jiran.module.star.StarContract;
+import com.yh.jiran.module.home.HomeMineContract;
 
 /**
  * @author: 闫昊
  * @date: 2018/7/24
- * @function:
+ * @function: 星球页面
  */
-public class StarActivity extends BaseActivity implements StarContract.View {
+public class StarActivity extends BaseActivity implements HomeMineContract.View {
     @Override
     protected int setContent() {
         return 0;

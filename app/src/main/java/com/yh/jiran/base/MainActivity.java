@@ -28,7 +28,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 /**
  * @author: 闫昊
  * @date: 2018/7/18
- * @function: 主界面
+ * @function: 主界面，测试代码，待删除
  */
 public class MainActivity extends BaseActivity {
 
