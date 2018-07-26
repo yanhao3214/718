@@ -8,4 +8,6 @@ package com.yh.jiran.utils;
 public class Paths {
     public static final String PATH_ROUTER_ACTIVITY = "/test/router.activity";
     public static final String PATH_COURIER_ACTIVITY = "/test/CourierActivity";
+    public static final String PATH_SEARCH_ACTIVITY = "/home/SearchActivity";
+    public static final String PATH_STAR_ACTIVITY = "/home/StarActivity";
 }

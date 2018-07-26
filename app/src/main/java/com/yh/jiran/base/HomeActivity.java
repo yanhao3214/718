@@ -1,22 +1,19 @@
 package com.yh.jiran.base;
 
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
+import android.view.WindowManager;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
-import com.yh.core.app.BaseActivity;
+import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.yh.core.app.BaseFragment;
 import com.yh.jiran.R;
 import com.yh.jiran.module.dynamic.view.DynamicFragment;
 import com.yh.jiran.module.home.view.HomeFragment;
 import com.yh.jiran.module.Message.view.MessageFragment;
 import com.yh.jiran.module.user.view.UserFragment;
-import com.yh.ui.utils.DimenUtil;
-
 import butterknife.BindColor;
-import butterknife.BindDrawable;
 import butterknife.BindView;
 import butterknife.OnCheckedChanged;
 
@@ -25,16 +22,13 @@ import butterknife.OnCheckedChanged;
  * @date: 2018/7/24
  * @function: 主页，承载4个Fragment
  */
-public class HomeActivity extends BaseActivity {
+public class HomeActivity extends ImmerseActivity {
 
     private HomeFragment mHomeFragment = null;
     private DynamicFragment mDynamicFragment = null;
     private MessageFragment mMessageFragment = null;
     private UserFragment mUserFragment = null;
-    private BaseFragment mFormerFragment = null;
-
-    @BindView(R.id.rg_tab)
-    RadioGroup rgTab;
+    private RxFragment mFormerFragment = null;
 
     @BindView(R.id.rb_home)
     RadioButton rbHome;
@@ -127,7 +121,7 @@ public class HomeActivity extends BaseActivity {
      *
      * @param fragment
      */
-    private void changeFragment(BaseFragment fragment) {
+    private void changeFragment(RxFragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         if (mFormerFragment.isAdded()) {

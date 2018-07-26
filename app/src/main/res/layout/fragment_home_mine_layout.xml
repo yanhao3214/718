@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.AppCompatTextView
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/edt_search"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="首页/我的"
-        android:textColor="@android:color/holo_red_dark" />
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_search_edit"
+        android:drawableLeft="@drawable/ic_search"
+        android:drawablePadding="7dp"
+        android:hint="@string/home_mine_search"
+        android:lines="1"
+        android:textColor="@color/colorChosen"
+        android:textSize="12sp"
+        tools:ignore="RtlHardcoded" />
+
+    <GridView
+        android:id="@+id/grid_star"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:horizontalSpacing="13dp"
+        android:numColumns="2"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:verticalSpacing="18dp" />
+
+
 </LinearLayout>

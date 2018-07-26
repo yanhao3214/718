@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="162dp"
+    android:layout_height="220dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="3dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="6dp">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_star"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/xxx2" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_new"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_new"
+            android:visibility="visible"
+            tools:ignore="RtlHardcoded" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_status"
+            android:layout_width="52dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="122dp"
+            android:background="@drawable/bg_star_status_member"
+            android:gravity="center"
+            android:text="成员"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            tools:ignore="RtlHardcoded" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@+id/iv_star"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="11dp"
+            android:text="星球标题"
+            android:textColor="@color/textDark"
+            android:textSize="14sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_owner"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@+id/tv_title"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="4dp"
+            android:text="主理人"
+            android:textColor="@color/textGrey"
+            android:textSize="12sp" />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

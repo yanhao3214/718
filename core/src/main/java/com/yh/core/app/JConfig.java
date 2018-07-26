@@ -1,6 +1,5 @@
 package com.yh.core.app;
 
-import com.yh.core.image.ILoader;
 
 /**
  * @author: 闫昊
@@ -11,12 +10,12 @@ public class JConfig {
     /**
      * 默认加载中的图片资源id
      */
-    public static final int IL_LOADING_RES = ILoader.Options.RES_NONE;
+//    public static final int IL_LOADING_RES = ILoader.Options.RES_NONE;
 
     /**
      * 默认加载失败的图片资源id
      */
-    public static final int IL_ERROR_RES = ILoader.Options.RES_NONE;
+//    public static final int IL_ERROR_RES = ILoader.Options.RES_NONE;
 
     /**
      * 默认SharedPreferences缓存目录

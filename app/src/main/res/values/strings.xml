@@ -14,4 +14,7 @@
     <string name="home_tab_message">消息</string>
     <string name="home_tab_user">个人</string>
 
+    <!-- 首页/我的 -->
+    <string name="home_mine_search">搜索星球或内容</string>
+
 </resources>

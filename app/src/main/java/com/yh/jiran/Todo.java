@@ -6,11 +6,13 @@ package com.yh.jiran;
  * @function:
  */
 public class Todo {
-    // TODO: 2018/7/21 集成数据框框架：ActiveAndroid
-    // TODO: 2018/7/21 集成RxJava
     // TODO: 2018/7/21 EventBus？？？
     // TODO: 2018/7/21 图标库使用？？？
     // TODO: 2018/7/21 常用工具类集成：Utils
-    // TODO: 2018/7/21 ARouter的URl跳转
     // TODO: 2018/7/25 沉浸式
+    // TODO: 2018/7/25 数据库优化
+    // TODO: 2018/7/25 6.0以下状态栏字体颜色设置（深色）
+    // TODO: 2018/7/25 动态设置状态栏占位View的高度
+    // TODO: 2018/7/26 App打分
+    // TODO: 2018/7/26 Glide加载列表图片？Glide封装
 }

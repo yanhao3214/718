@@ -1,4 +1,4 @@
-package com.yh.core.app;
+package com.yh.jiran.base;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -19,7 +19,6 @@ import butterknife.Unbinder;
  * @function:
  */
 public abstract class BaseFragment extends RxFragment {
-    protected View mRootView;
     protected Unbinder mUnbinder;
 
     /**
@@ -38,17 +37,17 @@ public abstract class BaseFragment extends RxFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        final View rootView;
-//        if (setContent() instanceof Integer) {
-//            mRootView = inflater.inflate((int) setContent(), container, false);
-//        } else if (setContent() instanceof View) {
-//            mRootView = (View) setContent();
-//        } else {
-//            throw new ClassCastException("type of setLayout() must be int or View!");
-//        }
-//        mUnbinder = ButterKnife.bind(this, mRootView);
-//        initView(savedInstanceState, mRootView);
-        return mRootView;
+        final View rootView;
+        if (setContent() instanceof Integer) {
+            rootView = inflater.inflate((int) setContent(), container, false);
+        } else if (setContent() instanceof View) {
+            rootView = (View) setContent();
+        } else {
+            throw new ClassCastException("type of setLayout() must be int or View!");
+        }
+        mUnbinder = ButterKnife.bind(this, rootView);
+        initView(savedInstanceState, rootView);
+        return rootView;
     }
 
     //    private void test() {
@@ -76,9 +75,7 @@ public abstract class BaseFragment extends RxFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mUnbinder!=null) {
-            mUnbinder.unbind();
-        }
+        mUnbinder.unbind();
     }
 
     /**

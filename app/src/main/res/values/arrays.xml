@@ -15,6 +15,18 @@
         <item>直播</item>
     </string-array>
 
+    <!-- 首页/我的 -->
+    <string-array name="tab_home">
+        <item>我的</item>
+        <item>发现</item>
+    </string-array>
+
+    <!-- 首页/发现 -->
+    <string-array name="tab_dynamic">
+        <item>我的</item>
+        <item>发现</item>
+    </string-array>
+
     <string-array name="distribution_company">
         <item>顺丰</item>
         <item>申通</item>
