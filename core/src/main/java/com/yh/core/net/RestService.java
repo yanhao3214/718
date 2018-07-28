@@ -1,4 +1,4 @@
-package com.yh.core.app.net;
+package com.yh.core.net;
 
 /**
  * @author: 闫昊

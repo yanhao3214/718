@@ -5,9 +5,10 @@ package com.yh.jiran.module.home.model.entity;
  * @date: 2018/7/26
  * @function: 首页-我的：星球信息
  */
-public class MineStar {
+public class HomeStar {
     private long starId;
     private String imgUrl;
+    private String icUrl;
     private String title;
     private String status;
     private String owner;
@@ -27,6 +28,14 @@ public class MineStar {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public String getIcUrl() {
+        return icUrl;
+    }
+
+    public void setIcUrl(String icUrl) {
+        this.icUrl = icUrl;
     }
 
     public String getTitle() {
@@ -63,11 +72,12 @@ public class MineStar {
 
     @Override
     public String toString() {
-        return "MineStar{" +
+        return "HomeStar{" +
                 "starId=" + starId +
                 ", imgUrl='" + imgUrl + '\'' +
-                ", status='" + status + '\'' +
+                ", icUrl='" + icUrl + '\'' +
                 ", title='" + title + '\'' +
+                ", status='" + status + '\'' +
                 ", owner='" + owner + '\'' +
                 ", hasNew=" + hasNew +
                 '}';

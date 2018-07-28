@@ -40,6 +40,11 @@ public class DimenUtil {
         return metrics.heightPixels;
     }
 
+    /**
+     * 设置Drawable尺寸，提供给setCompoundDrawables使用
+     * @param drawable
+     * @return
+     */
     public static Drawable sizeDrawable(Drawable drawable) {
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         return drawable;

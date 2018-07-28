@@ -43,7 +43,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.home.view.SearchActivity" />
+        <activity
+            android:name=".module.home.view.SearchActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustPan" />
+        <activity
+            android:name=".module.home.view.StarPickActivity"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

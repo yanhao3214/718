@@ -8,7 +8,7 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.core.app.BaseActivity;
 import com.yh.jiran.R;
 import com.yh.jiran.module.home.HomeMineContract;
-import com.yh.jiran.module.home.model.entity.MineStar;
+import com.yh.jiran.module.home.model.entity.HomeStar;
 import com.yh.jiran.utils.Paths;
 
 import java.util.List;
@@ -59,7 +59,7 @@ public class StarActivity extends BaseActivity implements HomeMineContract.View 
     }
 
     @Override
-    public void refreshUi(List<MineStar> stars) {
+    public void refreshUi(List<HomeStar> stars) {
 
     }
 

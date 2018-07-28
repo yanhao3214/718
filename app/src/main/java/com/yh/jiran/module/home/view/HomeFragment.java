@@ -10,10 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.yh.core.app.BaseFragment;
 import com.yh.jiran.R;
 import com.yh.jiran.base.HomeActivity;
 import com.yh.jiran.module.home.view.adapter.BaseFragmentPagerAdapter;
+import com.yh.jiran.utils.Paths;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,7 @@ import java.util.List;
 import butterknife.BindArray;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * @author: 闫昊
@@ -34,12 +37,15 @@ public class HomeFragment extends BaseFragment {
 
     @BindView(R.id.tab_home)
     TabLayout tabHome;
-    @BindView(R.id.iv_edit)
-    AppCompatImageView ivEdit;
     @BindView(R.id.pager_home)
     ViewPager pagerHome;
     @BindArray(R.array.tab_home)
     String[] mTabs;
+
+    @OnClick(R.id.iv_edit)
+    public void pickStar() {
+        ARouter.getInstance().build(Paths.PATH_STAR_PICK_ACTIVITY).navigation();
+    }
 
     @Nullable
     @Override

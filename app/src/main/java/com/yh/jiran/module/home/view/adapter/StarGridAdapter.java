@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.yh.jiran.R;
-import com.yh.jiran.module.home.model.entity.MineStar;
+import com.yh.jiran.module.home.model.entity.HomeStar;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
  */
 public class StarGridAdapter extends BaseAdapter {
     private Context mContext;
-    private List<MineStar> stars;
+    private List<HomeStar> stars;
     private LayoutInflater mInflater;
     @BindDrawable(R.drawable.bg_star_status_owner)
     Drawable drawableOwner;
@@ -35,7 +35,7 @@ public class StarGridAdapter extends BaseAdapter {
     @BindDrawable(R.drawable.bg_star_status_member)
     Drawable drawableMember;
 
-    public StarGridAdapter(Context context, List<MineStar> stars) {
+    public StarGridAdapter(Context context, List<HomeStar> stars) {
         mContext = context;
         this.stars = stars;
         mInflater = LayoutInflater.from(mContext);
@@ -59,7 +59,7 @@ public class StarGridAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder;
-        MineStar star = stars.get(i);
+        HomeStar star = stars.get(i);
         if (view == null) {
             view = mInflater.inflate(R.layout.item_mine_star_layout, null);
             holder = new ViewHolder(view);

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- 搜索框 -->
+    <declare-styleable name="YSearchEdit">
+        <attr name="clear_icon" format="reference" />
+    </declare-styleable>
+
     <!-- 验证码自定义属性 -->
     <declare-styleable name="CodeView">
         <attr name="code_size" format="float" />

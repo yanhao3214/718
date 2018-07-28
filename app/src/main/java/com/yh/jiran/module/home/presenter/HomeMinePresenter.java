@@ -3,7 +3,7 @@ package com.yh.jiran.module.home.presenter;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yh.jiran.module.home.HomeMineContract;
 import com.yh.jiran.module.home.model.HomeMineModel;
-import com.yh.jiran.module.home.model.entity.MineStar;
+import com.yh.jiran.module.home.model.entity.HomeStar;
 import com.yh.jiran.utils.Paths;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class HomeMinePresenter implements HomeMineContract.Presenter {
     }
 
     @Override
-    public List<MineStar> upDateStars() {
+    public List<HomeStar> upDateStars() {
         return mModel.getNetData();
     }
 

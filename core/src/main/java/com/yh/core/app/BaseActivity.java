@@ -3,7 +3,6 @@ package com.yh.core.app;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
@@ -30,7 +29,6 @@ public abstract class BaseActivity extends RxAppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initWindow();
-
         if (initArgs(getIntent().getExtras())) {
             int layoutId = setContent();
             setContentView(layoutId);

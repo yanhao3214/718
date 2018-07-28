@@ -7,16 +7,16 @@ import android.support.v7.widget.AppCompatEditText;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ListAdapter;
 
+import com.alibaba.android.arouter.facade.Postcard;
+import com.alibaba.android.arouter.facade.callback.NavCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.core.app.BaseFragment;
 import com.yh.jiran.R;
 import com.yh.jiran.module.home.HomeMineContract;
-import com.yh.jiran.module.home.model.entity.MineStar;
+import com.yh.jiran.module.home.model.entity.HomeStar;
 import com.yh.jiran.module.home.presenter.HomeMinePresenter;
 import com.yh.jiran.module.home.view.adapter.StarGridAdapter;
 import com.yh.jiran.utils.Paths;
@@ -27,7 +27,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnItemSelected;
 
 /**
  * @author: 闫昊
@@ -36,7 +35,7 @@ import butterknife.OnItemSelected;
  */
 public class HomeMineFragment extends BaseFragment implements HomeMineContract.View {
 
-    private List<MineStar> mStars = new ArrayList<>();
+    private List<HomeStar> mStars = new ArrayList<>();
     private HomeMineContract.Presenter mHomeMinePresenter;
     private StarGridAdapter mStarGridAdapter;
 
@@ -67,24 +66,37 @@ public class HomeMineFragment extends BaseFragment implements HomeMineContract.V
         mStarGridAdapter.notifyDataSetChanged();
     }
 
-    @OnItemSelected(R.id.grid_star)
-    void onStarClick() {
-    }
-
     @Override
     protected void initView(Bundle savedInstanceState, View rootView) {
         mStarGridAdapter = new StarGridAdapter(getContext(), mStars);
         gridStar.setAdapter(mStarGridAdapter);
-        gridStar.setOnItemClickListener((adapterView, view, i, l) ->
-                ARouter.getInstance()
-                        .build(Paths.PATH_STAR_ACTIVITY)
-                        .withLong("starId", mStars.get(i).getStarId())
-                        .withString("starTitle", mStars.get(i).getTitle())
-                        .navigation());
+        gridStar.setOnItemClickListener((adapterView, view, i, l) -> {
+            HomeStar star = mStars.get(i);
+            toStarDetail(star);
+        });
+    }
+
+    /**
+     * 跳转至星球详情页面
+     *
+     * @param star
+     */
+    private void toStarDetail(HomeStar star) {
+        ARouter.getInstance()
+                .build(Paths.PATH_STAR_ACTIVITY)
+                .withLong("starId", star.getStarId())
+                .withString("starTitle", star.getTitle())
+                .navigation(getContext(), new NavCallback() {
+                    @Override
+                    public void onArrival(Postcard postcard) {
+                        star.setHasNew(false);
+                        mStarGridAdapter.notifyDataSetChanged();
+                    }
+                });
     }
 
     @Override
-    public void refreshUi(List<MineStar> stars) {
+    public void refreshUi(List<HomeStar> stars) {
     }
 
     @Override
