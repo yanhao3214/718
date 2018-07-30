@@ -1,5 +1,6 @@
 package com.yh.jiran.module.home.model;
 
+import com.yh.jiran.greendao.DbManager;
 import com.yh.jiran.module.home.HomeMineContract;
 import com.yh.jiran.module.home.model.entity.HomeStar;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @function:
  */
 public class HomeMineModel implements HomeMineContract.Model {
+
     @Override
     public Object getData() {
         return null;

@@ -12,6 +12,7 @@ import java.util.List;
  * @function:
  */
 public class PickStarModel implements HomeMineContract.PickStarModel {
+
     private List<HomeStar> mStarList = new ArrayList<>();
 
     @Override

@@ -31,6 +31,7 @@ import butterknife.OnClick;
  * @function: 首页Fragment
  */
 public class HomeFragment extends BaseFragment {
+
     private HomeActivity mActivity;
     private BaseFragmentPagerAdapter mBaseFragmentPagerAdapter;
     private List<BaseFragment> mFragments = new ArrayList<>(2);
@@ -47,6 +48,11 @@ public class HomeFragment extends BaseFragment {
         ARouter.getInstance().build(Paths.PATH_STAR_PICK_ACTIVITY).navigation();
     }
 
+    @Override
+    protected Object setContent() {
+        return R.layout.fragment_home_layout;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -54,11 +60,6 @@ public class HomeFragment extends BaseFragment {
         mUnbinder = ButterKnife.bind(this, mRootView);
         initView(savedInstanceState, mRootView);
         return mRootView;
-    }
-
-    @Override
-    protected Object setContent() {
-        return R.layout.fragment_home_layout;
     }
 
     @Override
@@ -76,6 +77,5 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-
     }
 }

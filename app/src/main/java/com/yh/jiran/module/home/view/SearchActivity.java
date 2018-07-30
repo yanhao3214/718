@@ -3,6 +3,7 @@ package com.yh.jiran.module.home.view;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yh.jiran.R;
 import com.yh.jiran.base.ImmerseActivity;
+import com.yh.jiran.base.JiranApplication;
 import com.yh.jiran.utils.Paths;
 
 /**
@@ -12,6 +13,7 @@ import com.yh.jiran.utils.Paths;
  */
 @Route(path = Paths.PATH_SEARCH_ACTIVITY)
 public class SearchActivity extends ImmerseActivity {
+
     @Override
     protected int setContent() {
         return R.layout.activity_search_layout;

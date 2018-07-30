@@ -15,6 +15,7 @@ import java.util.List;
  * @function:
  */
 public class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
+
     private String[] mTabs;
     private List<BaseFragment> mFragments;
 

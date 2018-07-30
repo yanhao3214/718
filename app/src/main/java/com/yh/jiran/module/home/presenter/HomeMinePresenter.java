@@ -14,6 +14,7 @@ import java.util.List;
  * @function:
  */
 public class HomeMinePresenter implements HomeMineContract.Presenter {
+
     private HomeMineContract.View mView;
     private HomeMineContract.Model mModel;
 

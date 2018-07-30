@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
  */
 @Route(path = Paths.PATH_STAR_ACTIVITY)
 public class StarActivity extends BaseActivity implements HomeMineContract.View {
+
     @BindView(R.id.tv_star_detail)
     AppCompatTextView tvStarDetail;
 

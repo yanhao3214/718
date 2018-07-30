@@ -12,6 +12,7 @@ import java.util.List;
  * @function:
  */
 public class PickStarPresenter implements HomeMineContract.PickStarPresenter {
+
     private HomeMineContract.PickStarView mView;
     private HomeMineContract.PickStarModel mModel;
 

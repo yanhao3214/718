@@ -1,5 +1,6 @@
 package com.yh.jiran.module.home.view.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;
 import android.view.LayoutInflater;
@@ -19,9 +20,10 @@ import butterknife.ButterKnife;
 /**
  * @author: 闫昊
  * @date: 2018/7/27
- * @function:
+ * @function: 普通Adapter todo 待删除
  */
 public class StarPickAdapter extends BaseAdapter {
+
     private List<HomeStar> mList;
     private Context mContext;
     private LayoutInflater mInflater;
@@ -47,6 +49,7 @@ public class StarPickAdapter extends BaseAdapter {
         return i;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         HomeStar star = mList.get(i);

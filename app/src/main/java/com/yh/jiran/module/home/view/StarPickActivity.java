@@ -2,6 +2,8 @@ package com.yh.jiran.module.home.view;
 
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
@@ -18,6 +20,7 @@ import com.yh.jiran.module.home.HomeMineContract;
 import com.yh.jiran.module.home.model.entity.HomeStar;
 import com.yh.jiran.module.home.presenter.PickStarPresenter;
 import com.yh.jiran.module.home.view.adapter.StarPickAdapter;
+import com.yh.jiran.module.home.view.adapter.StarPickQuickAdapter;
 import com.yh.jiran.utils.Paths;
 import com.yh.jiran.utils.UiHelper;
 
@@ -38,9 +41,9 @@ import butterknife.OnClick;
 public class StarPickActivity extends ImmerseActivity implements HomeMineContract.PickStarView {
 
     private HomeMineContract.PickStarPresenter mPresenter;
-    private StarPickAdapter mMineAdapter;
-    private StarPickAdapter mRecentAdapter;
-    private StarPickAdapter mHotAdapter;
+    private StarPickQuickAdapter mMineAdapter;
+    private StarPickQuickAdapter mRecentAdapter;
+    private StarPickQuickAdapter mHotAdapter;
     private List<HomeStar> mMineList = new ArrayList<>();
     private List<HomeStar> mRecentList = new ArrayList<>();
     private List<HomeStar> mHotList = new ArrayList<>();
@@ -48,11 +51,11 @@ public class StarPickActivity extends ImmerseActivity implements HomeMineContrac
     @BindView(R.id.edt_search)
     AppCompatEditText edtSearch;
     @BindView(R.id.list_mine)
-    ScrollerListView listMine;
+    RecyclerView listMine;
     @BindView(R.id.list_recent)
-    ScrollerListView listRecent;
+    RecyclerView listRecent;
     @BindView(R.id.list_hot)
-    ScrollerListView listHot;
+    RecyclerView listHot;
     @BindView(R.id.layout_stars)
     LinearLayout layoutStars;
 
@@ -65,26 +68,27 @@ public class StarPickActivity extends ImmerseActivity implements HomeMineContrac
     protected void initView() {
         super.initView();
         mPresenter = new PickStarPresenter(this);
-        mMineAdapter = new StarPickAdapter(this, mMineList);
-        mRecentAdapter = new StarPickAdapter(this, mRecentList);
-        mHotAdapter = new StarPickAdapter(this, mHotList);
-        listMine.setAdapter(mMineAdapter);
-        listRecent.setAdapter(mRecentAdapter);
-        listHot.setAdapter(mHotAdapter);
 
-        edtSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if (i == EditorInfo.IME_ACTION_SEARCH) {
-                    String content = edtSearch.getText().toString().trim();
-                    if (TextUtils.isEmpty(content)) {
-                        return true;
-                    }
-                    return true;
-                }
-                return false;
-            }
-        });
+        LinearLayoutManager mineManager = new LinearLayoutManager(this);
+        mineManager.setOrientation(LinearLayoutManager.VERTICAL);
+        listMine.setLayoutManager(mineManager);
+        mMineAdapter = new StarPickQuickAdapter(mMineList);
+        listMine.setAdapter(mMineAdapter);
+        listMine.setNestedScrollingEnabled(false);
+
+        LinearLayoutManager hotManager = new LinearLayoutManager(this);
+        hotManager.setOrientation(LinearLayoutManager.VERTICAL);
+        listHot.setLayoutManager(hotManager);
+        mHotAdapter = new StarPickQuickAdapter(mHotList);
+        listHot.setAdapter(mHotAdapter);
+        listHot.setNestedScrollingEnabled(false);
+
+        LinearLayoutManager recentManager = new LinearLayoutManager(this);
+        recentManager.setOrientation(LinearLayoutManager.VERTICAL);
+        listRecent.setLayoutManager(recentManager);
+        mRecentAdapter = new StarPickQuickAdapter(mRecentList);
+        listRecent.setAdapter(mRecentAdapter);
+        listRecent.setNestedScrollingEnabled(false);
     }
 
     @Override
@@ -98,9 +102,6 @@ public class StarPickActivity extends ImmerseActivity implements HomeMineContrac
         mMineAdapter.notifyDataSetChanged();
         mRecentAdapter.notifyDataSetChanged();
         mHotAdapter.notifyDataSetChanged();
-//        UiHelper.setListViewHeightBasedOnChildren(listMine);
-//        UiHelper.setListViewHeightBasedOnChildren(listRecent);
-//        UiHelper.setListViewHeightBasedOnChildren(listHot);
     }
 
     @Override

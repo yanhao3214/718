@@ -1,5 +1,6 @@
 package com.yh.jiran.module.home.view.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
@@ -22,18 +23,13 @@ import butterknife.ButterKnife;
 /**
  * @author: 闫昊
  * @date: 2018/7/26
- * @function:
+ * @function: 首页-我的 星球列表适配器
  */
 public class StarGridAdapter extends BaseAdapter {
+
     private Context mContext;
     private List<HomeStar> stars;
     private LayoutInflater mInflater;
-    @BindDrawable(R.drawable.bg_star_status_owner)
-    Drawable drawableOwner;
-    @BindDrawable(R.drawable.bg_star_status_guest)
-    Drawable drawableGuest;
-    @BindDrawable(R.drawable.bg_star_status_member)
-    Drawable drawableMember;
 
     public StarGridAdapter(Context context, List<HomeStar> stars) {
         mContext = context;
@@ -56,6 +52,7 @@ public class StarGridAdapter extends BaseAdapter {
         return i;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder;

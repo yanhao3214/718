@@ -19,6 +19,7 @@ import com.yh.jiran.module.home.HomeMineContract;
 import com.yh.jiran.module.home.model.entity.HomeStar;
 import com.yh.jiran.module.home.presenter.HomeMinePresenter;
 import com.yh.jiran.module.home.view.adapter.StarGridAdapter;
+import com.yh.jiran.module.home.view.adapter.StarGridQuickAdapter;
 import com.yh.jiran.utils.Paths;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ import butterknife.OnClick;
 /**
  * @author: 闫昊
  * @date: 2018/7/25
- * @function:
+ * @function: 首页-我的
  */
 public class HomeMineFragment extends BaseFragment implements HomeMineContract.View {
 
@@ -78,8 +79,6 @@ public class HomeMineFragment extends BaseFragment implements HomeMineContract.V
 
     /**
      * 跳转至星球详情页面
-     *
-     * @param star
      */
     private void toStarDetail(HomeStar star) {
         ARouter.getInstance()

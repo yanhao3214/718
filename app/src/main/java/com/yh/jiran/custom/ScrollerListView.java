@@ -7,7 +7,7 @@ import android.widget.ListView;
 /**
  * @author: 闫昊
  * @date: 2018/7/27
- * @function:
+ * @function: 解决ScrollView嵌套ListView的高度冲突
  */
 public class ScrollerListView extends ListView {
 

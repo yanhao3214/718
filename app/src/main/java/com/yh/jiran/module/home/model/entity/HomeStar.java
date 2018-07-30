@@ -1,11 +1,17 @@
 package com.yh.jiran.module.home.model.entity;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Generated;
+
 /**
  * @author: 闫昊
  * @date: 2018/7/26
  * @function: 首页-我的：星球信息
  */
+@Entity(nameInDb = "home_star")
 public class HomeStar {
+    @Id
     private long starId;
     private String imgUrl;
     private String icUrl;
@@ -13,6 +19,22 @@ public class HomeStar {
     private String status;
     private String owner;
     private boolean hasNew;
+
+    @Generated(hash = 528855520)
+    public HomeStar(long starId, String imgUrl, String icUrl, String title,
+            String status, String owner, boolean hasNew) {
+        this.starId = starId;
+        this.imgUrl = imgUrl;
+        this.icUrl = icUrl;
+        this.title = title;
+        this.status = status;
+        this.owner = owner;
+        this.hasNew = hasNew;
+    }
+
+    @Generated(hash = 1529506854)
+    public HomeStar() {
+    }
 
     public long getStarId() {
         return starId;
@@ -68,6 +90,10 @@ public class HomeStar {
 
     public void setHasNew(boolean hasNew) {
         this.hasNew = hasNew;
+    }
+
+    public boolean getHasNew() {
+        return this.hasNew;
     }
 
     @Override
