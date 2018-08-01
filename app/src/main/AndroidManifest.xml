@@ -29,14 +29,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".module.test.view.UrlReceiveActivity1" />
-        <activity android:name=".module.search.view.SearchActivity" />
         <activity android:name=".module.wallet.view.WalletActivity" />
         <activity android:name=".module.login.view.LoginActivity" />
         <activity android:name=".module.home.view.StarActivity" />
         <activity android:name=".module.test.view.TestActivity">
 
+
         </activity>
-        <activity android:name=".base.HomeActivity">
+        <activity
+            android:name=".base.HomeActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,7 +46,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".module.home.view.SearchActivity"
+            android:name=".module.search.view.SearchActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustPan" />
         <activity
             android:name=".module.home.view.StarPickActivity"

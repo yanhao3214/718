@@ -7,6 +7,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.core.app.BaseActivity;
 import com.yh.jiran.R;
+import com.yh.jiran.base.ImmerseActivity;
 import com.yh.jiran.module.home.HomeMineContract;
 import com.yh.jiran.module.home.model.entity.HomeStar;
 import com.yh.jiran.utils.Paths;
@@ -22,7 +23,7 @@ import butterknife.ButterKnife;
  * @function: 星球页面
  */
 @Route(path = Paths.PATH_STAR_ACTIVITY)
-public class StarActivity extends BaseActivity implements HomeMineContract.View {
+public class StarActivity extends ImmerseActivity implements HomeMineContract.View {
 
     @BindView(R.id.tv_star_detail)
     AppCompatTextView tvStarDetail;

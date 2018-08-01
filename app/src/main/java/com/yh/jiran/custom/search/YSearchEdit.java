@@ -22,6 +22,8 @@ public class YSearchEdit extends android.support.v7.widget.AppCompatEditText {
      */
     private Drawable clearDrawable, searchDrawable;
 
+    private ClearEditCallback mClearCallback;
+
     public YSearchEdit(Context context) {
         super(context);
     }
@@ -85,12 +87,19 @@ public class YSearchEdit extends android.support.v7.widget.AppCompatEditText {
                         event.getX() >= getWidth() - getPaddingRight() - drawable.getBounds().width()
                         && event.getX() <= getWidth() - getPaddingRight()) {
                     setText("");
+                    if (mClearCallback != null) {
+                        mClearCallback.onClear();
+                    }
                 }
                 break;
             default:
                 break;
         }
         return super.onTouchEvent(event);
+    }
+
+    public void setClearCallback(ClearEditCallback clearCallback) {
+        mClearCallback = clearCallback;
     }
 }
 

@@ -14,6 +14,7 @@ import com.alibaba.android.arouter.facade.callback.NavCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.core.app.BaseFragment;
+import com.yh.core.utils.SoftKeyUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.module.home.HomeMineContract;
 import com.yh.jiran.module.home.model.entity.HomeStar;
@@ -69,6 +70,7 @@ public class HomeMineFragment extends BaseFragment implements HomeMineContract.V
 
     @Override
     protected void initView(Bundle savedInstanceState, View rootView) {
+        edtSearch.setFocusable(false);
         mStarGridAdapter = new StarGridAdapter(getContext(), mStars);
         gridStar.setAdapter(mStarGridAdapter);
         gridStar.setOnItemClickListener((adapterView, view, i, l) -> {

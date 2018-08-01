@@ -1,38 +1,64 @@
 package com.yh.jiran.module.search.view;
 
-import com.trello.rxlifecycle2.LifecycleTransformer;
-import com.yh.core.app.BaseActivity;
+import android.support.v4.app.FragmentTransaction;
+import android.widget.Toast;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.yh.core.app.BaseFragment;
 import com.yh.jiran.R;
-import com.yh.jiran.module.search.SearchContract;
+import com.yh.jiran.base.ImmerseActivity;
+import com.yh.jiran.custom.search.SearchCallback;
+import com.yh.jiran.custom.search.YSearchView;
+import com.yh.jiran.module.home.view.HomeMineFragment;
+import com.yh.jiran.utils.Paths;
+
+import butterknife.BindView;
 
 /**
  * @author: 闫昊
- * @date: 2018/7/24
+ * @date: 2018/7/26
  * @function: 搜索界面
  */
-public class SearchActivity extends BaseActivity implements SearchContract.View{
+@Route(path = Paths.PATH_SEARCH_ACTIVITY)
+public class SearchActivity extends ImmerseActivity {
+
+    private BaseFragment fragmentResult;
+
+    @BindView(R.id.search_view)
+    YSearchView searchView;
+
     @Override
     protected int setContent() {
         return R.layout.activity_search_layout;
     }
 
     @Override
-    public LifecycleTransformer bindLifecycle() {
-        return bindToLifecycle();
-    }
+    protected void initView() {
+        super.initView();
+        fragmentResult = new SearchFragment();
+        searchView.setSearchCallback(new SearchCallback() {
+            @Override
+            public void onSearch(String input) {
+                Toast.makeText(SearchActivity.this, "搜索的是：" + input, Toast.LENGTH_SHORT).show();
+                // TODO: 2018/7/31 根据关键词搜索，并显示搜索结果Fragment
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.layout_result, fragmentResult);
+                transaction.commit();
+            }
 
-    @Override
-    public void showError(int str) {
+            @Override
+            public void onCancel() {
+                finish();
+            }
 
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
+            @Override
+            public void onClear() {
+                Toast.makeText(SearchActivity.this, "清除了搜索框", Toast.LENGTH_SHORT).show();
+                // TODO: 2018/7/31 隐藏搜索结果Fragment
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.remove(fragmentResult);
+                transaction.commit();
+            }
+        });
     }
 }

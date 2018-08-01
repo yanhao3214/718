@@ -9,14 +9,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <EditText
+    <com.yh.jiran.custom.search.YSearchEdit
         android:id="@+id/edt_test"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:imeOptions="actionSearch"
+        android:singleLine="true" />
 
     <Button
         android:id="@+id/btn_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="提交"/>
+        android:text="提交" />
+
+    <com.yh.jiran.custom.search.YSearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

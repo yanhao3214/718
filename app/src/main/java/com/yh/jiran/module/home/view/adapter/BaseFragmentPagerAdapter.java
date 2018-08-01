@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @author: 闫昊
  * @date: 2018/7/26
- * @function:
+ * @function: Fragment、ViewPager适配器
  */
 public class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
 

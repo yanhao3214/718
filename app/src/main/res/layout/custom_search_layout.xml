@@ -20,8 +20,7 @@
             android:drawablePadding="7dp"
             android:hint="@string/home_mine_search"
             android:imeOptions="actionSearch"
-            android:maxLines="1"
-            android:lines="1"
+            android:singleLine="true"
             android:textColor="@color/colorChosen"
             android:textSize="12sp"
             app:clear_icon="@drawable/ic_new" />
@@ -41,10 +40,9 @@
         android:layout_marginTop="5dp"
         android:background="@color/colorGrey4" />
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/list_history"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

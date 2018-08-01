@@ -26,4 +26,9 @@
     <string name="home_discover_change">换一批</string>
     <string name="home_discover_dynamic">热门动态</string>
 
+    <!-- 搜索 -->
+    <string name="search_clear_history">清除搜索记录</string>
+    <string name="search_">。。。</string>
+
+
 </resources>

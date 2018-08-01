@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,25 +9,14 @@
         android:layout_height="@dimen/statusBarSize"
         android:background="@color/white" />
 
-    <com.yh.jiran.custom.search.YSearchEdit
-        android:id="@+id/edt_search"
+    <com.yh.jiran.custom.search.YSearchView
+        android:id="@+id/search_view"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/bg_search_edit"
-        android:drawablePadding="7dp"
-        android:hint="@string/home_mine_search"
-        android:lines="1"
-        android:textColor="@color/colorChosen"
-        android:textSize="12sp"
-        custom:clear_icon="@drawable/ic_new"/>
+        android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/tv_search"
+    <FrameLayout
+        android:id="@+id/layout_result"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="搜索界面" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

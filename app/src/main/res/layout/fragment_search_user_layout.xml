@@ -4,16 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/statusBarSize"
-        android:background="@color/white" />
-
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/tv_star_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="星球详情页" />
+        android:text="搜索结果-用户" />
 
 </LinearLayout>

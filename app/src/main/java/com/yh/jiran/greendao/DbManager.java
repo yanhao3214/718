@@ -40,4 +40,8 @@ public class DbManager {
     public final TestUserDao getTestUserDao() {
         return mDaoSession.getTestUserDao();
     }
+
+    public SearchHistoryDao getSearchHistoryDao() {
+        return mDaoSession.getSearchHistoryDao();
+    }
 }

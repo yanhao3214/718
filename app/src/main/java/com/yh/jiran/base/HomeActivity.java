@@ -8,11 +8,13 @@ import android.widget.RadioButton;
 
 import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.yh.core.app.BaseFragment;
+import com.yh.core.utils.SoftKeyUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.module.dynamic.view.DynamicFragment;
 import com.yh.jiran.module.home.view.HomeFragment;
 import com.yh.jiran.module.Message.view.MessageFragment;
 import com.yh.jiran.module.user.view.UserFragment;
+
 import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.OnCheckedChanged;
