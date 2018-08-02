@@ -2,11 +2,23 @@
   <dictionary name="Administrator">
     <words>
       <w>arouter</w>
+      <w>baidu</w>
+      <w>beancon</w>
+      <w>clientid</w>
+      <w>copylink</w>
       <w>datas</w>
       <w>gank</w>
+      <w>getui</w>
       <w>gson</w>
       <w>jiran</w>
+      <w>pushservice</w>
+      <w>sina</w>
+      <w>tencent</w>
       <w>unbinder</w>
+      <w>wechat</w>
+      <w>weibo</w>
+      <w>weichat</w>
+      <w>wxapi</w>
     </words>
   </dictionary>
 </component>

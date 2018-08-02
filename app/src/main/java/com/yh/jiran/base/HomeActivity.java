@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.view.WindowManager;
 import android.widget.RadioButton;
 
+import com.igexin.sdk.PushManager;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.yh.core.app.BaseFragment;
 import com.yh.core.utils.SoftKeyUtil;
@@ -14,6 +15,8 @@ import com.yh.jiran.module.dynamic.view.DynamicFragment;
 import com.yh.jiran.module.home.view.HomeFragment;
 import com.yh.jiran.module.Message.view.MessageFragment;
 import com.yh.jiran.module.user.view.UserFragment;
+import com.yh.jiran.service.PushIntentService;
+import com.yh.jiran.service.PushService;
 
 import butterknife.BindColor;
 import butterknife.BindView;
@@ -40,6 +43,15 @@ public class HomeActivity extends ImmerseActivity {
 
     @BindColor(R.color.textGrey)
     int colorNormal;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //初始化推送服务
+        PushManager.getInstance().initialize(this.getApplicationContext(), PushService.class);
+        //注册推送服务的事件接受类
+        PushManager.getInstance().registerPushIntentService(this.getApplicationContext(), PushIntentService.class);
+    }
 
     @Override
     protected int setContent() {

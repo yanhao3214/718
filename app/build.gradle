@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'com.mob.sdk'
 
 android {
     compileSdkVersion 28
@@ -10,10 +11,19 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName()]
             }
+        }
+        manifestPlaceholders = [
+                GETUI_APP_ID    : "KgcVCEb6Jb8Fwk4Db3iDi7",
+                GETUI_APP_KEY   : "mf6yN53zOi6vAM6uV5ZNI9",
+                GETUI_APP_SECRET: "2GqcMTaWnp8o2FEYfsD4e6"
+        ]
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86_64", "x86"
         }
     }
     buildTypes {
@@ -25,6 +35,37 @@ android {
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
+    }
+}
+
+MobSDK {
+    appKey "27287849fd6d5"
+    appSecret "7af9c9507118d8804ed96ada0e39092c"
+
+    ShareSDK {
+        devInfo {
+            SinaWeibo {
+                appKey "22424657"
+                appSecret "8fab7094c4dadd32a25f3c4f471789d9"
+                callbackUri "http://www.sharesdk.cn"
+                shareByAppClient true
+            }
+            Wechat {
+                appId "wx4868b35061f87885"
+                appSecret "64020361b8ec4c99936c0e3999a9f249"
+                userName "gh_afb25ac019c9"
+                path "pages/index/index.html?id=1"
+                withShareTicket true
+                miniprogramType 2
+                bypassApproval false
+            }
+            QQ {
+                appId "100371282"
+                appKey "aed9b0303e3ed1e27bae87c33761161d"
+                shareByAppClient true
+                bypassApproval false
+            }
+        }
     }
 }
 
@@ -41,6 +82,8 @@ dependencies {
     implementation 'org.greenrobot:greendao:3.2.2'
     //ui模块依赖
     implementation project(':ui')
+    //个推依赖
+    implementation 'com.getui:sdk:2.12.4.0'
 }
 
 greendao {

@@ -38,7 +38,7 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <com.yh.jiran.custom.ScrollerListView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/list_hot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -54,7 +54,7 @@
             android:text="@string/home_discover_dynamic"
             android:textSize="12sp" />
 
-        <com.yh.jiran.custom.ScrollerListView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/list_dynamic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

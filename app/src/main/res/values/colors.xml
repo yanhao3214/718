@@ -16,24 +16,30 @@
     <color name="colorPrimary">#31373d</color>
     <color name="colorPrimaryDark">#31373d</color>
     <color name="colorAccent">#1572fc</color>
-    <color name="colorLight">#ffffff</color>
-    <color name="colorDark">#000000</color>
+    <color name="color_light">#ffffff</color>
+    <color name="color_dark">#000000</color>
     <color name="colorAccentAlpha">#801572fc</color>
 
     <!--背景色-->
-    <color name="bgSearchEdit">#f7f7f7</color>
+    <color name="bg_search_edit">#f7f7f7</color>
 
-    <color name="windowsBackground">#f7f7f7</color>
-    <color name="windowsBackgroundLight">#f8f8f8</color>
+    <color name="bg_windows">#f7f7f7</color>
+    <color name="bg_light_windows">#f8f8f8</color>
+    <color name="bg_dialog">#E6FFFFFF</color>
+    <color name="bg_white_pressed">#EAEAEAEA</color>
 
     <!--字体颜色-->
     <color name="textChosen">@color/colorChosen</color>
+    <color name="text_blue">#FF006AFF</color>
     <color name="textGrey">@color/colorGrey</color>
     <color name="textDark">#ff2d2938</color>
+    <color name="textDark1">#FF333333</color>
+    <color name="textDark2">#FF666666</color>
+    <color name="textDark3">#FF999999</color>
 
     <color name="textPrimary">#4e5864</color>
     <color name="textSecond">#8d9ca9</color>
-    <color name="textLight">@color/colorLight</color>
+    <color name="textLight">@color/color_light</color>
 
     <!--提示色彩-->
     <color name="alertNormal">#4ce275</color>

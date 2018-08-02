@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/bg_dialog">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/dialog_destination_share"
+            android:textColor="@color/textDark1"
+            android:textSize="@dimen/sp_16" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="12dp"
+            android:drawableTop="@drawable/ic_share_star_normal"
+            android:text="@string/dialog_to_star"
+            android:textColor="@color/textDark2"
+            android:textSize="@dimen/sp_12" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_wechat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/tv_star"
+            android:drawablePadding="12dp"
+            android:drawableTop="@drawable/ic_share_wechat_normal"
+            android:text="@string/dialog_to_wechat"
+            android:textColor="@color/textDark2"
+            android:textSize="@dimen/sp_12" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_moments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_wechat"
+            android:layout_marginLeft="18dp"
+            android:layout_toRightOf="@+id/tv_wechat"
+            android:drawablePadding="12dp"
+            android:drawableTop="@drawable/ic_share_moment_normal"
+            android:gravity="center_horizontal"
+            android:text="@string/dialog_to_wechat_moments"
+            android:textColor="@color/textDark2"
+            android:textSize="@dimen/sp_12" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_wechat"
+            android:layout_marginLeft="18dp"
+            android:layout_toRightOf="@+id/tv_moments"
+            android:drawablePadding="12dp"
+            android:drawableTop="@drawable/ic_share_copylink_normal"
+            android:gravity="center_horizontal"
+            android:text="@string/dialog_copy_link"
+            android:textColor="@color/textDark2"
+            android:textSize="@dimen/sp_12" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_wechat"
+            android:layout_marginLeft="18dp"
+            android:layout_toRightOf="@+id/tv_link"
+            android:drawablePadding="12dp"
+            android:drawableTop="@drawable/ic_share_img_normal"
+            android:gravity="center_horizontal"
+            android:text="@string/dialog_make_photo"
+            android:textColor="@color/textDark2"
+            android:textSize="@dimen/sp_12" />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/bg_white_button_selector"
+        android:gravity="center"
+        android:text="@string/common_cancel"
+        android:textColor="@color/textDark2"
+        android:textSize="@dimen/sp_16" />
+
+</LinearLayout>
