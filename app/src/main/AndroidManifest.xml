@@ -93,6 +93,8 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".module.star.view.StarHomeActivity" />
+        <activity android:name=".module.login.view.InfoActivity" />
+        <activity android:name=".module.login.view.RecStarActivity" />
     </application>
 
 </manifest>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="70dp"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/iv_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/xxx1" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="6dp"
+        android:text="1.8K"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_14" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_member"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="25dp"
+        android:text="成员"
+        android:textColor="@color/white"
+        android:textSize="11sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_image"
+        android:layout_marginTop="6dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="计然区块链研究院"
+        android:textColor="@color/textDark1"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold" />
+
+    <android.support.v7.widget.AppCompatCheckedTextView
+        android:id="@+id/check_choose_star"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/tv_name"
+        android:background="@drawable/bg_choose_star_selector"
+        android:checked="false"
+        android:drawableLeft="@drawable/vector_add"
+        android:paddingLeft="20dp" />
+
+</RelativeLayout>

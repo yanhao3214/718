@@ -1,39 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="28dp"
-    android:paddingRight="28dp">
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/tv_phone_login"
-        android:layout_width="180dp"
-        android:layout_height="42dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="57dp"
-        android:text="@string/login_phone"
-        android:textColor="@color/colorBlack"
-        android:textSize="30sp" />
-
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/tv_no_register"
-        android:layout_width="126dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/tv_phone_login"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/login_no_register"
-        android:textColor="@color/colorGrey1"
-        android:textSize="@dimen/sp_14" />
-
-    <com.yh.jiran.custom.search.YSearchEdit
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_below="@+id/tv_no_register"
-        android:layout_marginTop="43dp"
-        android:hint="@string/login_input_phone"
-        android:paddingLeft="@dimen/dp_4"
-        android:inputType="number"/>
+        android:layout_height="match_parent"
+        android:paddingLeft="28dp"
+        android:paddingRight="28dp">
 
-</RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/statusBarSize"
+            android:background="@color/white" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_phone_login"
+            android:layout_width="180dp"
+            android:layout_height="42dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="57dp"
+            android:text="@string/login_phone"
+            android:textColor="@color/colorBlack"
+            android:textSize="30sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_no_register"
+            android:layout_width="126dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/tv_phone_login"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/login_no_register"
+            android:textColor="@color/colorGrey1"
+            android:textSize="@dimen/sp_14" />
+
+        <com.yh.jiran.custom.search.YSearchEdit
+            android:id="@+id/edt_phone_input"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_below="@+id/tv_no_register"
+            android:layout_marginTop="43dp"
+            android:hint="@string/login_input_phone"
+            android:inputType="number"
+            android:paddingLeft="@dimen/dp_4" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_code_input"
+            android:layout_width="80dp"
+            android:layout_height="44dp"
+            android:layout_below="@+id/edt_phone_input"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:hint="@string/login_sms_code" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_get_code"
+            android:layout_width="90dp"
+            android:layout_height="44dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tv_code_input"
+            android:gravity="center"
+            android:text="@string/login_get_sms_code"
+            android:textColor="@color/text_blue" />
+
+        <view
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/tv_code_input"
+            android:background="@color/colorGrey" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_below="@+id/tv_code_input"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/vector_notice"
+            android:drawablePadding="6dp"
+            android:text="@string/login_code_error"
+            android:textColor="@color/color_orange"
+            android:textSize="@dimen/sp_12" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_below="@+id/tv_notice"
+            android:layout_marginTop="61dp"
+            android:background="@drawable/bg_blue_button_selector"
+            android:text="@string/login_button"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_addition"
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_below="@+id/btn_login"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/login_addition"
+            android:textSize="@dimen/sp_12" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_protocol"
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_below="@+id/btn_login"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/tv_addition"
+            android:text="@string/login_protocol"
+            android:textColor="@color/text_blue"
+            android:textSize="@dimen/sp_12" />
+    </RelativeLayout>
+</LinearLayout>

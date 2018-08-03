@@ -1,41 +1,31 @@
 package com.yh.jiran.module.home.view;
 
-import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.view.KeyEvent;
-import android.view.inputmethod.EditorInfo;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.jiran.R;
 import com.yh.jiran.base.ImmerseActivity;
-import com.yh.jiran.custom.ScrollerListView;
 import com.yh.jiran.module.home.HomeMineContract;
 import com.yh.jiran.module.home.model.entity.HomeStar;
 import com.yh.jiran.module.home.presenter.PickStarPresenter;
-import com.yh.jiran.module.home.view.adapter.StarPickAdapter;
 import com.yh.jiran.module.home.view.adapter.StarPickQuickAdapter;
 import com.yh.jiran.utils.Paths;
-import com.yh.jiran.utils.UiHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 /**
  * @author: 闫昊
  * @date: 2018/7/27
- * @function:
+ * @function: 星球选择界面
  */
 @Route(path = Paths.PATH_STAR_PICK_ACTIVITY)
 public class StarPickActivity extends ImmerseActivity implements HomeMineContract.PickStarView {

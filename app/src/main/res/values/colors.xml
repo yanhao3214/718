@@ -7,11 +7,13 @@
     <color name="colorBlack">#333333</color>
     <color name="colorRed1">#FF5B49</color>
     <color name="colorRed2">#FFFD3030</color>
+    <color name="color_orange">#FFFF6048</color>
     <color name="colorGrey1">#666666</color>
     <color name="colorGrey2">#999999</color>
     <color name="colorGrey3">#C0C0C0</color>
     <color name="colorGrey4">#DDDDDD</color>
     <color name="white">#FFFFFF</color>
+    <color name="button_pressed">#5B9FFF</color>
 
     <color name="colorPrimary">#31373d</color>
     <color name="colorPrimaryDark">#31373d</color>
