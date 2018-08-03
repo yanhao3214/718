@@ -18,17 +18,19 @@ public class HomeStar {
     private String title;
     private String status;
     private String owner;
+    private int member;
     private boolean hasNew;
 
-    @Generated(hash = 528855520)
+    @Generated(hash = 323570817)
     public HomeStar(long starId, String imgUrl, String icUrl, String title,
-            String status, String owner, boolean hasNew) {
+            String status, String owner, int member, boolean hasNew) {
         this.starId = starId;
         this.imgUrl = imgUrl;
         this.icUrl = icUrl;
         this.title = title;
         this.status = status;
         this.owner = owner;
+        this.member = member;
         this.hasNew = hasNew;
     }
 
@@ -84,6 +86,14 @@ public class HomeStar {
         this.owner = owner;
     }
 
+    public int getMember() {
+        return member;
+    }
+
+    public void setMember(int member) {
+        this.member = member;
+    }
+
     public boolean isHasNew() {
         return hasNew;
     }
@@ -105,6 +115,7 @@ public class HomeStar {
                 ", title='" + title + '\'' +
                 ", status='" + status + '\'' +
                 ", owner='" + owner + '\'' +
+                ", member=" + member +
                 ", hasNew=" + hasNew +
                 '}';
     }

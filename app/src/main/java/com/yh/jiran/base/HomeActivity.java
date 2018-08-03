@@ -2,14 +2,10 @@ package com.yh.jiran.base;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.view.WindowManager;
 import android.widget.RadioButton;
 
 import com.igexin.sdk.PushManager;
 import com.trello.rxlifecycle2.components.support.RxFragment;
-import com.yh.core.app.BaseFragment;
-import com.yh.core.utils.SoftKeyUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.module.dynamic.view.DynamicFragment;
 import com.yh.jiran.module.home.view.HomeFragment;
@@ -72,7 +68,7 @@ public class HomeActivity extends ImmerseActivity {
             selectHome();
         } else {
             home.setTextColor(colorNormal);
-            home.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.img_edit, 0, 0);
+            home.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.vector_tab_home_normal, 0, 0);
         }
     }
 
@@ -80,14 +76,14 @@ public class HomeActivity extends ImmerseActivity {
     public void onDynamicCheckedChanged(RadioButton dynamic, boolean isChecked) {
         if (isChecked) {
             dynamic.setTextColor(colorChosen);
-            dynamic.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.img_edit, 0, 0);
+            dynamic.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.vector_tab_dynamic_selected, 0, 0);
             if (mDynamicFragment == null) {
                 mDynamicFragment = new DynamicFragment();
             }
             changeFragment(mDynamicFragment);
         } else {
             dynamic.setTextColor(colorNormal);
-            dynamic.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.img_tab_dynamic_normal, 0, 0);
+            dynamic.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.vector_tab_dynamic_normal, 0, 0);
         }
     }
 
@@ -95,14 +91,14 @@ public class HomeActivity extends ImmerseActivity {
     public void onMessageCheckedChanged(RadioButton message, boolean isChecked) {
         if (isChecked) {
             message.setTextColor(colorChosen);
-            message.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.img_edit, 0, 0);
+            message.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.vector_tab_message_selected, 0, 0);
             if (mMessageFragment == null) {
                 mMessageFragment = new MessageFragment();
             }
             changeFragment(mMessageFragment);
         } else {
             message.setTextColor(colorNormal);
-            message.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.img_tab_message_normal, 0, 0);
+            message.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.vector_tab_message_normal, 0, 0);
         }
     }
 
@@ -110,14 +106,14 @@ public class HomeActivity extends ImmerseActivity {
     public void onUserCheckedChanged(RadioButton user, boolean isChecked) {
         if (isChecked) {
             user.setTextColor(colorChosen);
-            user.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.img_tab_user_normal, 0, 0);
+            user.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.vector_tab_user_selected, 0, 0);
             if (mUserFragment == null) {
                 mUserFragment = new UserFragment();
             }
             changeFragment(mUserFragment);
         } else {
             user.setTextColor(colorNormal);
-            user.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.img_edit, 0, 0);
+            user.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.vector_tab_user_normal, 0, 0);
         }
     }
 
@@ -126,7 +122,7 @@ public class HomeActivity extends ImmerseActivity {
      */
     private void selectHome() {
         rbHome.setTextColor(colorChosen);
-        rbHome.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.img_tab_home_selected, 0, 0);
+        rbHome.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.vector_tab_home_selected, 0, 0);
         changeFragment(mHomeFragment);
     }
 

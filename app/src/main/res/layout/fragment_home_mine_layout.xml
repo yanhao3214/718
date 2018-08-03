@@ -13,7 +13,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/bg_search_edit"
-        android:drawableLeft="@drawable/ic_search"
+        android:drawableLeft="@drawable/vector_search"
         android:drawablePadding="7dp"
         android:hint="@string/home_mine_search"
         android:lines="1"

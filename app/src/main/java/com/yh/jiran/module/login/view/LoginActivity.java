@@ -2,6 +2,7 @@ package com.yh.jiran.module.login.view;
 
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.core.app.BaseActivity;
+import com.yh.jiran.R;
 import com.yh.jiran.module.login.LoginContract;
 
 /**
@@ -12,7 +13,7 @@ import com.yh.jiran.module.login.LoginContract;
 public class LoginActivity extends BaseActivity implements LoginContract.View {
     @Override
     protected int setContent() {
-        return 0;
+        return R.layout.activity_login_layout;
     }
 
     @Override

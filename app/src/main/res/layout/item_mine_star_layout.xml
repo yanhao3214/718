@@ -46,6 +46,17 @@
             tools:ignore="RtlHardcoded" />
 
         <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_member"
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="125dp"
+            android:text="成员32.3K"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12" />
+
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="20dp"

@@ -30,7 +30,8 @@ public class HomeStarDao extends AbstractDao<HomeStar, Long> {
         public final static Property Title = new Property(3, String.class, "title", false, "TITLE");
         public final static Property Status = new Property(4, String.class, "status", false, "STATUS");
         public final static Property Owner = new Property(5, String.class, "owner", false, "OWNER");
-        public final static Property HasNew = new Property(6, boolean.class, "hasNew", false, "HAS_NEW");
+        public final static Property Member = new Property(6, int.class, "member", false, "MEMBER");
+        public final static Property HasNew = new Property(7, boolean.class, "hasNew", false, "HAS_NEW");
     }
 
 
@@ -52,7 +53,8 @@ public class HomeStarDao extends AbstractDao<HomeStar, Long> {
                 "\"TITLE\" TEXT," + // 3: title
                 "\"STATUS\" TEXT," + // 4: status
                 "\"OWNER\" TEXT," + // 5: owner
-                "\"HAS_NEW\" INTEGER NOT NULL );"); // 6: hasNew
+                "\"MEMBER\" INTEGER NOT NULL ," + // 6: member
+                "\"HAS_NEW\" INTEGER NOT NULL );"); // 7: hasNew
     }
 
     /** Drops the underlying database table. */
@@ -90,7 +92,8 @@ public class HomeStarDao extends AbstractDao<HomeStar, Long> {
         if (owner != null) {
             stmt.bindString(6, owner);
         }
-        stmt.bindLong(7, entity.getHasNew() ? 1L: 0L);
+        stmt.bindLong(7, entity.getMember());
+        stmt.bindLong(8, entity.getHasNew() ? 1L: 0L);
     }
 
     @Override
@@ -122,7 +125,8 @@ public class HomeStarDao extends AbstractDao<HomeStar, Long> {
         if (owner != null) {
             stmt.bindString(6, owner);
         }
-        stmt.bindLong(7, entity.getHasNew() ? 1L: 0L);
+        stmt.bindLong(7, entity.getMember());
+        stmt.bindLong(8, entity.getHasNew() ? 1L: 0L);
     }
 
     @Override
@@ -139,7 +143,8 @@ public class HomeStarDao extends AbstractDao<HomeStar, Long> {
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // title
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // status
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // owner
-            cursor.getShort(offset + 6) != 0 // hasNew
+            cursor.getInt(offset + 6), // member
+            cursor.getShort(offset + 7) != 0 // hasNew
         );
         return entity;
     }
@@ -152,7 +157,8 @@ public class HomeStarDao extends AbstractDao<HomeStar, Long> {
         entity.setTitle(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
         entity.setStatus(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
         entity.setOwner(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
-        entity.setHasNew(cursor.getShort(offset + 6) != 0);
+        entity.setMember(cursor.getInt(offset + 6));
+        entity.setHasNew(cursor.getShort(offset + 7) != 0);
      }
     
     @Override

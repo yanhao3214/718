@@ -7,30 +7,35 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="30dp">
 
         <com.yh.jiran.custom.search.YSearchEdit
             android:id="@+id/edt_search"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="14dp"
             android:layout_weight="1"
             android:background="@drawable/bg_search_edit"
-            android:drawablePadding="7dp"
+            android:drawablePadding="6dp"
+            android:gravity="center_vertical"
             android:hint="@string/home_mine_search"
             android:imeOptions="actionSearch"
+            android:paddingLeft="@dimen/dp_10"
             android:singleLine="true"
             android:textColor="@color/colorChosen"
             android:textSize="12sp"
-            app:clear_icon="@drawable/ic_new" />
+            app:clear_icon="@drawable/vector_search_input_clear" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:text="@string/home_cancel" />
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="15dp"
+            android:text="@string/home_cancel"
+            android:textColor="@color/colorGrey2"
+            android:textSize="@dimen/sp_14" />
 
     </LinearLayout>
 

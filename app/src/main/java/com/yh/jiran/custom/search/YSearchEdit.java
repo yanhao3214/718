@@ -20,7 +20,8 @@ public class YSearchEdit extends android.support.v7.widget.AppCompatEditText {
     /**
      * 定义左侧搜索图标 & 一键删除图标
      */
-    private Drawable clearDrawable, searchDrawable;
+    private Drawable clearDrawable = ContextCompat.getDrawable(getContext(), R.drawable.vector_search_input_clear);;
+    private Drawable searchDrawable;
 
     private ClearEditCallback mClearCallback;
 
@@ -45,7 +46,7 @@ public class YSearchEdit extends android.support.v7.widget.AppCompatEditText {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.YSearchEdit);
         clearDrawable = a.getDrawable(R.styleable.YSearchEdit_clear_icon);
         a.recycle();
-        searchDrawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_search);
+        searchDrawable = ContextCompat.getDrawable(getContext(), R.drawable.vector_search);
         setCompoundDrawablesWithIntrinsicBounds(searchDrawable, null, null, null);
     }
 

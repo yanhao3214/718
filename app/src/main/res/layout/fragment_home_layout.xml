@@ -32,7 +32,7 @@
             android:layout_height="25dp"
             android:layout_gravity="bottom"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/img_edit" />
+            android:src="@drawable/ic_tweet_home" />
 
     </LinearLayout>
 

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.yh.core.utils.NumberUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.module.home.model.entity.HomeStar;
 
@@ -78,6 +79,7 @@ public class StarGridAdapter extends BaseAdapter {
                 holder.tvStatus.setBackgroundDrawable(ContextCompat.getDrawable(mContext, R.drawable.bg_star_status_member));
                 break;
         }
+        holder.tvMember.setText(NumberUtil.parseToK(star.getMember()));
         holder.tvTitle.setText(star.getTitle());
         holder.tvOwner.setText(star.getOwner());
         return view;
@@ -94,6 +96,8 @@ public class StarGridAdapter extends BaseAdapter {
         AppCompatTextView tvTitle;
         @BindView(R.id.tv_owner)
         AppCompatTextView tvOwner;
+        @BindView(R.id.tv_member)
+        AppCompatTextView tvMember;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
