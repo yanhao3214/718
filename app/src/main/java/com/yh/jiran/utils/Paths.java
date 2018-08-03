@@ -31,4 +31,9 @@ public class Paths {
      * 选择星球界面
      */
     public static final String PATH_STAR_PICK_ACTIVITY = "/home/StarPickActivity";
+
+    /**
+     * 星球主页
+     */
+    public static final String PATH_STAR_HOME_ACTIVITY = "/home/StarHomeActivity";
 }

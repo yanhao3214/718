@@ -15,6 +15,6 @@ public class NumberUtil {
             return new DecimalFormat("#.0").format((float) num / 1000)
                     .concat("K");
         }
-        return String.valueOf(num).concat("K");
+        return String.valueOf(num);
     }
 }

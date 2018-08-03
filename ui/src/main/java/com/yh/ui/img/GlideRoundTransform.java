@@ -11,19 +11,21 @@ import android.support.annotation.NonNull;
 
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
+import com.bumptech.glide.load.resource.bitmap.TransformationUtils;
 
 import java.security.MessageDigest;
 
 /**
  * @author: 闫昊
  * @date: 2018/8/2
- * @function: Glide加载图片圆角处理器
+ * @function: Glide加载图片圆角处理器(默认圆角2)
+ * 解决了圆角设置和CenterCrop的冲突
  */
 public class GlideRoundTransform extends BitmapTransformation {
     private static float radius = 0f;
 
     public GlideRoundTransform(Context context) {
-        this(context, 4);
+        this(context, 2);
     }
 
     public GlideRoundTransform(Context context, int dp) {
@@ -34,7 +36,8 @@ public class GlideRoundTransform extends BitmapTransformation {
     @Override
     protected Bitmap transform(@NonNull BitmapPool pool, @NonNull Bitmap toTransform,
                                int outWidth, int outHeight) {
-        return roundCrop(pool, toTransform);
+        Bitmap bitmap = TransformationUtils.centerCrop(pool, toTransform, outWidth, outHeight);
+        return roundCrop(pool, bitmap);
     }
 
     private Bitmap roundCrop(BitmapPool pool, Bitmap source) {
@@ -42,8 +45,7 @@ public class GlideRoundTransform extends BitmapTransformation {
             return null;
         }
 
-        Bitmap result = pool.get(source.getWidth(), source.getHeight(),
-                Bitmap.Config.ARGB_8888);
+        Bitmap result = pool.get(source.getWidth(), source.getHeight(), Bitmap.Config.ARGB_8888);
         if (result == null) {
             result = Bitmap.createBitmap(source.getWidth(), source.getHeight(),
                     Bitmap.Config.ARGB_8888);

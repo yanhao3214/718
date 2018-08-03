@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author: 闫昊
  * @date: 2018/7/24
- * @function:
+ * @function: 首页-我的：MVP契约
  */
 public interface HomeMineContract {
 

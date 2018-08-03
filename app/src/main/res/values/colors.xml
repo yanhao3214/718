@@ -27,6 +27,7 @@
     <color name="bg_light_windows">#f8f8f8</color>
     <color name="bg_dialog">#E6FFFFFF</color>
     <color name="bg_white_pressed">#EAEAEAEA</color>
+    <color name="bg_home_discover">#FFF2F4F4</color>
 
     <!--字体颜色-->
     <color name="textChosen">@color/colorChosen</color>

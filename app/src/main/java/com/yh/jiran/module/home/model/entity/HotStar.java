@@ -6,10 +6,19 @@ package com.yh.jiran.module.home.model.entity;
  * @function: 热门星球
  */
 public class HotStar {
+    private Long id;
     private String name;
     private int member;
     private boolean isIn;
     private String imgUrl;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -46,7 +55,8 @@ public class HotStar {
     @Override
     public String toString() {
         return "HotStar{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", member=" + member +
                 ", isIn=" + isIn +
                 ", imgUrl='" + imgUrl + '\'' +
