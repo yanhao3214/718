@@ -41,4 +41,9 @@ dependencies {
     api project(':core')
     //BaseRecyclerViewAdapterHelper依赖
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+    //九宫格图片依赖
+    api 'com.jaeger.ninegridimageview:library:1.1.1'
+    //大图浏览依赖
+    //PhotoView依赖
+    api 'com.github.chrisbanes:PhotoView:2.1.4'
 }

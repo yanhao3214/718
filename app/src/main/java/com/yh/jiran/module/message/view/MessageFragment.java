@@ -1,4 +1,4 @@
-package com.yh.jiran.module.Message.view;
+package com.yh.jiran.module.message.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

@@ -23,8 +23,8 @@
 
     <!-- 首页/发现 -->
     <string-array name="tab_dynamic">
-        <item>我的</item>
-        <item>发现</item>
+        <item>关注</item>
+        <item>推荐</item>
     </string-array>
 
     <!-- 搜索结果 -->

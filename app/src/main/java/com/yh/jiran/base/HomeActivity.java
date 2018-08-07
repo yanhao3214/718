@@ -10,7 +10,7 @@ import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.yh.jiran.R;
 import com.yh.jiran.module.dynamic.view.DynamicFragment;
 import com.yh.jiran.module.home.view.HomeFragment;
-import com.yh.jiran.module.Message.view.MessageFragment;
+import com.yh.jiran.module.message.view.MessageFragment;
 import com.yh.jiran.module.user.view.UserFragment;
 import com.yh.jiran.service.PushIntentService;
 import com.yh.jiran.service.PushService;

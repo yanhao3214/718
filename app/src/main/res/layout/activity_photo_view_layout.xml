@@ -2,16 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@android:color/black"
+    android:fitsSystemWindows="true">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorGrey4" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_concern"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager_photo_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 </LinearLayout>

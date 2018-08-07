@@ -61,4 +61,19 @@ public class Paths {
      * APP内置浏览器
      */
     public static final String PATH_WEBVIEW_ACTIVITY = "/common/WebViewActivity";
+
+    /**
+     * 大图浏览界面
+     */
+    public static final String PATH_PHOTO_VIEW_ACTIVITY = "/common/PhotoViewActivity";
+
+    /**
+     * 动态详情页
+     */
+    public static final String PATH_DYNAMIC_DETAIL_ACTIVITY = "/common/DynamicDetailActivity";
+
+    /**
+     * 个人主页
+     */
+    public static final String PATH_USER_HOME_ACTIVITY = "/common/UserActivity";
 }

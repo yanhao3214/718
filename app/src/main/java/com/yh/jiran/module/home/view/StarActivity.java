@@ -22,8 +22,9 @@ import butterknife.ButterKnife;
  * @date: 2018/7/24
  * @function: 星球页面
  */
-@Route(path = Paths.PATH_STAR_ACTIVITY)
+@Route(path = Paths.PATH_STAR_HOME_ACTIVITY)
 public class StarActivity extends ImmerseActivity implements HomeMineContract.View {
+    public static final String STAR_ACTIVITY_ID = "star_id";
 
     @BindView(R.id.tv_star_detail)
     AppCompatTextView tvStarDetail;
@@ -36,8 +37,8 @@ public class StarActivity extends ImmerseActivity implements HomeMineContract.Vi
     @Override
     protected void initView() {
         super.initView();
-        Bundle search = getIntent().getExtras();
-        tvStarDetail.setText(search.getString("starTitle").concat(search.getLong("starId") + ""));
+        Bundle bundle = getIntent().getExtras();
+        tvStarDetail.setText("星球ID：".concat(bundle.getString(STAR_ACTIVITY_ID)));
     }
 
     @Override

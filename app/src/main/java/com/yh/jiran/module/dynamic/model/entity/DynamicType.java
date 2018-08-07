@@ -1,4 +1,4 @@
-package com.yh.jiran.module.dynamic.model;
+package com.yh.jiran.module.dynamic.model.entity;
 
 /**
  * @author: 闫昊

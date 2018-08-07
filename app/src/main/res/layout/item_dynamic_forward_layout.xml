@@ -9,18 +9,56 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:id="@+id/layout_action"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_trigger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="肉王可可说币"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/sp_14" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/tv_trigger"
+                android:text="点赞了"
+                android:textColor="@color/colorGrey2"
+                android:textSize="@dimen/sp_14" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorGrey4" />
+
+        </RelativeLayout>
+
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/iv_star"
             android:layout_width="@dimen/dp_40"
             android:layout_height="@dimen/dp_40"
+            android:layout_below="@+id/layout_action"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/xxx2" />
 
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/iv_name"
+            android:id="@+id/tv_name"
             android:layout_width="213dp"
             android:layout_height="24dp"
+            android:layout_below="@+id/layout_action"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@+id/iv_star"
@@ -31,12 +69,12 @@
             android:textStyle="bold" />
 
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/iv_time"
+            android:id="@+id/tv_time"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/iv_name"
-            android:layout_below="@+id/iv_name"
-            android:text="比特币星球"
+            android:layout_alignLeft="@+id/tv_name"
+            android:layout_below="@+id/tv_name"
+            android:text="10分钟前"
             android:textColor="@color/colorGrey3"
             android:textSize="@dimen/sp_12" />
 
@@ -45,12 +83,24 @@
             android:layout_width="70dp"
             android:layout_height="28dp"
             android:layout_alignParentRight="true"
+            android:layout_below="@+id/layout_action"
             android:layout_marginRight="15dp"
             android:layout_marginTop="21dp"
             android:background="@drawable/bg_discover_join_normal"
             android:text="@string/dynamic_join_star"
             android:textColor="@color/text_blue"
-            android:textSize="@dimen/sp_14" />
+            android:textSize="@dimen/sp_14"
+            android:visibility="gone" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_more"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/layout_action"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/vector_dynamic_more" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_text"
@@ -63,11 +113,38 @@
             android:textColor="@color/textDark1"
             android:textSize="@dimen/sp_16" />
 
+        <FrameLayout
+            android:id="@+id/layout_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_text"
+            android:layout_marginTop="-15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="9dp"
+            android:visibility="gone">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="210dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/xxx1"
+                android:visibility="gone" />
+
+            <com.jaeger.ninegridimageview.NineGridImageView
+                android:id="@+id/iv_nine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:imgGap="7dp"
+                app:showStyle="fill"
+                app:singleImgSize="160dp" />
+        </FrameLayout>
+
         <LinearLayout
             android:id="@+id/layout_author"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
-            android:layout_below="@+id/tv_text"
+            android:layout_below="@+id/layout_image"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="9dp"
             android:background="@drawable/bg_dynamic_author">
@@ -142,7 +219,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/vector_dynamic_comment_normal"
+                android:drawableLeft="@drawable/vector_dynamic_comment"
                 android:drawablePadding="-33dp"
                 android:gravity="center"
                 android:paddingLeft="30dp"

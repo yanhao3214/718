@@ -4,14 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorGrey4" />
+        android:layout_height="@dimen/statusBarSize"
+        android:background="@color/white" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_concern"
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="个人主页" />
 </LinearLayout>

@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Manifest -->
-    <string name="manifest_app">计然蜂巢</string>
+    <string name="app_name">计然蜂巢</string>
     <string name="manifest_login">登录</string>
     <string name="manifest_main">主页</string>
     <string name="manifest_register">注册</string>
@@ -11,8 +11,9 @@
     <!-- 通用 -->
     <string name="common_cancel">取消</string>
     <string name="common_confirm">确定</string>
+    <string name="common_yes">确认</string>
 
-    <!-- 通用 -->
+    <!-- 登录 -->
     <string name="login_phone">手机一键登录</string>
     <string name="login_no_register">无需注册，直接登录</string>
     <string name="login_input_phone">输入手机号</string>
@@ -65,7 +66,19 @@
     <string name="dynamic_like">点赞</string>
     <string name="dynamic_comment">评论</string>
     <string name="dynamic_share">分享</string>
-    <string name="dynamic_text_test">的撒对哦无群殴你请我陪你分配给【 够个让我弄如果您asihdoidhnoasnda房东说的佛if弄的烦恼事发的杜甫能动非你莫属对咯发票吗个降温哦平均每热破耳机热破个为奇偶额外人加班费of你还佛电脑本身的佛你们完全配件欺骗我今儿苹果牛栏山东个还能发给你围观皮肤那么晚泼妇骂街而万平方米你湿哒哒</string>
+    <string name="dynamic_text_test">的撒对哦无群殴你请我陪你分配给【 够个让我弄如果您</string>
     <string name="dynamic_from">由</string>
     <string name="dynamic_publish">发布</string>
+    <string name="dynamic_collect">收藏</string>
+    <string name="dynamic_collect_cancel">取消收藏</string>
+    <string name="dynamic_delete">删除</string>
+    <string name="dynamic_mute_forever">永久禁言</string>
+    <string name="dynamic_mute_3">禁言3天</string>
+    <string name="dynamic_mute_cancel">解除禁言</string>
+    <string name="dynamic_concern">关注</string>
+    <string name="dynamic_to_elite">加入精华</string>
+    <string name="dynamic_out_elite">移除精华</string>
+    <string name="dynamic_sure_to">确定要将</string>
+    <string name="dynamic_whether_mute_forever">永久禁言吗？</string>
+    <string name="dynamic_whether_mute_3">禁言3天吗？</string>
 </resources>

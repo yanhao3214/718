@@ -15,16 +15,24 @@
         android:name=".base.JiranApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/manifest_app"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:name">
-        <activity android:name=".base.MainActivity">
 
-        </activity>
+        <activity android:name=".base.MainActivity" />
         <activity android:name=".module.courier.view.CourierActivity" />
         <activity android:name=".base.RouterActivity" />
+        <activity android:name=".module.home.view.StarActivity" />
+        <activity android:name=".module.test.view.TestActivity" />
+        <activity android:name=".module.test.view.UrlReceiveActivity1" />
+        <activity android:name=".module.wallet.view.WalletActivity" />
+        <activity android:name=".module.login.view.InfoActivity" />
+        <activity android:name=".module.login.view.RecStarActivity" />
+        <activity android:name=".base.WebViewActivity" />
+        <activity android:name=".module.common.PhotoViewActivity" />
+
         <activity android:name=".base.UrlReceiveActivity">
             <intent-filter>
                 <data
@@ -36,38 +44,28 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.test.view.UrlReceiveActivity1" />
-        <activity android:name=".module.wallet.view.WalletActivity" />
+
         <activity android:name=".module.login.view.LoginActivity">
+
+        </activity>
+
+        <activity
+            android:name=".base.HomeActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.home.view.StarActivity" />
-        <activity android:name=".module.test.view.TestActivity">
 
-
-        </activity>
-        <activity
-            android:name=".base.HomeActivity"
-            android:launchMode="singleTask">
-
-        </activity>
         <activity
             android:name=".module.search.view.SearchActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustPan" />
+
         <activity
             android:name=".module.home.view.StarPickActivity"
             android:windowSoftInputMode="adjustPan" />
-
-        <service
-            android:name=".service.PushService"
-            android:exported="true"
-            android:label="GetuiPushService"
-            android:process=":pushservice" />
-        <service android:name=".service.PushIntentService" />
 
         <!-- shareSDK -->
         <activity
@@ -87,6 +85,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <!-- 微信分享回调 -->
         <activity
             android:name=".wxapi.WXEntryActivity"
@@ -94,12 +93,16 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".module.star.view.StarHomeActivity" />
-        <activity android:name=".module.login.view.InfoActivity" />
-        <activity android:name=".module.login.view.RecStarActivity">
+        <activity android:name=".module.dynamic.view.DynamicDetailActivity" />
+        <activity android:name=".module.user.view.UserActivity" />
 
-        </activity>
-        <activity android:name=".base.WebViewActivity" />
+        <service
+            android:name=".service.PushService"
+            android:exported="true"
+            android:label="GetuiPushService"
+            android:process=":pushservice" />
+        <service android:name=".service.PushIntentService" />
+
     </application>
 
 </manifest>

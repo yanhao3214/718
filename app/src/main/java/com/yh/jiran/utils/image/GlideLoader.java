@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.yh.jiran.R;
 import com.yh.ui.img.GlideCircleTransform;
 import com.yh.ui.img.GlideRoundTransform;
 
@@ -17,6 +18,11 @@ import java.io.File;
  * @function: Glide图片加载器
  */
 public class GlideLoader {
+
+    public static void load(Context context, String url, ImageView imageView) {
+        RequestOptions options = new RequestOptions().centerCrop().placeholder(R.drawable.xxx1).error(R.drawable.xxx2);
+        Glide.with(context).load(url).apply(options).into(imageView);
+    }
 
     public static void loadCircle(Context context, String url, ImageView imageView) {
         RequestOptions circle = new RequestOptions().centerCrop().transform(new GlideCircleTransform(context));

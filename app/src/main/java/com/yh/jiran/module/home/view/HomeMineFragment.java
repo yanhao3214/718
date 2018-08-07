@@ -100,7 +100,7 @@ public class HomeMineFragment extends BaseFragment implements HomeMineContract.V
      */
     private void toStarDetail(HomeStar star) {
         ARouter.getInstance()
-                .build(Paths.PATH_STAR_ACTIVITY)
+                .build(Paths.PATH_STAR_HOME_ACTIVITY)
                 .withLong("starId", star.getStarId())
                 .withString("starTitle", star.getTitle())
                 .navigation(getContext(), new NavCallback() {
