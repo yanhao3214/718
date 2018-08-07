@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.RadioButton;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.igexin.sdk.PushManager;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.yh.jiran.R;
@@ -13,6 +14,7 @@ import com.yh.jiran.module.Message.view.MessageFragment;
 import com.yh.jiran.module.user.view.UserFragment;
 import com.yh.jiran.service.PushIntentService;
 import com.yh.jiran.service.PushService;
+import com.yh.jiran.utils.Paths;
 
 import butterknife.BindColor;
 import butterknife.BindView;
@@ -23,6 +25,7 @@ import butterknife.OnCheckedChanged;
  * @date: 2018/7/24
  * @function: 主页，承载4个Fragment
  */
+@Route(path = Paths.PATH_HOME_ACTIVITY)
 public class HomeActivity extends ImmerseActivity {
 
     private HomeFragment mHomeFragment = null;

@@ -18,14 +18,19 @@ public class Paths {
     public static final String PATH_COURIER_ACTIVITY = "/test/CourierActivity";
 
     /**
-     * 搜索界面
-     */
-    public static final String PATH_SEARCH_ACTIVITY = "/home/SearchActivity";
-
-    /**
      * 星球详情界面
      */
     public static final String PATH_STAR_ACTIVITY = "/home/StarActivity";
+
+    /**
+     * APP主页
+     */
+    public static final String PATH_HOME_ACTIVITY = "/main/HomeActivity";
+
+    /**
+     * 搜索界面
+     */
+    public static final String PATH_SEARCH_ACTIVITY = "/home/SearchActivity";
 
     /**
      * 选择星球界面
@@ -35,5 +40,25 @@ public class Paths {
     /**
      * 星球主页
      */
-    public static final String PATH_STAR_HOME_ACTIVITY = "/home/StarHomeActivity";
+    public static final String PATH_STAR_HOME_ACTIVITY = "/common/StarHomeActivity";
+
+    /**
+     * 登录界面
+     */
+    public static final String PATH_LOGIN_ACTIVITY = "/login/LoginActivity";
+
+    /**
+     * 确定头像和用户名界面
+     */
+    public static final String PATH_INFO_ACTIVITY = "/login/InfoActivity";
+
+    /**
+     * 推荐星球界面
+     */
+    public static final String PATH_REC_STAR_ACTIVITY = "/login/RecStarActivity";
+
+    /**
+     * APP内置浏览器
+     */
+    public static final String PATH_WEBVIEW_ACTIVITY = "/common/WebViewActivity";
 }

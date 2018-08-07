@@ -17,6 +17,7 @@
             android:id="@+id/iv_star"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:foreground="@drawable/fg_star_status"
             android:scaleType="centerCrop"
             android:src="@drawable/xxx2" />
 

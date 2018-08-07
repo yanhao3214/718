@@ -44,4 +44,8 @@ public class DbManager {
     public SearchHistoryDao getSearchHistoryDao() {
         return mDaoSession.getSearchHistoryDao();
     }
+
+    public UserDao getUserDao() {
+        return mDaoSession.getUserDao();
+    }
 }

@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/statusBarSize"
+        android:background="@color/white" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="28dp"
         android:paddingRight="28dp">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/statusBarSize"
-            android:background="@color/white" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_phone_login"
@@ -22,7 +24,8 @@
             android:layout_marginTop="57dp"
             android:text="@string/login_phone"
             android:textColor="@color/colorBlack"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_no_register"
@@ -35,53 +38,70 @@
             android:textColor="@color/colorGrey1"
             android:textSize="@dimen/sp_14" />
 
-        <com.yh.jiran.custom.search.YSearchEdit
+        <com.yh.jiran.custom.ClearEdit
             android:id="@+id/edt_phone_input"
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:layout_below="@+id/tv_no_register"
             android:layout_marginTop="43dp"
+            android:background="@null"
             android:hint="@string/login_input_phone"
             android:inputType="number"
-            android:paddingLeft="@dimen/dp_4" />
+            android:paddingLeft="@dimen/dp_4"
+            android:textColor="@color/textDark1"
+            android:textSize="20sp" />
 
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tv_code_input"
-            android:layout_width="80dp"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/edt_phone_input"
+            android:background="@color/colorGrey" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/edt_code_input"
+            android:layout_width="wrap_content"
             android:layout_height="44dp"
             android:layout_below="@+id/edt_phone_input"
             android:layout_marginLeft="@dimen/dp_4"
             android:layout_marginTop="15dp"
+            android:background="@null"
             android:gravity="center_vertical"
-            android:hint="@string/login_sms_code" />
+            android:hint="@string/login_sms_code"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="@color/textDark1"
+            android:textSize="20sp" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_get_code"
             android:layout_width="90dp"
             android:layout_height="44dp"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/tv_code_input"
+            android:layout_alignTop="@+id/edt_code_input"
+            android:clickable="false"
             android:gravity="center"
             android:text="@string/login_get_sms_code"
-            android:textColor="@color/text_blue" />
+            android:textColor="@color/colorGrey3"
+            android:textSize="@dimen/sp_16" />
 
-        <view
+        <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/tv_code_input"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/edt_code_input"
             android:background="@color/colorGrey" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_notice"
             android:layout_width="wrap_content"
             android:layout_height="17dp"
-            android:layout_below="@+id/tv_code_input"
+            android:layout_below="@+id/edt_code_input"
             android:layout_marginTop="10dp"
             android:drawableLeft="@drawable/vector_notice"
             android:drawablePadding="6dp"
             android:text="@string/login_code_error"
             android:textColor="@color/color_orange"
-            android:textSize="@dimen/sp_12" />
+            android:textSize="@dimen/sp_12"
+            android:visibility="invisible" />
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_login"

@@ -43,8 +43,23 @@ public class SoftKeyUtil {
     public static void showSoftKeyboard(Context context, View view) {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm != null) {
+            if (!view.isFocused()) {
+                view.requestFocus();
+            }
             imm.showSoftInput(view, InputMethodManager.SHOW_FORCED);
         }
+    }
+
+    /**
+     * Activity布局未完全加载完成时，调起软键盘的方法
+     */
+    public static void showSoftKeyboardDelayed(final Context context, final View view) {
+        ((Activity) context).getWindow().getDecorView().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showSoftKeyboard(context, view);
+            }
+        }, 100);
     }
 
 

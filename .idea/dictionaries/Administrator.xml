@@ -5,6 +5,7 @@
       <w>baidu</w>
       <w>beancon</w>
       <w>clientid</w>
+      <w>consts</w>
       <w>copylink</w>
       <w>datas</w>
       <w>gank</w>
@@ -20,6 +21,7 @@
       <w>weibo</w>
       <w>weichat</w>
       <w>wxapi</w>
+      <w>yanhao</w>
     </words>
   </dictionary>
 </component>

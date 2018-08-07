@@ -30,6 +30,8 @@
     <color name="bg_dialog">#E6FFFFFF</color>
     <color name="bg_white_pressed">#EAEAEAEA</color>
     <color name="bg_home_discover">#FFF2F4F4</color>
+    <color name="mask_start">#33000000</color>
+    <color name="mask_end">#CC000000</color>
 
     <!--字体颜色-->
     <color name="textChosen">@color/colorChosen</color>

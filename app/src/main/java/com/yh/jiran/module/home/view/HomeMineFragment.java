@@ -3,6 +3,7 @@ package com.yh.jiran.module.home.view;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatEditText;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +46,8 @@ public class HomeMineFragment extends BaseFragment implements HomeMineContract.V
     AppCompatEditText edtSearch;
     @BindView(R.id.grid_star)
     GridView gridStar;
+    @BindView(R.id.swipe_refresh_star)
+    SwipeRefreshLayout refreshStar;
 
     @Nullable
     @Override
@@ -63,9 +66,7 @@ public class HomeMineFragment extends BaseFragment implements HomeMineContract.V
     @Override
     protected void initData() {
         mHomeMinePresenter = new HomeMinePresenter(this);
-        mStars.clear();
-        mStars.addAll(mHomeMinePresenter.upDateStars());
-        mStarGridAdapter.notifyDataSetChanged();
+        refreshGridView();
     }
 
     @Override
@@ -73,10 +74,25 @@ public class HomeMineFragment extends BaseFragment implements HomeMineContract.V
         edtSearch.setFocusable(false);
         mStarGridAdapter = new StarGridAdapter(getContext(), mStars);
         gridStar.setAdapter(mStarGridAdapter);
+
+        refreshStar.setOnRefreshListener(() -> {
+            refreshGridView();
+            refreshStar.setRefreshing(false);
+        });
+
         gridStar.setOnItemClickListener((adapterView, view, i, l) -> {
             HomeStar star = mStars.get(i);
             toStarDetail(star);
         });
+    }
+
+    /**
+     * 刷新星球列表
+     */
+    private void refreshGridView() {
+        mStars.clear();
+        mStars.addAll(mHomeMinePresenter.upDateStars());
+        mStarGridAdapter.notifyDataSetChanged();
     }
 
     /**

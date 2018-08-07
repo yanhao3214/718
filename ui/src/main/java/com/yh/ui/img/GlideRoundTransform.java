@@ -18,7 +18,7 @@ import java.security.MessageDigest;
 /**
  * @author: 闫昊
  * @date: 2018/8/2
- * @function: Glide加载图片圆角处理器(默认圆角2)
+ * @function: Glide圆角处理器(默认圆角2)
  * 解决了圆角设置和CenterCrop的冲突
  */
 public class GlideRoundTransform extends BitmapTransformation {
