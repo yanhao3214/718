@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.yh.core.app.BaseFragment;
 import com.yh.jiran.R;
-import com.yh.jiran.share.ShareDialog;
+import com.yh.jiran.custom.dialog.share.ShareDialog;
 import com.yh.jiran.utils.Consts;
 
 import java.util.HashMap;
@@ -22,7 +22,6 @@ import butterknife.OnClick;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.onekeyshare.OnekeyShare;
 import cn.sharesdk.tencent.qq.QQ;
 
 /**

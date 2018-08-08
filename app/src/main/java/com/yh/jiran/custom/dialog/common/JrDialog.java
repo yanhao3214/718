@@ -1,4 +1,4 @@
-package com.yh.jiran.custom;
+package com.yh.jiran.custom.dialog.common;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.yh.jiran.R;
-import com.yh.jiran.base.JiranApplication;
 
 /**
  * @author: 闫昊

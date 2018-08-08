@@ -1,4 +1,4 @@
-package com.yh.jiran.share;
+package com.yh.jiran.custom.dialog.share;
 
 import cn.sharesdk.framework.Platform;
 

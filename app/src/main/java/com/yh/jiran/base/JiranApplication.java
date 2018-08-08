@@ -3,13 +3,8 @@ package com.yh.jiran.base;
 import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.mob.MobSDK;
-import com.yh.jiran.greendao.DaoMaster;
-import com.yh.jiran.greendao.DaoSession;
 import com.yh.jiran.greendao.DbManager;
-import com.yh.jiran.share.ShareManager;
-
-import org.greenrobot.greendao.database.Database;
+import com.yh.jiran.custom.dialog.share.ShareManager;
 
 /**
  * @author: 闫昊

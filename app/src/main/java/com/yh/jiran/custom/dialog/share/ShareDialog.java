@@ -1,4 +1,4 @@
-package com.yh.jiran.share;
+package com.yh.jiran.custom.dialog.share;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -8,18 +8,12 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.yh.jiran.R;
 import com.yh.ui.utils.DimenUtil;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 

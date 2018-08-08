@@ -1,5 +1,7 @@
 package com.yh.jiran.module.dynamic.view;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,14 +20,20 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.core.app.BaseFragment;
 import com.yh.core.utils.NumberUtil;
 import com.yh.jiran.R;
-import com.yh.jiran.custom.JrDialog;
+import com.yh.jiran.custom.dialog.callback.CommonCallback;
+import com.yh.jiran.custom.dialog.callback.ConcernCallback;
+import com.yh.jiran.custom.dialog.callback.EliteCallback;
+import com.yh.jiran.custom.dialog.callback.MuteCallback;
+import com.yh.jiran.custom.dialog.common.JrDialog;
+import com.yh.jiran.custom.dialog.host.HostDialog;
+import com.yh.jiran.custom.dialog.member.MemberDialog;
 import com.yh.jiran.module.dynamic.DynamicConcernContract;
 import com.yh.jiran.module.dynamic.model.entity.DynamicOut;
 import com.yh.jiran.module.dynamic.presenter.DynamicConcernPresenter;
 import com.yh.jiran.module.dynamic.view.adapter.DynamicOutAdapter;
 import com.yh.jiran.module.home.view.StarActivity;
 import com.yh.jiran.module.user.view.UserActivity;
-import com.yh.jiran.share.ShareDialog;
+import com.yh.jiran.custom.dialog.share.ShareDialog;
 import com.yh.jiran.utils.Consts;
 import com.yh.jiran.utils.Paths;
 
@@ -133,6 +141,8 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
                     tvComment.setText(NumberUtil.parseToK(++comment));
                     tvComment.setTextColor(ContextCompat.getColor(getContext(), R.color.dynamic_yellow));
                     // TODO: 2018/8/7 1.评论页详情；2.发送评论信息，更新评论数
+
+                    perform();
                     break;
                 case R.id.tv_share:
                     share();
@@ -143,13 +153,112 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
         });
     }
 
+    /**
+     * 动态操作：星球外所有人
+     */
     private void operate() {
-        new JrDialog(getContext())
-                .title("禁言")
-                .message("确实要将 马云坤 禁言3天吗？")
-                .positive((dialogInterface, i) -> {
-                    dialogInterface.dismiss();
-                    Toast.makeText(getContext(), "已确认", Toast.LENGTH_SHORT).show();
+        new MemberDialog(getContext(), true, false)
+                .perform(new CommonCallback() {
+                    @Override
+                    public void onDelete(Dialog dialog) {
+                        dialog.dismiss();
+                        new JrDialog(getContext())
+                                .title("删除")
+                                .message("确定要删除这一条动态吗？")
+                                .positive((dialogInterface, i) -> {
+                                    dialogInterface.dismiss();
+                                    Toast.makeText(getContext(), "删除动态成功", Toast.LENGTH_SHORT).show();
+                                })
+                                .negative()
+                                .show();
+                        // TODO: 2018/8/8 发送消息：删除动态
+                    }
+
+                    @Override
+                    public void onCollect(Dialog dialog) {
+                        dialog.dismiss();
+                        Toast.makeText(getContext(), "发送消息：收藏动态", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancel(Dialog dialog) {
+                        dialog.dismiss();
+                    }
+                }).show();
+    }
+
+    /**
+     * 动态操作：星球内主理人（测试）
+     */
+    private void perform() {
+        new HostDialog(getContext(), false, false, false, false, true)
+                .elite(dialog -> {
+                    Toast.makeText(getContext(), "发送消息：加入精华", Toast.LENGTH_SHORT).show();
+                    // TODO: 2018/8/8  发送消息：加入精华
+                    dialog.dismiss();
+                })
+                .mute(new MuteCallback() {
+                    @Override
+                    public void onMuteTemp(Dialog dialog) {
+                        dialog.dismiss();
+                        new JrDialog(getContext())
+                                .title("禁言")
+                                .message("确定要将 马云坤 禁言3天吗？")
+                                .positive((dialogInterface, i) -> {
+                                    dialogInterface.dismiss();
+                                    Toast.makeText(getContext(), "禁言3天成功", Toast.LENGTH_SHORT).show();
+                                })
+                                .negative()
+                                .show();
+                        // TODO: 2018/8/8  发送消息：禁言3天
+                    }
+
+                    @Override
+                    public void onMuteForever(Dialog dialog) {
+                        dialog.dismiss();
+                        new JrDialog(getContext())
+                                .title("禁言")
+                                .message("确定要将 马云坤 永久禁言吗？")
+                                .positive((dialogInterface, i) -> {
+                                    dialogInterface.dismiss();
+                                    Toast.makeText(getContext(), "永久禁言成功", Toast.LENGTH_SHORT).show();
+                                })
+                                .negative()
+                                .show();
+                        // TODO: 2018/8/8  发送消息：永久禁言
+                    }
+
+                    @Override
+                    public void onCancel(Dialog dialog) {
+                        // TODO: 2018/8/8  发送消息：解除禁言
+                        Toast.makeText(getContext(), "解除禁言成功", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                })
+                .concern(dialog -> {
+                    Toast.makeText(getContext(), "发送消息：关注作者", Toast.LENGTH_SHORT).show();
+                    // TODO: 2018/8/8  发送消息：关注作者
+                    dialog.dismiss();
+                })
+                .common(new CommonCallback() {
+                    @Override
+                    public void onDelete(Dialog dialog) {
+                        Toast.makeText(getContext(), "发送消息：删除动态", Toast.LENGTH_SHORT).show();
+                        // TODO: 2018/8/8  发送消息：删除动态
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void onCollect(Dialog dialog) {
+                        Toast.makeText(getContext(), "取消收藏成功", Toast.LENGTH_SHORT).show();
+                        // TODO: 2018/8/8  发送消息：取消收藏
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void onCancel(Dialog dialog) {
+                        dialog.dismiss();
+                    }
                 })
                 .show();
     }

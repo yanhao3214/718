@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_collect"
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_collect"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@drawable/bg_white_button_selector"
@@ -19,8 +19,8 @@
         android:layout_height="0.5dp"
         android:background="@color/colorGrey4" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_delete"
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_delete"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@drawable/bg_white_button_selector"
@@ -29,8 +29,8 @@
         android:textColor="@color/textDark2"
         android:textSize="@dimen/sp_16" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_cancel"
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_cancel"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="@dimen/dp_10"
