@@ -11,13 +11,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.core.app.BaseFragment;
 import com.yh.core.utils.NumberUtil;
 import com.yh.jiran.R;
+import com.yh.jiran.custom.JrDialog;
 import com.yh.jiran.module.dynamic.DynamicConcernContract;
 import com.yh.jiran.module.dynamic.model.entity.DynamicOut;
 import com.yh.jiran.module.dynamic.presenter.DynamicConcernPresenter;
@@ -102,7 +103,7 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
                     // TODO: 2018/8/7 发送加入星球消息
                     break;
                 case R.id.btn_more:
-                    share();
+                    operate();
                     break;
                 case R.id.tv_text:
                     ARouter.getInstance()
@@ -140,6 +141,17 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
                     break;
             }
         });
+    }
+
+    private void operate() {
+        new JrDialog(getContext())
+                .title("禁言")
+                .message("确实要将 马云坤 禁言3天吗？")
+                .positive((dialogInterface, i) -> {
+                    dialogInterface.dismiss();
+                    Toast.makeText(getContext(), "已确认", Toast.LENGTH_SHORT).show();
+                })
+                .show();
     }
 
     private void share() {
