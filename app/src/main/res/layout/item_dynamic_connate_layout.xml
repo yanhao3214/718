@@ -128,9 +128,43 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:paddingTop="9dp"
+                android:visibility="gone"
                 app:imgGap="7dp"
                 app:showStyle="grid"
                 app:singleImgSize="160dp" />
+
+            <LinearLayout
+                android:id="@+id/layout_link"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="9dp"
+                android:background="@color/bg_white_pressed"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_link"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/xxx2" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@string/dynamic_text_test"
+                    android:textColor="@color/colorGrey1"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_author"

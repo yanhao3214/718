@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
  */
 @Route(path = Paths.PATH_STAR_HOME_ACTIVITY)
 public class StarActivity extends ImmerseActivity implements HomeMineContract.View {
-    public static final String STAR_ACTIVITY_ID = "star_id";
+    public static final String STAR_ID = "star_id";
 
     @BindView(R.id.tv_star_detail)
     AppCompatTextView tvStarDetail;
@@ -38,7 +38,7 @@ public class StarActivity extends ImmerseActivity implements HomeMineContract.Vi
     protected void initView() {
         super.initView();
         Bundle bundle = getIntent().getExtras();
-        tvStarDetail.setText("星球ID：".concat(bundle.getString(STAR_ACTIVITY_ID)));
+        tvStarDetail.setText("星球ID：".concat(bundle.getString(STAR_ID)));
     }
 
     @Override

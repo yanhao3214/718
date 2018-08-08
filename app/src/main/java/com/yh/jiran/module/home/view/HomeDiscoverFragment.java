@@ -78,7 +78,7 @@ public class HomeDiscoverFragment extends BaseFragment implements HomeDiscoverCo
             // TODO: 2018/8/2 跳转到星球详情页
             ARouter.getInstance()
                     .build(Paths.PATH_STAR_HOME_ACTIVITY)
-                    .withLong(StarActivity.STAR_ACTIVITY_ID, mStarList.get(position).getId())
+                    .withLong(StarActivity.STAR_ID, mStarList.get(position).getId())
                     .navigation();
         });
         mStarAdapter.bindToRecyclerView(recyclerStar);

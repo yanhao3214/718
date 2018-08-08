@@ -2,18 +2,30 @@ package com.yh.jiran.module.dynamic.view.adapter;
 
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.AppCompatTextView;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.URLSpan;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.util.MultiTypeDelegate;
 import com.jaeger.ninegridimageview.NineGridImageView;
 import com.yh.core.utils.NumberUtil;
 import com.yh.jiran.R;
+import com.yh.jiran.custom.text.AllTextView;
+import com.yh.jiran.custom.text.ShowAllSpan;
+import com.yh.jiran.custom.text.URLSpanNoUnderLine;
 import com.yh.jiran.module.dynamic.DynamicConcernContract;
 import com.yh.jiran.module.dynamic.model.entity.DynamicOut;
+import com.yh.jiran.module.dynamic.view.DynamicDetailActivity;
+import com.yh.jiran.utils.Paths;
 import com.yh.jiran.utils.image.GlideLoader;
 
 import java.util.List;
@@ -47,7 +59,7 @@ public class DynamicOutAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHold
                 int comment = item.getComment();
                 helper.setText(R.id.tv_name, item.getStarName())
                         .setText(R.id.tv_time, item.getPublishTime())
-                        .setText(R.id.tv_text, item.getText())
+//                        .setText(R.id.tv_text, item.getText())
                         .setText(R.id.tv_author, item.getAuthorName())
                         .setVisible(R.id.btn_join, !item.isIn())
                         .setVisible(R.id.btn_more, item.isIn())
@@ -58,22 +70,66 @@ public class DynamicOutAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHold
                         .addOnClickListener(R.id.btn_join)
                         .addOnClickListener(R.id.btn_more)
                         .addOnClickListener(R.id.tv_text)
+                        .addOnClickListener(R.id.layout_link)
                         .addOnClickListener(R.id.iv_author)
                         .addOnClickListener(R.id.tv_author)
                         .addOnClickListener(R.id.tv_like)
                         .addOnClickListener(R.id.tv_comment)
                         .addOnClickListener(R.id.tv_share);
 
+                /**
+                 * 加载头像
+                 */
                 GlideLoader.loadRound(mContext, item.getImgStarUrl(), helper.getView(R.id.iv_star), 8);
                 GlideLoader.loadCircle(mContext, item.getImgAuthorUrl(), helper.getView(R.id.iv_author));
+
+                /**
+                 * 设置正文：
+                 * 1.“全文”跳转
+                 * 2.超链接 跳转
+                 */
+//                AllTextView tvText = helper.getView(R.id.tv_text);
+//                tvText.setMaxShowLines(6);
+//                tvText.setMyText(item.getText());
+//                tvText.setOnAllSpanClickListener(new ShowAllSpan.OnAllSpanClickListener() {
+//                    @Override
+//                    public void onClick(View widget) {
+//                        ARouter.getInstance()
+//                                .build(Paths.PATH_DYNAMIC_DETAIL_ACTIVITY)
+//                                .withString(DynamicDetailActivity.DYNAMIC_ID, item.getDynamicId())
+//                                .navigation();
+//                    }
+//                });
+
+                AppCompatTextView tvText = helper.getView(R.id.tv_text);
+                SpannableString ss = new SpannableString(tvText.getText());
+                ss.setSpan(new URLSpanNoUnderLine(mContext, "https://mail.163.com/"), 0, 10, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                tvText.setText(ss);
+                tvText.setMovementMethod(LinkMovementMethod.getInstance());
 
                 /**
                  * 设置九宫格图片
                  */
                 NineGridImageView<String> nineGridImageView = helper.getView(R.id.iv_nine);
-                nineGridImageView.setVisibility(item.getImgUrl().size() == 0 ? View.GONE : View.VISIBLE);
-                nineGridImageView.setAdapter(new NineImageAdapter());
-                nineGridImageView.setImagesData(item.getImgUrl());
+                if (null != item.getImgUrl()) {
+//                    nineGridImageView.setVisibility(item.getImgUrl().size() == 0 ? View.GONE : View.VISIBLE);
+                    nineGridImageView.setAdapter(new NineImageAdapter());
+                    nineGridImageView.setImagesData(item.getImgUrl());
+                } else {
+                    nineGridImageView.setVisibility(View.GONE);
+                }
+
+                /**
+                 * 设置链接布局的内容
+                 */
+                boolean hasLink = !TextUtils.isEmpty(item.getLinkUrl());
+                LinearLayout layoutLink = helper.getView(R.id.layout_link);
+                if (hasLink) {
+                    GlideLoader.load(mContext, item.getLinkImage(), helper.getView(R.id.iv_link));
+                    helper.setText(R.id.tv_link, item.getLinkContent());
+                } else {
+                    layoutLink.setVisibility(View.GONE);
+                }
 
                 /**
                  * 设置点赞、收藏

@@ -20,6 +20,7 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.core.app.BaseFragment;
 import com.yh.core.utils.NumberUtil;
 import com.yh.jiran.R;
+import com.yh.jiran.base.WebViewActivity;
 import com.yh.jiran.custom.dialog.callback.CommonCallback;
 import com.yh.jiran.custom.dialog.callback.ConcernCallback;
 import com.yh.jiran.custom.dialog.callback.EliteCallback;
@@ -96,13 +97,13 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
                 case R.id.tv_trigger:
                     ARouter.getInstance()
                             .build(Paths.PATH_USER_HOME_ACTIVITY)
-                            .withString(UserActivity.USER_ACTIVITY_ID, dynamic.getTriggerId())
+                            .withString(UserActivity.USER_ID, dynamic.getTriggerId())
                             .navigation();
                     break;
                 case R.id.iv_star:
                     ARouter.getInstance()
                             .build(Paths.PATH_STAR_HOME_ACTIVITY)
-                            .withString(StarActivity.STAR_ACTIVITY_ID, dynamic.getStarId())
+                            .withString(StarActivity.STAR_ID, dynamic.getStarId())
                             .navigation();
                     break;
                 case R.id.btn_join:
@@ -116,15 +117,21 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
                 case R.id.tv_text:
                     ARouter.getInstance()
                             .build(Paths.PATH_DYNAMIC_DETAIL_ACTIVITY)
-                            .withString(DynamicDetailActivity.DYNAMIC_ACTIVITY_ID,
-                                    dynamic.getDynamicId())
+                            .withString(DynamicDetailActivity.DYNAMIC_ID, dynamic.getDynamicId())
+                            .navigation();
+                    break;
+                case R.id.layout_link:
+                    ARouter.getInstance()
+                            .build(Paths.PATH_WEBVIEW_ACTIVITY)
+                            .withString(WebViewActivity.WEBVIEW_URL, dynamic.getLinkUrl())
+                            .withString(WebViewActivity.WEBVIEW_TITLE, dynamic.getLinkTitle())
                             .navigation();
                     break;
                 case R.id.iv_author:
                 case R.id.tv_author:
                     ARouter.getInstance()
                             .build(Paths.PATH_USER_HOME_ACTIVITY)
-                            .withString(UserActivity.USER_ACTIVITY_ID, dynamic.getCreatorId())
+                            .withString(UserActivity.USER_ID, dynamic.getAuthorId())
                             .navigation();
                     break;
                 case R.id.tv_like:

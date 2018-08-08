@@ -12,7 +12,7 @@ import com.yh.jiran.utils.Paths;
  */
 @Route(path = Paths.PATH_USER_HOME_ACTIVITY)
 public class UserActivity extends ImmerseActivity {
-    public static final String USER_ACTIVITY_ID = "user_id";
+    public static final String USER_ID = "user_id";
 
 
     @Override

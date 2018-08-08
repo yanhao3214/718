@@ -12,7 +12,7 @@ import com.yh.jiran.utils.Paths;
  */
 @Route(path = Paths.PATH_DYNAMIC_DETAIL_ACTIVITY)
 public class DynamicDetailActivity extends ImmerseActivity {
-    public static final String DYNAMIC_ACTIVITY_ID = "dynamic_id";
+    public static final String DYNAMIC_ID = "dynamic_id";
 
 
     @Override

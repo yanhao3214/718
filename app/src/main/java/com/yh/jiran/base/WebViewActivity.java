@@ -24,6 +24,8 @@ import com.yh.jiran.utils.Paths;
  */
 @Route(path = Paths.PATH_WEBVIEW_ACTIVITY)
 public class WebViewActivity extends ImmerseActivity {
+    public static final String WEBVIEW_URL = "webview_url";
+    public static final String WEBVIEW_TITLE = "webview_title";
 
     private WebView mWebView;
     private ProgressBar mProgressBar;
@@ -40,9 +42,9 @@ public class WebViewActivity extends ImmerseActivity {
         mWebView = findViewById(R.id.web_view);
         mProgressBar = findViewById(R.id.progress_bar);
         Bundle bundle = getIntent().getExtras();
-        String title = bundle.getString("title");
+        String title = bundle.getString(WEBVIEW_TITLE);
 //        getSupportActionBar().setTitle(title);
-        final String url = bundle.getString("url");
+        final String url = bundle.getString(WEBVIEW_URL);
         configWebView(mWebView, url);
         mWebView.loadUrl(url);
     }
