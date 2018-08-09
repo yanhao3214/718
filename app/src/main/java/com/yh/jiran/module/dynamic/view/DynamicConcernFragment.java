@@ -100,6 +100,7 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
                             .withString(UserActivity.USER_ID, dynamic.getTriggerId())
                             .navigation();
                     break;
+                case R.id.tv_name:
                 case R.id.iv_star:
                     ARouter.getInstance()
                             .build(Paths.PATH_STAR_HOME_ACTIVITY)

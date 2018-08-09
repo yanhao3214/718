@@ -101,9 +101,8 @@ public class DynamicOut {
     private String issueTime;
 
     /**
-     * 抓取来源：Id、名字
+     * 抓取来源：名字
      */
-    private String sourceId;
     private String sourceName;
 
     /**
@@ -135,9 +134,21 @@ public class DynamicOut {
     private String linkContent;
 
     /**
-     * 是否已删除
+     * 原动态相关
      */
     private boolean hasDeleted;
+    private String sDynamicId;
+    private String sAuthorId;
+    private String sAuthorName;
+    private String sStarName;
+    private String sText;
+    private List<String> sImageUrls;
+    private String sLinkUrl;
+    private String sLinkImage;
+    private String sLinkContent;
+    private String sLinkTitle;
+    private String sVisibleRange;
+    private String sHasDelete;
 
     public String getDynamicId() {
         return dynamicId;
@@ -283,14 +294,6 @@ public class DynamicOut {
         this.issueTime = issueTime;
     }
 
-    public String getSourceId() {
-        return sourceId;
-    }
-
-    public void setSourceId(String sourceId) {
-        this.sourceId = sourceId;
-    }
-
     public String getSourceName() {
         return sourceName;
     }
@@ -403,6 +406,102 @@ public class DynamicOut {
         this.hasDeleted = hasDeleted;
     }
 
+    public String getsDynamicId() {
+        return sDynamicId;
+    }
+
+    public void setsDynamicId(String sDynamicId) {
+        this.sDynamicId = sDynamicId;
+    }
+
+    public String getsAuthorId() {
+        return sAuthorId;
+    }
+
+    public void setsAuthorId(String sAuthorId) {
+        this.sAuthorId = sAuthorId;
+    }
+
+    public String getsAuthorName() {
+        return sAuthorName;
+    }
+
+    public void setsAuthorName(String sAuthorName) {
+        this.sAuthorName = sAuthorName;
+    }
+
+    public String getsStarName() {
+        return sStarName;
+    }
+
+    public void setsStarName(String sStarName) {
+        this.sStarName = sStarName;
+    }
+
+    public String getsText() {
+        return sText;
+    }
+
+    public void setsText(String sText) {
+        this.sText = sText;
+    }
+
+    public List<String> getsImageUrls() {
+        return sImageUrls;
+    }
+
+    public void setsImageUrls(List<String> sImageUrls) {
+        this.sImageUrls = sImageUrls;
+    }
+
+    public String getsLinkUrl() {
+        return sLinkUrl;
+    }
+
+    public void setsLinkUrl(String sLinkUrl) {
+        this.sLinkUrl = sLinkUrl;
+    }
+
+    public String getsLinkImage() {
+        return sLinkImage;
+    }
+
+    public void setsLinkImage(String sLinkImage) {
+        this.sLinkImage = sLinkImage;
+    }
+
+    public String getsLinkContent() {
+        return sLinkContent;
+    }
+
+    public void setsLinkContent(String sLinkContent) {
+        this.sLinkContent = sLinkContent;
+    }
+
+    public String getsLinkTitle() {
+        return sLinkTitle;
+    }
+
+    public void setsLinkTitle(String sLinkTitle) {
+        this.sLinkTitle = sLinkTitle;
+    }
+
+    public String getsVisibleRange() {
+        return sVisibleRange;
+    }
+
+    public void setsVisibleRange(String sVisibleRange) {
+        this.sVisibleRange = sVisibleRange;
+    }
+
+    public String getsHasDelete() {
+        return sHasDelete;
+    }
+
+    public void setsHasDelete(String sHasDelete) {
+        this.sHasDelete = sHasDelete;
+    }
+
     @Override
     public String toString() {
         return "DynamicOut{" +
@@ -421,10 +520,9 @@ public class DynamicOut {
                 ", starId='" + starId + '\'' +
                 ", starName='" + starName + '\'' +
                 ", imgStarUrl='" + imgStarUrl + '\'' +
-                ", publishTime=" + publishTime +
-                ", upDateTime=" + upDateTime +
-                ", issueTime=" + issueTime +
-                ", sourceId='" + sourceId + '\'' +
+                ", publishTime='" + publishTime + '\'' +
+                ", upDateTime='" + upDateTime + '\'' +
+                ", issueTime='" + issueTime + '\'' +
                 ", sourceName='" + sourceName + '\'' +
                 ", isIn=" + isIn +
                 ", like=" + like +
@@ -439,6 +537,18 @@ public class DynamicOut {
                 ", linkTitle='" + linkTitle + '\'' +
                 ", linkContent='" + linkContent + '\'' +
                 ", hasDeleted=" + hasDeleted +
+                ", sDynamicId='" + sDynamicId + '\'' +
+                ", sAuthorId='" + sAuthorId + '\'' +
+                ", sAuthorName='" + sAuthorName + '\'' +
+                ", sStarName='" + sStarName + '\'' +
+                ", sText='" + sText + '\'' +
+                ", sImageUrls='" + sImageUrls + '\'' +
+                ", sLinkUrl='" + sLinkUrl + '\'' +
+                ", sLinkImage='" + sLinkImage + '\'' +
+                ", sLinkContent='" + sLinkContent + '\'' +
+                ", sLinkTitle='" + sLinkTitle + '\'' +
+                ", sVisibleRange='" + sVisibleRange + '\'' +
+                ", sHasDelete='" + sHasDelete + '\'' +
                 '}';
     }
 }

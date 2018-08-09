@@ -2,7 +2,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     app:cardElevation="5dp">
 
     <RelativeLayout
@@ -102,7 +102,7 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/vector_dynamic_more" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <com.yh.jiran.custom.text.AllTextView
             android:id="@+id/tv_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -113,44 +113,133 @@
             android:textColor="@color/textDark1"
             android:textSize="@dimen/sp_16" />
 
-        <FrameLayout
-            android:id="@+id/layout_image"
+        <RelativeLayout
+            android:id="@+id/layout_source"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_text"
-            android:layout_marginTop="-15dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:paddingTop="9dp"
-            android:visibility="gone">
+            android:background="@color/bg_forward"
+            android:paddingBottom="@dimen/dp_10"
+            android:paddingLeft="@dimen/dp_15"
+            android:paddingRight="@dimen/dp_15"
+            android:paddingTop="@dimen/dp_10">
 
-            <android.support.v7.widget.AppCompatImageView
-                android:layout_width="210dp"
-                android:layout_height="150dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/xxx1"
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5"
+                android:text="@string/dynamic_been_deleted"
+                android:textColor="@color/colorGrey2"
+                android:textSize="15sp"
                 android:visibility="gone" />
 
-            <com.jaeger.ninegridimageview.NineGridImageView
-                android:id="@+id/iv_nine"
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_author"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:gravity="center_vertical"
+                android:text="区块链大涨哈哈哈"
+                android:textColor="@color/textDark1"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_origin_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_below="@+id/tv_author"
+                android:gravity="center_vertical"
+                android:text="@string/dynamic_origin_star"
+                android:textColor="@color/colorGrey2"
+                android:textSize="13sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_origin_star"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:imgGap="7dp"
-                app:showStyle="fill"
-                app:singleImgSize="160dp" />
-        </FrameLayout>
+                android:layout_alignBaseline="@+id/tv_origin_desc"
+                android:layout_below="@+id/tv_author"
+                android:layout_marginLeft="1dp"
+                android:layout_toRightOf="@+id/tv_origin_desc"
+                android:text="多多公链"
+                android:textColor="@color/text_blue"
+                android:textSize="13sp" />
+
+            <com.yh.jiran.custom.text.AllTextView
+                android:id="@+id/tv_source_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_origin_desc"
+                android:layout_marginTop="@dimen/dp_5"
+                android:maxLines="6"
+                android:text="@string/dynamic_text_test"
+                android:textColor="@color/textDark1"
+                android:textSize="@dimen/sp_16" />
+
+            <LinearLayout
+                android:id="@+id/layout_up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_source_text"
+                android:orientation="vertical">
+
+                <com.jaeger.ninegridimageview.NineGridImageView
+                    android:id="@+id/iv_nine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="9dp"
+                    android:visibility="gone"
+                    app:imgGap="7dp"
+                    app:showStyle="grid"
+                    app:singleImgSize="160dp" />
+
+                <LinearLayout
+                    android:id="@+id/layout_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="9dp"
+                    android:background="@color/bg_white_pressed"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/iv_link"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/xxx2" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@string/dynamic_text_test"
+                        android:textColor="@color/colorGrey1"
+                        android:textSize="@dimen/sp_14" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
 
         <LinearLayout
-            android:id="@+id/layout_author"
+            android:id="@+id/layout_publisher"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
-            android:layout_below="@+id/layout_image"
+            android:layout_below="@+id/layout_source"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="@dimen/dp_10"
             android:background="@drawable/bg_dynamic_author">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_author"
+                android:id="@+id/iv_publisher"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/xxx1" />
@@ -166,7 +255,7 @@
                 android:textSize="@dimen/sp_12" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tv_author"
+                android:id="@+id/tv_publisher"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:layout_marginLeft="1dp"
@@ -190,7 +279,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_below="@+id/layout_author"
+            android:layout_below="@+id/layout_publisher"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="@dimen/dp_10"
@@ -200,7 +289,7 @@
             android:id="@+id/layout_operation"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@+id/layout_author"
+            android:layout_below="@+id/layout_publisher"
             android:layout_marginTop="11dp">
 
             <android.support.v7.widget.AppCompatTextView
@@ -243,5 +332,4 @@
             android:layout_below="@+id/layout_operation"
             android:background="@color/bg_home_discover" />
     </RelativeLayout>
-
 </android.support.v7.widget.CardView>

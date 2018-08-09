@@ -1,6 +1,10 @@
 package com.yh.core.utils;
 
 import android.graphics.Paint;
+import android.text.TextUtils;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author: 闫昊
@@ -21,4 +25,5 @@ public class TextUtil {
         }
         return nowLength;
     }
+
 }

@@ -41,7 +41,7 @@ public class DynamicConcernModel implements DynamicConcernContract.Model {
             dynamic.setStarName("比特币星球啊");
             dynamic.setPublishTime("10分钟前");
             dynamic.setIn(false);
-            dynamic.setText("到静安寺浦东嘉搜谱大V分批of较为https://www.youku.com/频繁我欧文IER级外婆oasdioadoia给那送佛前破解破壁机水平的节目评委个回去我诶妇女为偶发VB你误会个人发票个围巾批发日期能不能到货是二表哥垄断且扒肉条跟你说等你离开农村是个我和法国人陪你欧式地回复我IEnew陪你放屁呢【全文你未分配哪位破fine发日后到静安寺浦东嘉搜谱大V分批of较为频繁我欧文IER级外婆oasdioadoia给那送佛前破解破壁机水平的节目评委个回去我诶妇女为偶发VB你误会个人发票个围巾批发日期能不能到货是二表哥垄断且扒肉条跟你说等你离开农村是个我和法国人陪你欧式地回复我IEnew陪你放屁呢【全文你未分配哪位破fine发到静安寺浦东嘉搜谱大V分批of较为频繁我欧文IER级外婆oasdioadoia给那送佛前破解破壁机水平的节目评委个回去我诶妇女为偶发VB你误会个人发票个围巾批发日期能不能到货是二表哥垄断且扒肉条跟你说等你离开农村是个我和法国人陪你欧式地回复我IEnew陪你放屁呢【全文你未分配哪位破fine发");
+            dynamic.setText("到https://www.baidu.com/静安寺分批https://www.youku.com/浦东卢卡斯嘉https://www.baidu.com/佛前破解破https://www.baidu.com/目评委个回去搜谱大V我诶妇女为偶发VB你误会个人发票个围巾批发日期能不能到货是二表哥垄断且扒肉条跟你说等你离开农村是个我和法国人陪你欧式地回复我IEnew陪你放屁呢【全文你未分配哪位破fine发日后到静安寺浦东嘉搜谱大V分批of较为频繁我欧文IER级外婆oasdioadoia给那送佛前破解破壁机水平的节目评委个回去我诶妇女为偶发VB你误会个人发票个围巾批发日期能不能到货是二表哥垄断且扒肉条跟你说等你离开农村是个我和法国人陪你欧式地回复我IEnew陪你放屁呢【全文你未分配哪位破fine发到静安寺浦东嘉搜谱大V分批of较为频繁我欧文IER级外婆oasdioadoia给那送佛前破解破壁机水平的节目评委个回去我诶妇女为偶发VB你误会个人发票个围巾批发日期能不能到货是二表哥垄断且扒肉条跟你说等你离开农村是个我和法国人陪你欧式地回复我IEnew陪你放屁呢【全文你未分配哪位破fine发");
             dynamic.setAuthorName("肉王说币");
             dynamic.setImgAuthorUrl(Consts.BING_PIC);
             dynamic.setLike(3532);
@@ -60,7 +60,7 @@ public class DynamicConcernModel implements DynamicConcernContract.Model {
             dynamic2.setStarName("啦啦啦啦啦啦");
             dynamic2.setPublishTime("3天前");
             dynamic2.setIn(true);
-            dynamic2.setText("跟你说等你离开农村是个我和法国人陪你欧式地回复我IEnew陪【全文】你未分配哪位破fine发日后");
+            dynamic2.setText("跟你说等你离https://www.baidu.com/开农村是个我和法国人https://www.baidu.com/陪你欧式地回复我IEnew陪【全文】你未分配哪位破fine发日后");
             dynamic2.setAuthorName("币圈邦德");
             dynamic2.setImgAuthorUrl(Consts.BING_PIC);
             dynamic2.setLike(0);
@@ -81,7 +81,7 @@ public class DynamicConcernModel implements DynamicConcernContract.Model {
             dynamic3.setStarName("啦啦啦啦啦啦");
             dynamic3.setPublishTime("3天前");
             dynamic3.setIn(true);
-            dynamic3.setText("跟你说等你离开农村是个我和法国人陪你欧式地回复我IEnew陪【全文】你未分配哪位破fine发日后打算打算多少个人合同合同任务任务二分部防丢偶偶发布公告的风格");
+            dynamic3.setText("跟你说等https://www.baidu.com/你离开农村https://www.baidu.com/是个我和法国人陪你https://www.baidu.com/欧式地回复我IEnew陪【全文】你未分配哪位破fine发日后打算打算多少个人合同合同任务任务二分部防丢偶偶发布公告的风格");
             dynamic3.setAuthorName("币圈邦德");
             dynamic3.setImgAuthorUrl(Consts.BING_PIC);
             dynamic3.setLike(7);
