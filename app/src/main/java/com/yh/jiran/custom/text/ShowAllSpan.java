@@ -11,7 +11,7 @@ import com.yh.jiran.R;
 /**
  * @author: 闫昊
  * @date: 2018/8/8
- * @function:
+ * @function: “全文”显示
  */
 public class ShowAllSpan extends ClickableSpan {
     private OnAllSpanClickListener clickListener;

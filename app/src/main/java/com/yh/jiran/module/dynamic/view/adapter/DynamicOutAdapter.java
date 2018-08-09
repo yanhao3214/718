@@ -1,5 +1,6 @@
 package com.yh.jiran.module.dynamic.view.adapter;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatTextView;
@@ -20,6 +21,8 @@ import com.jaeger.ninegridimageview.NineGridImageView;
 import com.yh.core.utils.NumberUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.custom.text.AllTextView;
+import com.yh.jiran.custom.text.FilterClickMovementMethod;
+import com.yh.jiran.custom.text.InnerURLSpan;
 import com.yh.jiran.custom.text.ShowAllSpan;
 import com.yh.jiran.custom.text.URLSpanNoUnderLine;
 import com.yh.jiran.module.dynamic.DynamicConcernContract;
@@ -51,6 +54,7 @@ public class DynamicOutAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHold
                 .registerItemType(2, R.layout.item_dynamic_forward_layout);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void convert(BaseViewHolder helper, DynamicOut item) {
         switch (helper.getItemViewType()) {
@@ -84,35 +88,38 @@ public class DynamicOutAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHold
                 GlideLoader.loadCircle(mContext, item.getImgAuthorUrl(), helper.getView(R.id.iv_author));
 
                 /**
-                 * 设置正文：
-                 * 1.“全文”跳转
-                 * 2.超链接 跳转
+                 * 设置正文：1.“全文”跳转；2.超链接 跳转
                  */
-//                AllTextView tvText = helper.getView(R.id.tv_text);
-//                tvText.setMaxShowLines(6);
-//                tvText.setMyText(item.getText());
-//                tvText.setOnAllSpanClickListener(new ShowAllSpan.OnAllSpanClickListener() {
-//                    @Override
-//                    public void onClick(View widget) {
-//                        ARouter.getInstance()
-//                                .build(Paths.PATH_DYNAMIC_DETAIL_ACTIVITY)
-//                                .withString(DynamicDetailActivity.DYNAMIC_ID, item.getDynamicId())
-//                                .navigation();
-//                    }
-//                });
-
-                AppCompatTextView tvText = helper.getView(R.id.tv_text);
-                SpannableString ss = new SpannableString(tvText.getText());
-                ss.setSpan(new URLSpanNoUnderLine(mContext, "https://mail.163.com/"), 0, 10, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                AllTextView tvText = helper.getView(R.id.tv_text);
+                InnerURLSpan innerURLSpan = new InnerURLSpan(mContext, "优酷视频", "https://www.youku.com/");
+                SpannableString ss = new SpannableString(item.getText());
+                ss.setSpan(innerURLSpan, 3, 12, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 tvText.setText(ss);
-                tvText.setMovementMethod(LinkMovementMethod.getInstance());
+                tvText.setOnTouchListener(FilterClickMovementMethod.getInstance());
+                tvText.setMaxShowLines(6);
+                tvText.setMyText(tvText.getText());
+                tvText.setOnAllSpanClickListener(widget -> ARouter.getInstance()
+                        .build(Paths.PATH_DYNAMIC_DETAIL_ACTIVITY)
+                        .withString(DynamicDetailActivity.DYNAMIC_ID, item.getDynamicId())
+                        .navigation());
+
+
+//                /**
+//                 * 设置正文：2.超链接 跳转
+//                 */
+//                AppCompatTextView tvUrl = helper.getView(R.id.tv_url);
+//                InnerURLSpan innerURLSpan = new InnerURLSpan(mContext, "优酷视频", "https://www.youku.com/");
+//                SpannableString ss = new SpannableString(item.getText());
+//                ss.setSpan(innerURLSpan, 3, 12, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//                tvUrl.setText(ss);
+////                tvUrl.setMovementMethod(LinkMovementMethod.getInstance());
+//                tvUrl.setOnTouchListener(FilterClickMovementMethod.getInstance());
 
                 /**
                  * 设置九宫格图片
                  */
                 NineGridImageView<String> nineGridImageView = helper.getView(R.id.iv_nine);
                 if (null != item.getImgUrl()) {
-//                    nineGridImageView.setVisibility(item.getImgUrl().size() == 0 ? View.GONE : View.VISIBLE);
                     nineGridImageView.setAdapter(new NineImageAdapter());
                     nineGridImageView.setImagesData(item.getImgUrl());
                 } else {

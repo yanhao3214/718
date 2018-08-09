@@ -17,7 +17,7 @@ import com.yh.core.utils.TextUtil;
 /**
  * @author: 闫昊
  * @date: 2018/8/8
- * @function:
+ * @function: “全文”TextView
  */
 public class AllTextView extends AppCompatTextView {
     /**
@@ -42,7 +42,7 @@ public class AllTextView extends AppCompatTextView {
         post(new Runnable() {
             @Override
             public void run() {
-                addEllipsisAndAllAtEnd();
+                addEllipsisAndAll();
             }
         });
     }
@@ -57,7 +57,7 @@ public class AllTextView extends AppCompatTextView {
     /**
      * 超过规定行数时, 在文末添加 "...全文"
      */
-    private void addEllipsisAndAllAtEnd() {
+    private void addEllipsisAndAll() {
         if (maxShowLines > 0 && maxShowLines < getLineCount()) {
             try {
                 int moreWidth = TextUtil.getTheTextNeedWidth(getPaint(), "...全文");
@@ -99,49 +99,49 @@ public class AllTextView extends AppCompatTextView {
     private ClickableSpan mPressedSpan = null;
     private boolean result = false;
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        CharSequence text = getText();
-        Spannable spannable = Spannable.Factory.getInstance().newSpannable(text);
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                mPressedSpan = getPressedSpan(this, spannable, event);
-                if (mPressedSpan != null) {
-                    if (mPressedSpan instanceof ShowAllSpan) {
-                        ((ShowAllSpan) mPressedSpan).setPressed(true);
-                    }
-                    Selection.setSelection(spannable, spannable.getSpanStart(mPressedSpan), spannable.getSpanEnd(mPressedSpan));
-                    result = true;
-                } else {
-                    result = false;
-                }
-                break;
-            case MotionEvent.ACTION_MOVE:
-                ClickableSpan mClickSpan = getPressedSpan(this, spannable, event);
-                if (mPressedSpan != null && mPressedSpan != mClickSpan) {
-                    if (mPressedSpan instanceof ShowAllSpan) {
-                        ((ShowAllSpan) mPressedSpan).setPressed(false);
-                    }
-                    mPressedSpan = null;
-                    Selection.removeSelection(spannable);
-                }
-                break;
-            case MotionEvent.ACTION_UP:
-                if (mPressedSpan != null) {
-                    if (mPressedSpan instanceof ShowAllSpan) {
-                        ((ShowAllSpan) mPressedSpan).setPressed(false);
-                    }
-                    mPressedSpan.onClick(this);
-                }
-                mPressedSpan = null;
-                Selection.removeSelection(spannable);
-                break;
-            default:
-                break;
-        }
-        return result;
-
-    }
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        CharSequence text = getText();
+//        Spannable spannable = Spannable.Factory.getInstance().newSpannable(text);
+//        switch (event.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                mPressedSpan = getPressedSpan(this, spannable, event);
+//                if (mPressedSpan != null) {
+//                    if (mPressedSpan instanceof ShowAllSpan) {
+//                        ((ShowAllSpan) mPressedSpan).setPressed(true);
+//                    }
+//                    Selection.setSelection(spannable, spannable.getSpanStart(mPressedSpan), spannable.getSpanEnd(mPressedSpan));
+//                    result = true;
+//                } else {
+//                    result = false;
+//                }
+//                break;
+//            case MotionEvent.ACTION_MOVE:
+//                ClickableSpan mClickSpan = getPressedSpan(this, spannable, event);
+//                if (mPressedSpan != null && mPressedSpan != mClickSpan) {
+//                    if (mPressedSpan instanceof ShowAllSpan) {
+//                        ((ShowAllSpan) mPressedSpan).setPressed(false);
+//                    }
+//                    mPressedSpan = null;
+//                    Selection.removeSelection(spannable);
+//                }
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                if (mPressedSpan != null) {
+//                    if (mPressedSpan instanceof ShowAllSpan) {
+//                        ((ShowAllSpan) mPressedSpan).setPressed(false);
+//                    }
+//                    mPressedSpan.onClick(this);
+//                }
+//                mPressedSpan = null;
+//                Selection.removeSelection(spannable);
+//                break;
+//            default:
+//                break;
+//        }
+//        return result;
+//
+//    }
 
     private ClickableSpan getPressedSpan(TextView textView, Spannable spannable, MotionEvent event) {
 
