@@ -76,4 +76,9 @@ public class Paths {
      * 个人主页
      */
     public static final String PATH_USER_HOME_ACTIVITY = "/common/UserActivity";
+
+    /**
+     * 个人信息编辑页
+     */
+    public static final String PATH_USER_EDIT_ACTIVITY = "/common/UserEditActivity";
 }

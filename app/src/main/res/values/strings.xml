@@ -12,6 +12,7 @@
     <string name="common_cancel">取消</string>
     <string name="common_confirm">确定</string>
     <string name="common_yes">确认</string>
+    <string name="common_submit">提交</string>
 
     <!-- 登录 -->
     <string name="login_phone">手机一键登录</string>
@@ -83,4 +84,17 @@
     <string name="dynamic_whether_mute_3">禁言3天吗？</string>
     <string name="dynamic_been_deleted">动态已被删除</string>
     <string name="dynamic_origin_star">发表在星球</string>
+
+    <!-- 个人主页 -->
+    <string name="user_home_edit">编辑</string>
+    <string name="user_home_desc_default">快来看，这人好懒哦</string>
+    <string name="user_home_fans">粉丝</string>
+    <string name="user_home_checking">审核中</string>
+    <string name="user_open_push">开启推送</string>
+    <string name="user_open_push_done">已开启推送</string>
+    <string name="user_edit_title">编辑个人信息</string>
+    <string name="user_edit_portrait">头像</string>
+    <string name="user_edit_name">用户名</string>
+    <string name="user_edit_desc">简介</string>
+    <string name="user_edit_descs">介绍一下自己，让更多人认识你</string>
 </resources>

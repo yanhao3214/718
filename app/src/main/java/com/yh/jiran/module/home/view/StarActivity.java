@@ -2,6 +2,7 @@ package com.yh.jiran.module.home.view;
 
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatTextView;
+import android.text.TextUtils;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.trello.rxlifecycle2.LifecycleTransformer;
@@ -38,7 +39,10 @@ public class StarActivity extends ImmerseActivity implements HomeMineContract.Vi
     protected void initView() {
         super.initView();
         Bundle bundle = getIntent().getExtras();
-        tvStarDetail.setText("星球ID：".concat(bundle.getString(STAR_ID)));
+        String starId = bundle.getString(STAR_ID);
+        if (!TextUtils.isEmpty(starId)) {
+            tvStarDetail.setText("星球ID：".concat(bundle.getString(STAR_ID)));
+        }
     }
 
     @Override

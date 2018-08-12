@@ -7,6 +7,8 @@ package com.yh.jiran.utils;
  */
 public class Consts {
     public static final String BING_PIC = "http://cn.bing.com/az/hprichbg/rb/PortAntonio_ROW10400754630_1920x1080.jpg";
-    public static final String BING_PIC1 = "http://cn.bing.com/az/hprichbg/rb/HighlandTige_ROW13252138588_1920x1080.jpg";
+    public static final String BING_PIC2 = "http://cn.bing.com/az/hprichbg/rb/HighlandTige_ROW13252138588_1920x1080.jpg";
+    public static final String BING_PIC3 = "http://cn.bing.com/az/hprichbg/rb/SmithsonianBones_ZH-CN10706349393_1920x1080.jpg";
+    public static final String BING_PIC1 = "http://cn.bing.com/az/hprichbg/rb/MountainDayJapan_ZH-CN9454216848_1920x1080.jpg";
     public static final String GUOLIN_PIC = "http://guolin.tech/api/bing_pic";
 }

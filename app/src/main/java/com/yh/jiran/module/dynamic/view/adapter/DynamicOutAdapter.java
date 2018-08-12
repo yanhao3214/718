@@ -2,6 +2,7 @@ package com.yh.jiran.module.dynamic.view.adapter;
 
 import android.annotation.SuppressLint;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatTextView;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -34,9 +35,11 @@ import java.util.List;
  * @function: 星球外动态列表适配器
  */
 public class DynamicOutAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHolder> {
+    private boolean mSelfCollect = false;
 
     public DynamicOutAdapter(@Nullable List<DynamicOut> data) {
         super(data);
+        mSelfCollect = false;
         setMultiTypeDelegate(new MultiTypeDelegate<DynamicOut>() {
             @Override
             protected int getItemType(DynamicOut dynamicOut) {
@@ -49,27 +52,34 @@ public class DynamicOutAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHold
                 .registerItemType(2, R.layout.item_dynamic_forward_layout);
     }
 
+
+    public DynamicOutAdapter(@Nullable List<DynamicOut> data, boolean selfCollect) {
+        this(data);
+        mSelfCollect = selfCollect;
+    }
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void convert(BaseViewHolder helper, DynamicOut item) {
         switch (helper.getItemViewType()) {
-            int like = item.getLike();
-            int comment = item.getComment();
-
             case 1:
+                int like1 = item.getLike();
+                int comment1 = item.getComment();
                 helper.setText(R.id.tv_name, item.getStarName())
                         .setText(R.id.tv_time, item.getPublishTime())
 //                        .setText(R.id.tv_text, item.getText())
                         .setText(R.id.tv_author, item.getAuthorName())
-                        .setVisible(R.id.btn_join, !item.isIn())
-                        .setVisible(R.id.btn_more, item.isIn())
-                        .setText(R.id.tv_like, like == 0 ? "点赞" : NumberUtil.parseToK(like))
-                        .setText(R.id.tv_comment, comment == 0 ? "评论" : NumberUtil.parseToK(comment))
+                        .setVisible(R.id.btn_join, !mSelfCollect && !item.isIn())
+                        .setVisible(R.id.btn_more, !mSelfCollect && item.isIn())
+                        .setVisible(R.id.iv_collect, mSelfCollect)
+                        .setText(R.id.tv_like, like1 == 0 ? "点赞" : NumberUtil.parseToK(like1))
+                        .setText(R.id.tv_comment, comment1 == 0 ? "评论" : NumberUtil.parseToK(comment1))
                         .addOnClickListener(R.id.tv_trigger)
                         .addOnClickListener(R.id.iv_star)
                         .addOnClickListener(R.id.tv_name)
                         .addOnClickListener(R.id.btn_join)
                         .addOnClickListener(R.id.btn_more)
+                        .addOnClickListener(R.id.iv_collect)
                         .addOnClickListener(R.id.tv_text)
                         .addOnClickListener(R.id.layout_link)
                         .addOnClickListener(R.id.iv_author)
@@ -127,21 +137,25 @@ public class DynamicOutAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHold
                 break;
 
             case 2:
-                helper.setText(R.id.tv_star, item.getStarName())
+                int like2 = item.getLike();
+                int comment2 = item.getComment();
+                helper.setText(R.id.tv_name, item.getStarName())
                         .setText(R.id.tv_time, item.getPublishTime())
-                        .setVisible(R.id.btn_join, !item.isIn())
-                        .setVisible(R.id.btn_more, item.isIn())
+                        .setVisible(R.id.btn_join, !mSelfCollect && !item.isIn())
+                        .setVisible(R.id.btn_more, !mSelfCollect && item.isIn())
+                        .setVisible(R.id.iv_collect, mSelfCollect)
                         .setText(R.id.tv_text, item.getText())
                         .setText(R.id.tv_author, item.getsAuthorName())
                         .setText(R.id.tv_origin_star, item.getsStarName())
                         .setText(R.id.tv_publisher, item.getAuthorName())
-                        .setText(R.id.tv_like, like == 0 ? "点赞" : NumberUtil.parseToK(like))
-                        .setText(R.id.tv_comment, comment == 0 ? "评论" : NumberUtil.parseToK(comment))
+                        .setText(R.id.tv_like, like2 == 0 ? "点赞" : NumberUtil.parseToK(like2))
+                        .setText(R.id.tv_comment, comment2 == 0 ? "评论" : NumberUtil.parseToK(comment2))
                         .addOnClickListener(R.id.tv_trigger)
                         .addOnClickListener(R.id.iv_star)
                         .addOnClickListener(R.id.tv_name)
                         .addOnClickListener(R.id.btn_join)
                         .addOnClickListener(R.id.btn_more)
+                        .addOnClickListener(R.id.iv_collect)
                         .addOnClickListener(R.id.tv_text)
                         .addOnClickListener(R.id.tv_origin_star)
                         .addOnClickListener(R.id.tv_source_text)
@@ -159,37 +173,53 @@ public class DynamicOutAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHold
                 GlideLoader.loadCircle(mContext, item.getImgAuthorUrl(), helper.getView(R.id.iv_publisher));
 
                 /**
-                 * 设置正文和转发正文：1.“全文”跳转；2.超链接 跳转
+                 * 设置正文：1.“全文”跳转；2.超链接 跳转
                  */
                 AllTextView tvDynamic = helper.getView(R.id.tv_text);
-                AllTextView tvSource = helper.getView(R.id.tv_source_text);
                 handleText(tvDynamic, item.getText(), item.getDynamicId());
-                handleText(tvSource, item.getsText(), item.getsDynamicId());
 
                 /**
-                 * 设置转发：九宫格图片
+                 * 原动态是否已删除
                  */
-                NineGridImageView<String> sourceNine = helper.getView(R.id.iv_nine);
-                if (null != item.getsImageUrls()) {
-                    sourceNine.setAdapter(new NineImageAdapter());
-                    sourceNine.setImagesData(item.getsImageUrls());
-                    // TODO: 2018/8/9 可去掉
-                    sourceNine.setVisibility(View.VISIBLE);
-                } else {
-                    sourceNine.setVisibility(View.GONE);
-                }
+                boolean sHasDelete = item.getsHasDelete();
+                RelativeLayout sourceExist = helper.getView(R.id.layout_source_exist);
+                AppCompatTextView tvDelete = helper.getView(R.id.tv_null);
+                tvDelete.setVisibility(sHasDelete ? View.VISIBLE : View.GONE);
+                sourceExist.setVisibility(sHasDelete ? View.GONE : View.VISIBLE);
 
-                /**
-                 * 设置转发：链接布局的内容
-                 */
-                boolean sourceLink = !TextUtils.isEmpty(item.getsLinkUrl());
-                LinearLayout layoutSourceLink = helper.getView(R.id.layout_link);
-                if (sourceLink) {
-                    GlideLoader.load(mContext, item.getsLinkImage(), helper.getView(R.id.iv_link));
-                    helper.setText(R.id.tv_link, item.getsLinkContent());
-                    layoutSourceLink.setVisibility(View.VISIBLE);
-                } else {
-                    layoutSourceLink.setVisibility(View.GONE);
+                if (!sHasDelete) {
+
+                    /**
+                     * 设置转发正文：1.“全文”跳转；2.超链接 跳转
+                     */
+                    AllTextView tvSource = helper.getView(R.id.tv_source_text);
+                    handleText(tvSource, item.getsText(), item.getsDynamicId());
+
+                    /**
+                     * 设置转发：九宫格图片
+                     */
+                    NineGridImageView<String> sourceNine = helper.getView(R.id.iv_nine);
+                    if (null != item.getsImageUrls()) {
+                        sourceNine.setAdapter(new NineImageAdapter());
+                        sourceNine.setImagesData(item.getsImageUrls());
+                        // TODO: 2018/8/9 可去掉
+                        sourceNine.setVisibility(View.VISIBLE);
+                    } else {
+                        sourceNine.setVisibility(View.GONE);
+                    }
+
+                    /**
+                     * 设置转发：链接布局的内容
+                     */
+                    boolean sourceLink = !TextUtils.isEmpty(item.getsLinkUrl());
+                    LinearLayout layoutSourceLink = helper.getView(R.id.layout_link);
+                    if (sourceLink) {
+                        GlideLoader.load(mContext, item.getsLinkImage(), helper.getView(R.id.iv_link));
+                        helper.setText(R.id.tv_link, item.getsLinkContent());
+                        layoutSourceLink.setVisibility(View.VISIBLE);
+                    } else {
+                        layoutSourceLink.setVisibility(View.GONE);
+                    }
                 }
 
                 /**

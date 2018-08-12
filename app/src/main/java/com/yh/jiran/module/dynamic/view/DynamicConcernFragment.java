@@ -7,12 +7,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -50,11 +53,15 @@ import butterknife.ButterKnife;
  * @function: 动态-关注页
  */
 public class DynamicConcernFragment extends BaseFragment implements DynamicConcernContract.View {
+
+    public static final String DYNAMIC_OUT_TYPE_CONNATE = "1";
+    public static final String DYNAMIC_OUT_TYPE_FORWARD = "2";
     private DynamicConcernContract.Presenter mPresenter;
     public static final int DYNAMIC_PAGE_COUNT = 15;
     private int page;
     private DynamicOutAdapter mAdapter;
     private List<DynamicOut> mList = new ArrayList<>();
+    private boolean mSelfCollect = false;
 
     @BindView(R.id.recycler_concern)
     RecyclerView mRecycler;
@@ -73,92 +80,231 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
         return mRootView;
     }
 
+    public boolean isSelfCollect() {
+        return mSelfCollect;
+    }
+
+    public void setSelfCollect(boolean mSelfCollect) {
+        this.mSelfCollect = mSelfCollect;
+    }
+
     @Override
     protected void initView(Bundle savedInstanceState, View rootView) {
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecycler.setLayoutManager(manager);
-        mAdapter = new DynamicOutAdapter(mList);
+        mAdapter = new DynamicOutAdapter(mList, mSelfCollect);
         mRecycler.setAdapter(mAdapter);
         mAdapter.bindToRecyclerView(mRecycler);
 
         mAdapter.setOnItemChildClickListener((adapter, view, position) -> {
             DynamicOut dynamic = mList.get(position);
-            AppCompatButton btnJoin =
-                    (AppCompatButton) adapter.getViewByPosition(position, R.id.btn_join);
-            AppCompatButton btnMore =
-                    (AppCompatButton) adapter.getViewByPosition(position, R.id.btn_more);
-            AppCompatTextView tvLike =
-                    (AppCompatTextView) adapter.getViewByPosition(position, R.id.tv_like);
-            AppCompatTextView tvComment =
-                    (AppCompatTextView) adapter.getViewByPosition(position, R.id.tv_comment);
+            if (dynamic.getType().equals(DYNAMIC_OUT_TYPE_FORWARD)) {
+                switch (view.getId()) {
+                    case R.id.tv_trigger:
+                        toUserHome(dynamic.getTriggerId());
+                        break;
+                    case R.id.iv_star:
+                    case R.id.tv_name:
+                        toStarHome(dynamic.getStarId());
+                        break;
+                    case R.id.btn_join:
+                        AppCompatButton btnJoin =
+                                (AppCompatButton) adapter.getViewByPosition(position, R.id.btn_join);
+                        AppCompatButton btnMore =
+                                (AppCompatButton) adapter.getViewByPosition(position, R.id.btn_more);
+                        btnJoin.setVisibility(View.GONE);
+                        btnMore.setVisibility(View.VISIBLE);
+                        // TODO: 2018/8/7 发送加入星球消息
+                        break;
+                    case R.id.btn_more:
+                        operate();
+                        break;
+                    case R.id.iv_collect:
+                        onCollect((AppCompatImageView) adapter.getViewByPosition(position, R.id.iv_collect));
+                        break;
+                    case R.id.tv_text:
+                        toDynamicHome(dynamic.getDynamicId());
+                        break;
+                    case R.id.tv_origin_star:
+                        toStarHome(dynamic.getsStarId());
+                        break;
+                    case R.id.tv_source_text:
+                        toDynamicHome(dynamic.getsDynamicId());
+                        break;
+                    case R.id.layout_link:
+                        toLink(dynamic.getsLinkUrl(), dynamic.getsLinkTitle());
+                        break;
+                    case R.id.iv_publisher:
+                    case R.id.tv_publisher:
+                        toUserHome(dynamic.getAuthorId());
+                        break;
+                    case R.id.tv_like:
+                        AppCompatTextView tvLike =
+                                (AppCompatTextView) adapter.getViewByPosition(position, R.id.tv_like);
+                        onLike(dynamic, tvLike);
+                        break;
+                    case R.id.tv_comment:
+                        AppCompatTextView tvComment =
+                                (AppCompatTextView) adapter.getViewByPosition(position, R.id.tv_comment);
+                        onComment(dynamic, tvComment);
+                        perform();
+                        break;
+                    case R.id.tv_share:
+                        share();
+                        break;
+                    default:
+                        break;
+                }
+            } else if (dynamic.getType().equals(DYNAMIC_OUT_TYPE_CONNATE)) {
 
-            switch (view.getId()) {
-                case R.id.tv_trigger:
-                    ARouter.getInstance()
-                            .build(Paths.PATH_USER_HOME_ACTIVITY)
-                            .withString(UserActivity.USER_ID, dynamic.getTriggerId())
-                            .navigation();
-                    break;
-                case R.id.tv_name:
-                case R.id.iv_star:
-                    ARouter.getInstance()
-                            .build(Paths.PATH_STAR_HOME_ACTIVITY)
-                            .withString(StarActivity.STAR_ID, dynamic.getStarId())
-                            .navigation();
-                    break;
-                case R.id.btn_join:
-                    btnJoin.setVisibility(View.GONE);
-                    btnMore.setVisibility(View.VISIBLE);
-                    // TODO: 2018/8/7 发送加入星球消息
-                    break;
-                case R.id.btn_more:
-                    operate();
-                    break;
-                case R.id.tv_text:
-                    ARouter.getInstance()
-                            .build(Paths.PATH_DYNAMIC_DETAIL_ACTIVITY)
-                            .withString(DynamicDetailActivity.DYNAMIC_ID, dynamic.getDynamicId())
-                            .navigation();
-                    break;
-                case R.id.layout_link:
-                    ARouter.getInstance()
-                            .build(Paths.PATH_WEBVIEW_ACTIVITY)
-                            .withString(WebViewActivity.WEBVIEW_URL, dynamic.getLinkUrl())
-                            .withString(WebViewActivity.WEBVIEW_TITLE, dynamic.getLinkTitle())
-                            .navigation();
-                    break;
-                case R.id.iv_author:
-                case R.id.tv_author:
-                    ARouter.getInstance()
-                            .build(Paths.PATH_USER_HOME_ACTIVITY)
-                            .withString(UserActivity.USER_ID, dynamic.getAuthorId())
-                            .navigation();
-                    break;
-                case R.id.tv_like:
-                    int like = dynamic.getLike();
-                    tvLike.setCompoundDrawablesWithIntrinsicBounds
-                            (R.drawable.vector_dynamic_like_selected, 0, 0, 0);
-                    tvLike.setText(NumberUtil.parseToK(++like));
-                    tvLike.setTextColor(ContextCompat.getColor(getContext(), R.color.dynamic_yellow));
-                    // TODO: 2018/8/7 更新点赞数
 
-                    break;
-                case R.id.tv_comment:
-                    int comment = dynamic.getComment();
-                    tvComment.setText(NumberUtil.parseToK(++comment));
-                    tvComment.setTextColor(ContextCompat.getColor(getContext(), R.color.dynamic_yellow));
-                    // TODO: 2018/8/7 1.评论页详情；2.发送评论信息，更新评论数
+                switch (view.getId()) {
+                    case R.id.tv_trigger:
+                        toUserHome(dynamic.getTriggerId());
+                        break;
+                    case R.id.tv_name:
+                    case R.id.iv_star:
+                        toStarHome(dynamic.getStarId());
+                        break;
+                    case R.id.btn_join:
+                        AppCompatButton btnJoin =
+                                (AppCompatButton) adapter.getViewByPosition(position, R.id.btn_join);
+                        AppCompatButton btnMore =
+                                (AppCompatButton) adapter.getViewByPosition(position, R.id.btn_more);
+                        btnJoin.setVisibility(View.GONE);
+                        btnMore.setVisibility(View.VISIBLE);
+                        // TODO: 2018/8/7 发送加入星球消息
+                        break;
+                    case R.id.btn_more:
+                        operate();
+                        break;
+                    case R.id.iv_collect:
+                        onCollect((AppCompatImageView) adapter.getViewByPosition(position, R.id.iv_collect));
+                        break;
+                    case R.id.tv_text:
+                        toDynamicHome(dynamic.getDynamicId());
+                        break;
+                    case R.id.layout_link:
+                        toLink(dynamic.getLinkUrl(), dynamic.getLinkTitle());
+                        break;
+                    case R.id.iv_author:
+                    case R.id.tv_author:
+                        toUserHome(dynamic.getAuthorId());
+                        break;
+                    case R.id.tv_like:
+                        AppCompatTextView tvLike =
+                                (AppCompatTextView) adapter.getViewByPosition(position, R.id.tv_like);
+                        onLike(dynamic, tvLike);
+                        break;
+                    case R.id.tv_comment:
+                        AppCompatTextView tvComment =
+                                (AppCompatTextView) adapter.getViewByPosition(position, R.id.tv_comment);
+                        onComment(dynamic, tvComment);
 
-                    perform();
-                    break;
-                case R.id.tv_share:
-                    share();
-                    break;
-                default:
-                    break;
+                        // TODO: 2018/8/10 待移植
+                        perform();
+                        break;
+                    case R.id.tv_share:
+                        share();
+                        break;
+                    default:
+                        break;
+                }
             }
+
         });
+    }
+
+    /**
+     * 跳转到个人主页主页
+     */
+    private void toUserHome(String userId, boolean otherView, boolean hasConcern) {
+        ARouter.getInstance()
+                .build(Paths.PATH_USER_HOME_ACTIVITY)
+                .withString(UserActivity.USER_ID, userId)
+                .withBoolean(UserActivity.USER_OTHER_VIEW, otherView)
+                .withBoolean(UserActivity.USER_HAS_COLLECT, hasConcern)
+                .navigation();
+    }
+
+    /**
+     * 跳转到个人主页主页,（默认参数，自己视角）
+     */
+    private void toUserHome(String userId) {
+        ARouter.getInstance()
+                .build(Paths.PATH_USER_HOME_ACTIVITY)
+                .withString(UserActivity.USER_ID, userId)
+                .withBoolean(UserActivity.USER_OTHER_VIEW, false)
+                .withBoolean(UserActivity.USER_HAS_COLLECT, false)
+                .navigation();
+    }
+
+    /**
+     * 跳转到星球主页
+     */
+    private void toStarHome(String starId) {
+        ARouter.getInstance()
+                .build(Paths.PATH_STAR_HOME_ACTIVITY)
+                .withString(StarActivity.STAR_ID, starId)
+                .navigation();
+    }
+
+    /**
+     * 跳转到动态详情页
+     */
+    private void toDynamicHome(String dynamicId) {
+        ARouter.getInstance()
+                .build(Paths.PATH_DYNAMIC_DETAIL_ACTIVITY)
+                .withString(DynamicDetailActivity.DYNAMIC_ID, dynamicId)
+                .navigation();
+    }
+
+    /**
+     * 跳转到动态详情页
+     */
+    private void toLink(String linkUrl, String linkTitle) {
+        ARouter.getInstance()
+                .build(Paths.PATH_WEBVIEW_ACTIVITY)
+                .withString(WebViewActivity.WEBVIEW_URL, linkUrl)
+                .withString(WebViewActivity.WEBVIEW_TITLE, linkTitle)
+                .navigation();
+    }
+
+    private void onCollect(ImageView ivCollect) {
+        if (ivCollect.getDrawable().getCurrent().getConstantState() == ContextCompat.getDrawable(getContext(), R.drawable.ic_collect_selected).getConstantState()) {
+            ivCollect.setImageResource(R.drawable.ic_collect_normal);
+            Toast.makeText(getContext(), "发送取消收藏的消息", Toast.LENGTH_SHORT).show();
+            // TODO: 2018/8/12 发送取消收藏消息
+        } else {
+            ivCollect.setImageResource(R.drawable.ic_collect_selected);
+            Toast.makeText(getContext(), "发送添加收藏的消息", Toast.LENGTH_SHORT).show();
+            // TODO: 2018/8/12 发送收藏消息
+        }
+    }
+
+    /**
+     * 点赞
+     */
+    private void onLike(DynamicOut dynamic, TextView textView) {
+        int like = dynamic.getLike();
+        textView.setCompoundDrawablesWithIntrinsicBounds
+                (R.drawable.vector_dynamic_like_selected, 0, 0, 0);
+        textView.setText(NumberUtil.parseToK(++like));
+        textView.setTextColor(ContextCompat.getColor(getContext(), R.color.dynamic_yellow));
+
+        // TODO: 2018/8/7 更新点赞数
+    }
+
+    /**
+     * 评论
+     */
+    private void onComment(DynamicOut dynamic, TextView textView) {
+        int comment = dynamic.getComment();
+        textView.setText(NumberUtil.parseToK(++comment));
+        textView.setTextColor(ContextCompat.getColor(getContext(), R.color.dynamic_yellow));
+
+        // TODO: 2018/8/7 1.评论页详情；2.发送评论信息，更新评论数
     }
 
     /**

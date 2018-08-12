@@ -32,6 +32,14 @@
         <activity android:name=".module.login.view.RecStarActivity" />
         <activity android:name=".base.WebViewActivity" />
         <activity android:name=".module.common.PhotoViewActivity" />
+        <activity android:name=".module.dynamic.view.DynamicDetailActivity" />
+        <activity android:name=".module.user.view.UserTestActivity">
+
+        </activity>
+
+        <activity android:name=".module.user.view.UserActivity">
+
+        </activity>
 
         <activity android:name=".base.UrlReceiveActivity">
             <intent-filter>
@@ -93,8 +101,7 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".module.dynamic.view.DynamicDetailActivity" />
-        <activity android:name=".module.user.view.UserActivity" />
+        <activity android:name=".module.user.view.UserEditActivity" />
 
         <service
             android:name=".service.PushService"

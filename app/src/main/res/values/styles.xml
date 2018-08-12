@@ -47,4 +47,10 @@
         <item name="android:windowExitAnimation">@anim/dialog_out</item>
     </style>
 
+    <!-- TabLayout风格 -->
+    <style name="TabLayoutTextStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textColor">@color/colorGrey2</item>
+    </style>
+
 </resources>

@@ -46,11 +46,13 @@ public class DynamicOut {
     public static final int TRIGGER_ACTION_CONCERN_USER = 5;
 
     /**
-     * 动态：Id、正文、是否置顶
+     * 动态：Id、正文、是否置顶、是否已删除、是否已收藏
      */
     private String dynamicId;
     private String text;
     private boolean top;
+    private boolean hasDelete;
+    private boolean hasCollect;
 
     /**
      * 动态类型（1:自建 2转发）
@@ -141,6 +143,7 @@ public class DynamicOut {
     private String sAuthorId;
     private String sAuthorName;
     private String sStarName;
+    private String sStarId;
     private String sText;
     private List<String> sImageUrls;
     private String sLinkUrl;
@@ -148,7 +151,35 @@ public class DynamicOut {
     private String sLinkContent;
     private String sLinkTitle;
     private String sVisibleRange;
-    private String sHasDelete;
+    private boolean sHasDelete;
+
+    public boolean isHasCollect() {
+        return hasCollect;
+    }
+
+    public void setHasCollect(boolean hasCollect) {
+        this.hasCollect = hasCollect;
+    }
+
+    public boolean issHasDelete() {
+        return sHasDelete;
+    }
+
+    public boolean isHasDelete() {
+        return hasDelete;
+    }
+
+    public void setHasDelete(boolean hasDelete) {
+        this.hasDelete = hasDelete;
+    }
+
+    public String getsStarId() {
+        return sStarId;
+    }
+
+    public void setsStarId(String sStarId) {
+        this.sStarId = sStarId;
+    }
 
     public String getDynamicId() {
         return dynamicId;
@@ -494,11 +525,11 @@ public class DynamicOut {
         this.sVisibleRange = sVisibleRange;
     }
 
-    public String getsHasDelete() {
+    public boolean getsHasDelete() {
         return sHasDelete;
     }
 
-    public void setsHasDelete(String sHasDelete) {
+    public void setsHasDelete(boolean sHasDelete) {
         this.sHasDelete = sHasDelete;
     }
 

@@ -61,11 +61,15 @@ public class UrlUtil {
         final String regex = "((https?|s?ftp|irc[6s]?|git|afp|telnet|smb)://)?((\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})|((www\\.|[a-zA-Z\\.\\-]+\\.)?[a-zA-Z0-9\\-]+\\." + sb.toString() + "(:[0-9]{1,5})?))((/[a-zA-Z0-9\\./,;\\?'\\+&%\\$#=~_\\-]*)|([^\\u4e00-\\u9fa5\\s0-9a-zA-Z\\./,;\\?'\\+&%\\$#=~_\\-]*))";
         final Pattern pattern = Pattern.compile(regex);
 
-        Matcher matcher = pattern.matcher(str);
-        while (matcher.find()) {
-            urls.add(matcher.group());
+        if (!TextUtils.isEmpty(str)) {
+            Matcher matcher = pattern.matcher(str);
+            while (matcher.find()) {
+                urls.add(matcher.group());
+            }
+            return matcher.replaceAll("#查看链接");
+        } else {
+            return "";
         }
-        return matcher.replaceAll("#查看链接");
     }
 
     /**
