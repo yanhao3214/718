@@ -50,21 +50,23 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center_vertical">
+        android:layout_height="100dp">
 
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:text="@string/common_submit"
+            android:text="@string/user_edit_portrait"
             android:textColor="@color/colorGrey1"
             android:textSize="@dimen/sp_16" />
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_portrait"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:src="@drawable/xxx2"
             app:civ_border_color="@color/white"
@@ -99,6 +101,9 @@
             android:layout_marginRight="17dp"
             android:background="@null"
             android:gravity="right"
+            android:lines="1"
+            android:maxLength="15"
+            android:maxLines="1"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/sp_16" />
     </LinearLayout>
@@ -138,6 +143,8 @@
             android:layout_marginTop="@dimen/dp_10"
             android:background="@null"
             android:lines="2"
+            android:maxLength="30"
+            android:maxLines="2"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/sp_16" />
 
@@ -148,7 +155,6 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="23dp"
             android:gravity="right"
-            android:text="-10"
             android:textColor="@color/color_orange"
             android:textSize="@dimen/sp_16" />
     </LinearLayout>

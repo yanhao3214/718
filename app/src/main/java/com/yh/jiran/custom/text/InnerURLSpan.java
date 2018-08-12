@@ -9,7 +9,7 @@ import android.view.View;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yh.jiran.R;
 import com.yh.jiran.base.WebViewActivity;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 /**
  * @author: 闫昊
@@ -31,7 +31,7 @@ public class InnerURLSpan extends ClickableSpan {
     @Override
     public void onClick(View view) {
         ARouter.getInstance()
-                .build(Paths.PATH_WEBVIEW_ACTIVITY)
+                .build(RouterMap.PATH_WEBVIEW_ACTIVITY)
                 .withString(WebViewActivity.WEBVIEW_TITLE, mTitle)
                 .withString(WebViewActivity.WEBVIEW_URL, mUrl)
                 .navigation();

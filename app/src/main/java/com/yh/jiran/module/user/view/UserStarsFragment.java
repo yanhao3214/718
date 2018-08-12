@@ -20,7 +20,7 @@ import com.yh.jiran.module.home.view.StarActivity;
 import com.yh.jiran.module.user.model.entity.UserStar;
 import com.yh.jiran.module.user.view.adapter.UserStarsAdapter;
 import com.yh.jiran.utils.Consts;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -146,7 +146,7 @@ public class UserStarsFragment extends BaseFragment {
     private void toStarHome(String starId) {
         // TODO: 2018/8/12 跳转至星球，可以用全局工具类统一
         ARouter.getInstance()
-                .build(Paths.PATH_STAR_HOME_ACTIVITY)
+                .build(RouterMap.PATH_STAR_HOME_ACTIVITY)
                 .withString(StarActivity.STAR_ID, starId)
                 .navigation();
     }

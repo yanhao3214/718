@@ -6,12 +6,11 @@ import android.text.TextUtils;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.trello.rxlifecycle2.LifecycleTransformer;
-import com.yh.core.app.BaseActivity;
 import com.yh.jiran.R;
 import com.yh.jiran.base.ImmerseActivity;
 import com.yh.jiran.module.home.HomeMineContract;
 import com.yh.jiran.module.home.model.entity.HomeStar;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import java.util.List;
 
@@ -23,7 +22,7 @@ import butterknife.ButterKnife;
  * @date: 2018/7/24
  * @function: 星球页面
  */
-@Route(path = Paths.PATH_STAR_HOME_ACTIVITY)
+@Route(path = RouterMap.PATH_STAR_HOME_ACTIVITY)
 public class StarActivity extends ImmerseActivity implements HomeMineContract.View {
     public static final String STAR_ID = "star_id";
 

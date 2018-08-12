@@ -1,7 +1,6 @@
 package com.yh.jiran.base;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -15,14 +14,14 @@ import android.widget.ProgressBar;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.yh.jiran.R;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 /**
  * @author: 闫昊
  * @date: 2018/8/6
  * @function: APP内置浏览器，WebView
  */
-@Route(path = Paths.PATH_WEBVIEW_ACTIVITY)
+@Route(path = RouterMap.PATH_WEBVIEW_ACTIVITY)
 public class WebViewActivity extends ImmerseActivity {
     public static final String WEBVIEW_URL = "webview_url";
     public static final String WEBVIEW_TITLE = "webview_title";

@@ -12,12 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.RxLifecycle;
-import com.trello.rxlifecycle2.android.RxLifecycleAndroid;
 import com.yh.core.app.BaseActivity;
 import com.yh.jiran.R;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -49,7 +47,7 @@ import io.reactivex.schedulers.Schedulers;
  * @date: 2018/7/18
  * @function: 测试界面，测试代码，待删除
  */
-@Route(path = Paths.PATH_ROUTER_ACTIVITY)
+@Route(path = RouterMap.PATH_ROUTER_ACTIVITY)
 public class RouterActivity extends BaseActivity {
 
     @BindView(R.id.tv_interval)

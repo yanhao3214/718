@@ -20,7 +20,7 @@ import com.yh.jiran.module.courier.CourierContract;
 import com.yh.jiran.module.courier.model.entity.CourierInfo;
 import com.yh.jiran.module.courier.presenter.CourierPresenter;
 import com.yh.jiran.module.courier.view.adapter.CourierBaseAdapter;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ import butterknife.OnClick;
  * @date: 2018/7/20
  * @function:
  */
-@Route(path = Paths.PATH_COURIER_ACTIVITY)
+@Route(path = RouterMap.PATH_COURIER_ACTIVITY)
 public class CourierActivity extends BaseActivity implements AdapterView.OnItemSelectedListener, CourierContract.View {
     @BindView(R.id.iv_beauty_1)
     ImageView ivBeauty1;

@@ -13,7 +13,7 @@ import com.yh.jiran.module.home.HomeMineContract;
 import com.yh.jiran.module.home.model.entity.HomeStar;
 import com.yh.jiran.module.home.presenter.PickStarPresenter;
 import com.yh.jiran.module.home.view.adapter.StarPickQuickAdapter;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import butterknife.OnClick;
  * @date: 2018/7/27
  * @function: 星球选择界面
  */
-@Route(path = Paths.PATH_STAR_PICK_ACTIVITY)
+@Route(path = RouterMap.PATH_STAR_PICK_ACTIVITY)
 public class StarPickActivity extends ImmerseActivity implements HomeMineContract.PickStarView {
 
     private HomeMineContract.PickStarPresenter mPresenter;

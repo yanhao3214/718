@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.jaeger.ninegridimageview.NineGridImageViewAdapter;
 import com.yh.jiran.module.common.PhotoViewActivity;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 import com.yh.jiran.utils.image.GlideLoader;
 
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class NineImageAdapter extends NineGridImageViewAdapter<String> {
     protected void onItemImageClick(Context context, ImageView imageView, int index, List<String> list) {
         ARouter
                 .getInstance()
-                .build(Paths.PATH_PHOTO_VIEW_ACTIVITY)
+                .build(RouterMap.PATH_PHOTO_VIEW_ACTIVITY)
                 .withStringArrayList(PhotoViewActivity.PHOTO_VIEW_URLS, (ArrayList<String>) list)
                 .withInt(PhotoViewActivity.PHOTO_VIEW_POSITION, index)
                 .navigation();

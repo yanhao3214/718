@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.core.app.BaseFragment;
 import com.yh.jiran.R;
@@ -22,7 +20,7 @@ import com.yh.jiran.module.home.HomeDiscoverContract;
 import com.yh.jiran.module.home.model.entity.HotStar;
 import com.yh.jiran.module.home.presenter.HomeDiscoverPresenter;
 import com.yh.jiran.module.home.view.adapter.DiscoverStarQuickAdapter;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +75,7 @@ public class HomeDiscoverFragment extends BaseFragment implements HomeDiscoverCo
         mStarAdapter.setOnItemClickListener((adapter, view, position) -> {
             // TODO: 2018/8/2 跳转到星球详情页
             ARouter.getInstance()
-                    .build(Paths.PATH_STAR_HOME_ACTIVITY)
+                    .build(RouterMap.PATH_STAR_HOME_ACTIVITY)
                     .withLong(StarActivity.STAR_ID, mStarList.get(position).getId())
                     .navigation();
         });

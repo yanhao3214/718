@@ -1,7 +1,6 @@
 package com.yh.jiran.module.dynamic.view;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -25,8 +24,6 @@ import com.yh.core.utils.NumberUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.base.WebViewActivity;
 import com.yh.jiran.custom.dialog.callback.CommonCallback;
-import com.yh.jiran.custom.dialog.callback.ConcernCallback;
-import com.yh.jiran.custom.dialog.callback.EliteCallback;
 import com.yh.jiran.custom.dialog.callback.MuteCallback;
 import com.yh.jiran.custom.dialog.common.JrDialog;
 import com.yh.jiran.custom.dialog.host.HostDialog;
@@ -39,7 +36,7 @@ import com.yh.jiran.module.home.view.StarActivity;
 import com.yh.jiran.module.user.view.UserActivity;
 import com.yh.jiran.custom.dialog.share.ShareDialog;
 import com.yh.jiran.utils.Consts;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -221,7 +218,7 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
      */
     private void toUserHome(String userId, boolean otherView, boolean hasConcern) {
         ARouter.getInstance()
-                .build(Paths.PATH_USER_HOME_ACTIVITY)
+                .build(RouterMap.PATH_USER_HOME_ACTIVITY)
                 .withString(UserActivity.USER_ID, userId)
                 .withBoolean(UserActivity.USER_OTHER_VIEW, otherView)
                 .withBoolean(UserActivity.USER_HAS_COLLECT, hasConcern)
@@ -233,7 +230,7 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
      */
     private void toUserHome(String userId) {
         ARouter.getInstance()
-                .build(Paths.PATH_USER_HOME_ACTIVITY)
+                .build(RouterMap.PATH_USER_HOME_ACTIVITY)
                 .withString(UserActivity.USER_ID, userId)
                 .withBoolean(UserActivity.USER_OTHER_VIEW, false)
                 .withBoolean(UserActivity.USER_HAS_COLLECT, false)
@@ -245,7 +242,7 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
      */
     private void toStarHome(String starId) {
         ARouter.getInstance()
-                .build(Paths.PATH_STAR_HOME_ACTIVITY)
+                .build(RouterMap.PATH_STAR_HOME_ACTIVITY)
                 .withString(StarActivity.STAR_ID, starId)
                 .navigation();
     }
@@ -255,7 +252,7 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
      */
     private void toDynamicHome(String dynamicId) {
         ARouter.getInstance()
-                .build(Paths.PATH_DYNAMIC_DETAIL_ACTIVITY)
+                .build(RouterMap.PATH_DYNAMIC_DETAIL_ACTIVITY)
                 .withString(DynamicDetailActivity.DYNAMIC_ID, dynamicId)
                 .navigation();
     }
@@ -265,7 +262,7 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
      */
     private void toLink(String linkUrl, String linkTitle) {
         ARouter.getInstance()
-                .build(Paths.PATH_WEBVIEW_ACTIVITY)
+                .build(RouterMap.PATH_WEBVIEW_ACTIVITY)
                 .withString(WebViewActivity.WEBVIEW_URL, linkUrl)
                 .withString(WebViewActivity.WEBVIEW_TITLE, linkTitle)
                 .navigation();

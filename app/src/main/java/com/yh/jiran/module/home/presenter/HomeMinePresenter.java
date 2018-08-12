@@ -4,7 +4,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.yh.jiran.module.home.HomeMineContract;
 import com.yh.jiran.module.home.model.HomeMineModel;
 import com.yh.jiran.module.home.model.entity.HomeStar;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import java.util.List;
 
@@ -30,6 +30,6 @@ public class HomeMinePresenter implements HomeMineContract.Presenter {
 
     @Override
     public void jumpToSearch() {
-        ARouter.getInstance().build(Paths.PATH_SEARCH_ACTIVITY).navigation();
+        ARouter.getInstance().build(RouterMap.PATH_SEARCH_ACTIVITY).navigation();
     }
 }

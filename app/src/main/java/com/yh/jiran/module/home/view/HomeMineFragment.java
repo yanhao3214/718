@@ -15,14 +15,12 @@ import com.alibaba.android.arouter.facade.callback.NavCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.yh.core.app.BaseFragment;
-import com.yh.core.utils.SoftKeyUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.module.home.HomeMineContract;
 import com.yh.jiran.module.home.model.entity.HomeStar;
 import com.yh.jiran.module.home.presenter.HomeMinePresenter;
 import com.yh.jiran.module.home.view.adapter.StarGridAdapter;
-import com.yh.jiran.module.home.view.adapter.StarGridQuickAdapter;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,7 +98,7 @@ public class HomeMineFragment extends BaseFragment implements HomeMineContract.V
      */
     private void toStarDetail(HomeStar star) {
         ARouter.getInstance()
-                .build(Paths.PATH_STAR_HOME_ACTIVITY)
+                .build(RouterMap.PATH_STAR_HOME_ACTIVITY)
                 .withLong("starId", star.getStarId())
                 .withString("starTitle", star.getTitle())
                 .navigation(getContext(), new NavCallback() {

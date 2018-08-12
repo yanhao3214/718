@@ -5,29 +5,22 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.Editable;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.SpannedString;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.style.AbsoluteSizeSpan;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.trello.rxlifecycle2.LifecycleTransformer;
-import com.yh.core.app.BaseActivity;
 import com.yh.core.utils.SoftKeyUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.base.ImmerseActivity;
 import com.yh.jiran.custom.ClearEdit;
-import com.yh.jiran.custom.search.YSearchEdit;
 import com.yh.jiran.module.login.LoginContract;
 import com.yh.jiran.module.login.model.entity.User;
 import com.yh.jiran.utils.AccountManager;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 import com.yh.ui.utils.TextUtil;
 
 import org.reactivestreams.Subscription;
@@ -47,7 +40,6 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Cancellable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
@@ -57,7 +49,7 @@ import io.reactivex.schedulers.Schedulers;
  * @date: 2018/7/24
  * @function: 登录界面
  */
-@Route(path = Paths.PATH_LOGIN_ACTIVITY)
+@Route(path = RouterMap.PATH_LOGIN_ACTIVITY)
 public class LoginActivity extends ImmerseActivity implements LoginContract.LoginView {
     public static final int LOGIN_CODE_VALID_TIME = 60;
     public static final int PHONE_NUMBER_COUNT = 11;
@@ -299,7 +291,7 @@ public class LoginActivity extends ImmerseActivity implements LoginContract.Logi
                 break;
             case R.id.tv_protocol:
                 ARouter.getInstance()
-                        .build(Paths.PATH_WEBVIEW_ACTIVITY)
+                        .build(RouterMap.PATH_WEBVIEW_ACTIVITY)
                         .withString("title", "计然蜂巢用户协议手册")
                         .withString("url", "https://www.jianshu.com/p/119823e5cfb5")
                         .navigation();
@@ -327,7 +319,7 @@ public class LoginActivity extends ImmerseActivity implements LoginContract.Logi
         }
         if (!TextUtils.isEmpty(phone) && phone.length() == PHONE_NUMBER_COUNT && !TextUtils.isEmpty(code) && code.equals(code)) {
             ARouter.getInstance()
-                    .build(mUser.getHasName() ? Paths.PATH_HOME_ACTIVITY : Paths.PATH_INFO_ACTIVITY)
+                    .build(mUser.getHasName() ? RouterMap.PATH_HOME_ACTIVITY : RouterMap.PATH_INFO_ACTIVITY)
                     .navigation();
             finish();
         }

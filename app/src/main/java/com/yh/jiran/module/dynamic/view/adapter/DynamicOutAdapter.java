@@ -23,7 +23,7 @@ import com.yh.jiran.custom.text.FilterClickMovementMethod;
 import com.yh.jiran.custom.text.InnerURLSpan;
 import com.yh.jiran.module.dynamic.model.entity.DynamicOut;
 import com.yh.jiran.module.dynamic.view.DynamicDetailActivity;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 import com.yh.jiran.utils.image.GlideLoader;
 
 import java.util.ArrayList;
@@ -261,7 +261,7 @@ public class DynamicOutAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHold
         textView.setMaxShowLines(6);
         textView.setMyText(textView.getText());
         textView.setOnAllSpanClickListener(widget -> ARouter.getInstance()
-                .build(Paths.PATH_DYNAMIC_DETAIL_ACTIVITY)
+                .build(RouterMap.PATH_DYNAMIC_DETAIL_ACTIVITY)
                 .withString(DynamicDetailActivity.DYNAMIC_ID, dynamicId)
                 .navigation());
     }

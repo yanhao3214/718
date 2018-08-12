@@ -5,18 +5,16 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.AppCompatImageView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yh.core.app.BaseFragment;
-import com.yh.core.utils.SoftKeyUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.base.HomeActivity;
 import com.yh.jiran.module.home.view.adapter.BaseFragmentPagerAdapter;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +44,7 @@ public class HomeFragment extends BaseFragment {
 
     @OnClick(R.id.iv_edit)
     public void pickStar() {
-        ARouter.getInstance().build(Paths.PATH_STAR_PICK_ACTIVITY).navigation();
+        ARouter.getInstance().build(RouterMap.PATH_STAR_PICK_ACTIVITY).navigation();
     }
 
     @Override

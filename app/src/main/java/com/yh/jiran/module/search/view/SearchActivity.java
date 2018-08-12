@@ -9,8 +9,7 @@ import com.yh.jiran.R;
 import com.yh.jiran.base.ImmerseActivity;
 import com.yh.jiran.custom.search.SearchCallback;
 import com.yh.jiran.custom.search.YSearchView;
-import com.yh.jiran.module.home.view.HomeMineFragment;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import butterknife.BindView;
 
@@ -19,7 +18,7 @@ import butterknife.BindView;
  * @date: 2018/7/26
  * @function: 搜索界面
  */
-@Route(path = Paths.PATH_SEARCH_ACTIVITY)
+@Route(path = RouterMap.PATH_SEARCH_ACTIVITY)
 public class SearchActivity extends ImmerseActivity {
 
     private BaseFragment fragmentResult;

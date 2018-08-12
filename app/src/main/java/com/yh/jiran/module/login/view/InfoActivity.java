@@ -32,7 +32,7 @@ import com.yh.jiran.module.login.LoginContract;
 import com.yh.jiran.module.login.model.entity.User;
 import com.yh.jiran.module.login.presenter.InfoPresenter;
 import com.yh.jiran.utils.AccountManager;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 import com.yh.jiran.utils.image.GlideLoader;
 import com.yh.ui.img.GlideCircleTransform;
 
@@ -56,7 +56,7 @@ import io.reactivex.functions.Consumer;
  * @date: 2018/8/3
  * @function: 确定头像和用户名
  */
-@Route(path = Paths.PATH_INFO_ACTIVITY)
+@Route(path = RouterMap.PATH_INFO_ACTIVITY)
 public class InfoActivity extends ImmerseActivity implements LoginContract.InfoView {
 
     public static final int USER_NAME_COUNT = 15;
@@ -205,7 +205,7 @@ public class InfoActivity extends ImmerseActivity implements LoginContract.InfoV
             case R.id.btn_enter:
                 if (isLegal) {
                     // TODO: 2018/8/4 登录
-                    ARouter.getInstance().build(mUser.getInStar() ? Paths.PATH_HOME_ACTIVITY : Paths.PATH_REC_STAR_ACTIVITY).navigation();
+                    ARouter.getInstance().build(mUser.getInStar() ? RouterMap.PATH_HOME_ACTIVITY : RouterMap.PATH_REC_STAR_ACTIVITY).navigation();
                     finish();
                 } else {
                     Toast.makeText(this, "请完善个人信息", Toast.LENGTH_SHORT).show();

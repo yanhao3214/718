@@ -13,7 +13,7 @@ import com.yh.jiran.module.home.model.entity.HotStar;
 import com.yh.jiran.module.login.LoginContract;
 import com.yh.jiran.module.login.presenter.RecPresenter;
 import com.yh.jiran.module.login.view.adapter.LoginRecGridAdapter;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ import butterknife.OnClick;
  * @date: 2018/8/3
  * @function: 推荐星球页
  */
-@Route(path = Paths.PATH_REC_STAR_ACTIVITY)
+@Route(path = RouterMap.PATH_REC_STAR_ACTIVITY)
 public class RecStarActivity extends ImmerseActivity implements LoginContract.RecView {
 
     private LoginContract.RecPresenter mPresenter;
@@ -79,7 +79,7 @@ public class RecStarActivity extends ImmerseActivity implements LoginContract.Re
 
     @OnClick(R.id.btn_enter)
     public void onViewClicked() {
-        ARouter.getInstance().build(Paths.PATH_HOME_ACTIVITY).navigation();
+        ARouter.getInstance().build(RouterMap.PATH_HOME_ACTIVITY).navigation();
         finish();
     }
 

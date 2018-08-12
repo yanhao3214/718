@@ -14,7 +14,7 @@ import com.yh.jiran.module.message.view.MessageFragment;
 import com.yh.jiran.module.user.view.UserFragment;
 import com.yh.jiran.service.PushIntentService;
 import com.yh.jiran.service.PushService;
-import com.yh.jiran.utils.Paths;
+import com.yh.jiran.utils.RouterMap;
 
 import butterknife.BindColor;
 import butterknife.BindView;
@@ -25,7 +25,7 @@ import butterknife.OnCheckedChanged;
  * @date: 2018/7/24
  * @function: 主页，承载4个Fragment
  */
-@Route(path = Paths.PATH_HOME_ACTIVITY)
+@Route(path = RouterMap.PATH_HOME_ACTIVITY)
 public class HomeActivity extends ImmerseActivity {
 
     private HomeFragment mHomeFragment = null;

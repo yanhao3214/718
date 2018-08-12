@@ -5,7 +5,7 @@ package com.yh.jiran.utils;
  * @date: 2018/7/21
  * @function: 路由表
  */
-public class Paths {
+public class RouterMap {
 
     /**
      * 路由跳转界面（测试用）
@@ -21,6 +21,16 @@ public class Paths {
      * 星球详情界面
      */
     public static final String PATH_STAR_ACTIVITY = "/home/StarActivity";
+
+
+
+
+
+    /**
+     * 返回码：编辑用户信息
+     */
+    public static final int RESULT_CODE_USER_EDIT = 1001;
+
 
     /**
      * APP主页
