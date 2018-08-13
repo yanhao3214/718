@@ -21,6 +21,7 @@
     <color name="colorAccent">#1572fc</color>
     <color name="color_light">#ffffff</color>
     <color name="color_dark">#000000</color>
+    <color name="user_dark">#FF302C3B</color>
     <color name="colorAccentAlpha">#801572fc</color>
     <color name="divider_1">#FFE0E0E0</color>
 

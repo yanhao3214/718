@@ -17,13 +17,10 @@ public class RouterMap {
      */
     public static final String PATH_COURIER_ACTIVITY = "/test/CourierActivity";
 
-    /**
-     * 星球详情界面
-     */
-    public static final String PATH_STAR_ACTIVITY = "/home/StarActivity";
-
-
-
+//    /**
+//     * 星球详情界面
+//     */
+//    public static final String PATH_STAR_ACTIVITY = "/home/StarActivity";
 
 
     /**
@@ -91,4 +88,9 @@ public class RouterMap {
      * 个人信息编辑页
      */
     public static final String PATH_USER_EDIT_ACTIVITY = "/common/UserEditActivity";
+
+    /**
+     * 设置页面
+     */
+    public static final String PATH_SETTING_ACTIVITY = "/common/SettingActivity";
 }

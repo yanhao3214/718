@@ -1,13 +1,261 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/vector_bg_user_center" />
 
     <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+        android:layout_width="242dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="47dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:maxLines="1"
+        android:text="区块链闫昊"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_desc"
+        android:layout_width="242dp"
+        android:layout_height="36dp"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginLeft="25dp"
+        android:ellipsize="end"
+        android:lines="2"
+        android:maxLines="2"
+        android:text="度搜if胡搜if对我说的品味平平稳稳乳杆菌排污管【我叫个扶贫为福建南平微喷水电机no服务费批发价你排位"
+        android:textColor="@color/white"
+        android:textSize="13sp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_portrait"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tv_name"
+        android:layout_marginRight="25dp"
+        android:src="@drawable/xxx1"
+        app:civ_border_color="@color/white"
+        app:civ_border_overlay="true"
+        app:civ_border_width="2dp" />
+
+    <LinearLayout
+        android:id="@+id/layout_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="个人"
-        android:textColor="@android:color/holo_red_dark" />
-</LinearLayout>
+        android:layout_height="80dp"
+        android:layout_below="@+id/tv_desc"
+        android:layout_marginTop="11dp">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/num_star"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginTop="18dp"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/user_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_below="@+id/num_star"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="@string/user_center_star"
+                android:textColor="@color/colorGrey2"
+                android:textSize="13sp" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/colorGrey4" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/num_concern"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginTop="18dp"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/user_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_below="@+id/num_concern"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="@string/user_center_concern"
+                android:textColor="@color/colorGrey2"
+                android:textSize="13sp" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/colorGrey4" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/num_fans"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginTop="18dp"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/user_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_below="@+id/num_fans"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="@string/user_center_fans"
+                android:textColor="@color/colorGrey2"
+                android:textSize="13sp" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/colorGrey4" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/num_collect"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/user_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_below="@+id/num_collect"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="@string/user_center_collect"
+                android:textColor="@color/colorGrey2"
+                android:textSize="13sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:layout_below="@+id/layout_info"
+        android:background="@color/bg_search_edit" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_invite"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/layout_info"
+        android:layout_marginTop="@dimen/dp_10"
+        android:drawableLeft="@drawable/vector_invite_user_center"
+        android:drawablePadding="13dp"
+        android:drawableRight="@drawable/vector_right_user_center"
+        android:gravity="center_vertical"
+        android:paddingLeft="21dp"
+        android:paddingRight="20dp"
+        android:text="@string/user_center_invite"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_16" />
+
+    <View
+        android:id="@+id/divider_invite"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/tv_invite"
+        android:background="@color/colorGrey4" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_help"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/divider_invite"
+        android:drawableLeft="@drawable/vector_help_user_center"
+        android:drawablePadding="13dp"
+        android:drawableRight="@drawable/vector_right_user_center"
+        android:gravity="center_vertical"
+        android:paddingLeft="21dp"
+        android:paddingRight="20dp"
+        android:text="@string/user_center_help"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_16" />
+
+    <View
+        android:id="@+id/divider_help"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/tv_help"
+        android:background="@color/colorGrey4" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_set"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/divider_help"
+        android:drawableLeft="@drawable/vector_set_user_center"
+        android:drawablePadding="13dp"
+        android:drawableRight="@drawable/vector_right_user_center"
+        android:gravity="center_vertical"
+        android:paddingLeft="21dp"
+        android:paddingRight="20dp"
+        android:text="@string/user_center_set"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_16" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:layout_below="@+id/tv_set"
+        android:background="@color/bg_search_edit" />
+</RelativeLayout>

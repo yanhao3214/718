@@ -102,6 +102,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".module.user.view.UserEditActivity" />
+        <activity android:name=".module.user.view.SettingActivity" />
 
         <service
             android:name=".service.PushService"

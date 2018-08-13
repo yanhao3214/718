@@ -8,8 +8,10 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.yh.jiran.R;
+import com.yh.ui.utils.DimenUtil;
 
 /**
  * @author: 闫昊
@@ -49,6 +51,7 @@ public class JrDialog extends Dialog {
         mContext = context;
         init();
     }
+
 
     private void init() {
         mView = LayoutInflater.from(mContext).inflate(R.layout.dialog_common_layout, null);
@@ -161,5 +164,8 @@ public class JrDialog extends Dialog {
     public void show() {
         config();
         super.show();
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.width = (int) (DimenUtil.getScreenWidth(mContext)*0.9);
+        getWindow().setAttributes(lp);
     }
 }
