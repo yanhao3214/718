@@ -165,7 +165,7 @@ public class JrDialog extends Dialog {
         config();
         super.show();
         WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.width = (int) (DimenUtil.getScreenWidth(mContext)*0.9);
+        lp.width = (int) (DimenUtil.getScreenWidth(mContext) * 0.9);
         getWindow().setAttributes(lp);
     }
 }

@@ -155,7 +155,6 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
                 }
             } else if (dynamic.getType().equals(DYNAMIC_OUT_TYPE_CONNATE)) {
 
-
                 switch (view.getId()) {
                     case R.id.tv_trigger:
                         toUserHome(dynamic.getTriggerId());

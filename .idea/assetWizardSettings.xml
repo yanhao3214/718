@@ -19,11 +19,11 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="height" value="17" />
-                            <entry key="outputName" value="vector_right_user_center" />
+                            <entry key="height" value="16" />
+                            <entry key="outputName" value="vector_sort_selected" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="D:\项目开发\切图\Star\星球资料-成员视角_svg\vector_more_right.svg" />
-                            <entry key="width" value="17" />
+                            <entry key="sourceFile" value="D:\项目开发\切图\Star\话题星球_svg\vector_sort_selected.svg" />
+                            <entry key="width" value="16" />
                           </map>
                         </option>
                       </PersistentState>

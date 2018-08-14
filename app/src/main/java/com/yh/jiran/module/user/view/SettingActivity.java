@@ -1,6 +1,5 @@
 package com.yh.jiran.module.user.view;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
@@ -8,7 +7,6 @@ import android.view.View;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yh.jiran.R;
-import com.yh.jiran.base.HomeActivity;
 import com.yh.jiran.base.ImmerseActivity;
 import com.yh.jiran.custom.dialog.common.JrDialog;
 import com.yh.jiran.utils.RouterMap;

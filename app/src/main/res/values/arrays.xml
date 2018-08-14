@@ -34,11 +34,10 @@
         <item>收藏</item>
     </string-array>
 
-    <!-- 星球主页 -->
+    <!-- 话题星球 -->
     <string-array name="tab_star">
-        <item>动态</item>
-        <item>星球</item>
-        <item>收藏</item>
+        <item>精华</item>
+        <item>广场</item>
     </string-array>
 
     <!-- 搜索结果 -->

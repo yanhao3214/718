@@ -103,6 +103,9 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".module.user.view.UserEditActivity" />
         <activity android:name=".module.user.view.SettingActivity" />
+        <activity android:name=".module.user.view.UserMutualActivity" />
+        <activity android:name=".module.star.view.StarInfoActivity" />
+        <activity android:name=".module.dynamic.view.DynamicTweetActivity" />
 
         <service
             android:name=".service.PushService"

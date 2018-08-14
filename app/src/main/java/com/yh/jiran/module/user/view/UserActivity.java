@@ -39,16 +39,18 @@ public class UserActivity extends ImmerseActivity {
     public static final String USER_ID = "user_id";
     public static final String USER_OTHER_VIEW = "other_view";
     public static final String USER_HAS_COLLECT = "has_collect";
+    public static final String USER_TAB = "user_tab";
+
+    private boolean mOtherView = false;
+    private boolean mHasConcern = false;
+    private int mTab = 0;
+    private BaseFragmentPagerAdapter mBaseFragmentPagerAdapter;
+    private List<BaseFragment> mFragments = new ArrayList<>(3);
+
     @BindView(R.id.tv_name)
     AppCompatTextView tvName;
     @BindView(R.id.tv_desc)
     AppCompatTextView tvDesc;
-
-    private boolean mOtherView = false;
-    private boolean mHasConcern = false;
-    private BaseFragmentPagerAdapter mBaseFragmentPagerAdapter;
-    private List<BaseFragment> mFragments = new ArrayList<>(3);
-
     @BindView(R.id.tab_user)
     TabLayout tabUser;
     @BindView(R.id.view_pager)
@@ -68,6 +70,7 @@ public class UserActivity extends ImmerseActivity {
     protected boolean initArgs(Bundle bundle) {
         mOtherView = bundle.getBoolean(USER_OTHER_VIEW, false);
         mHasConcern = bundle.getBoolean(USER_HAS_COLLECT, false);
+        mTab = bundle.getInt(USER_TAB, 0);
         return true;
     }
 
@@ -90,6 +93,7 @@ public class UserActivity extends ImmerseActivity {
         mBaseFragmentPagerAdapter = new BaseFragmentPagerAdapter(getSupportFragmentManager(), mTabs, mFragments);
         viewPager.setAdapter(mBaseFragmentPagerAdapter);
         tabUser.setupWithViewPager(viewPager);
+        viewPager.setCurrentItem(mTab);
     }
 
     @Override

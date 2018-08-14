@@ -92,6 +92,7 @@
     <string name="user_home_checking">审核中</string>
     <string name="user_open_push">开启推送</string>
     <string name="user_open_push_done">已开启推送</string>
+    <string name="user_open_push_done1">已开推送</string>
     <string name="user_edit_title">编辑个人信息</string>
     <string name="user_edit_portrait">头像</string>
     <string name="user_edit_name">用户名</string>
@@ -106,11 +107,20 @@
     <string name="user_center_invite">邀请好友</string>
     <string name="user_center_help">帮助与反馈</string>
     <string name="user_center_set">设置</string>
+    <string name="user_no_fans">暂无粉丝</string>
+    <string name="user_no_concern">暂无关注</string>
+    <string name="user_concern_done">已关注</string>
+    <string name="user_concern_mutual">互相关注</string>
 
     <!-- 设置 -->
     <string name="setting_bind_phone">绑定手机号</string>
     <string name="setting_no_phone">未绑定</string>
+    <string name="setting_bind_done">已绑定</string>
     <string name="setting_bind_wechat">绑定微信</string>
     <string name="setting_star_us">给我们打分</string>
     <string name="setting_logout">退出登录</string>
+
+    <!-- 话题星球 -->
+    <string name="topic_star_sort_default">默认排序</string>
+    <string name="topic_star_sort_new">最新发布</string>
 </resources>

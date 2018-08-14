@@ -7,6 +7,11 @@ package com.yh.jiran.utils;
  */
 public class RouterMap {
 
+    public static final String STAR_ID = "star_id";
+    public static final String USER_ID = "user_id";
+    public static final String DYNAMIC_ID = "dynamic_id";
+
+
     /**
      * 路由跳转界面（测试用）
      */
@@ -47,7 +52,7 @@ public class RouterMap {
     /**
      * 星球主页
      */
-    public static final String PATH_STAR_HOME_ACTIVITY = "/common/StarHomeActivity";
+    public static final String PATH_STAR_HOME_ACTIVITY = "/star/StarHomeActivity";
 
     /**
      * 登录界面
@@ -77,20 +82,35 @@ public class RouterMap {
     /**
      * 动态详情页
      */
-    public static final String PATH_DYNAMIC_DETAIL_ACTIVITY = "/common/DynamicDetailActivity";
+    public static final String PATH_DYNAMIC_DETAIL_ACTIVITY = "/dynamic/DynamicDetailActivity";
 
     /**
      * 个人主页
      */
-    public static final String PATH_USER_HOME_ACTIVITY = "/common/UserActivity";
+    public static final String PATH_USER_HOME_ACTIVITY = "/user/UserActivity";
 
     /**
      * 个人信息编辑页
      */
-    public static final String PATH_USER_EDIT_ACTIVITY = "/common/UserEditActivity";
+    public static final String PATH_USER_EDIT_ACTIVITY = "/user/UserEditActivity";
 
     /**
      * 设置页面
      */
     public static final String PATH_SETTING_ACTIVITY = "/common/SettingActivity";
+
+    /**
+     * 粉丝或者关注列表
+     */
+    public static final String PATH_USER_MUTUAL_ACTIVITY = "/user/UserMutualActivity";
+
+    /**
+     * 星球资料页
+     */
+    public static final String PATH_STAR_INFO_ACTIVITY = "/star/StarInfoActivity";
+
+    /**
+     * 发布动态页
+     */
+    public static final String PATH_DYNAMIC_TWEET_ACTIVITY = "/dynamic/DynamicTweetActivity";
 }

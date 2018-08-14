@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/head_grey"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/bg_home_discover" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_author"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/xxx2" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_name"
+            android:layout_width="213dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/iv_author"
+            android:gravity="center_vertical"
+            android:text="肉王说币"
+            android:textColor="@color/textDark1"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_time"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_name"
+            android:layout_below="@+id/tv_name"
+            android:text="10分钟前"
+            android:textColor="@color/colorGrey3"
+            android:textSize="@dimen/sp_12" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_join"
+            android:layout_width="70dp"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="21dp"
+            android:background="@drawable/bg_discover_join_normal"
+            android:text="@string/dynamic_join_star"
+            android:textColor="@color/text_blue"
+            android:textSize="@dimen/sp_14"
+            android:visibility="gone" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_more"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/vector_dynamic_more" />
+
+        <com.yh.jiran.custom.text.AllTextView
+            android:id="@+id/tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_author"
+            android:layout_margin="15dp"
+            android:maxLines="6"
+            android:text="@string/dynamic_text_test"
+            android:textColor="@color/textDark1"
+            android:textSize="@dimen/sp_16" />
+
+        <LinearLayout
+            android:id="@+id/layout_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_text"
+            android:layout_marginTop="-16dp"
+            android:orientation="vertical">
+
+            <com.jaeger.ninegridimageview.NineGridImageView
+                android:id="@+id/iv_nine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="9dp"
+                android:visibility="gone"
+                app:imgGap="7dp"
+                app:showStyle="grid"
+                app:singleImgSize="160dp" />
+
+            <LinearLayout
+                android:id="@+id/layout_link"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="9dp"
+                android:background="@color/bg_white_pressed"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_link"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/xxx2" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@string/dynamic_text_test"
+                    android:textColor="@color/colorGrey1"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/layout_up"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/colorGrey4" />
+
+        <LinearLayout
+            android:id="@+id/layout_operation"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/layout_up"
+            android:layout_marginTop="11dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_like"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/vector_dynamic_like_normal"
+                android:drawablePadding="-33dp"
+                android:gravity="center"
+                android:paddingLeft="30dp"
+                android:text="@string/dynamic_like" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_comment"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/vector_dynamic_comment"
+                android:drawablePadding="-33dp"
+                android:gravity="center"
+                android:paddingLeft="30dp"
+                android:text="@string/dynamic_comment" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_share"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/vector_dynamic_share_normal"
+                android:drawablePadding="-33dp"
+                android:gravity="center"
+                android:paddingLeft="30dp"
+                android:text="@string/dynamic_share" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

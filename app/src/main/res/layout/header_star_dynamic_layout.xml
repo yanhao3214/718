@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_num"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_40"
+        android:layout_weight="1"
+        android:background="@color/bg_search_edit"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp_15"
+        android:text="123条动态"
+        android:textColor="@color/colorGrey2"
+        android:textSize="12sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_sort"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_40"
+        android:background="@color/bg_search_edit"
+        android:drawablePadding="@dimen/dp_4"
+        android:drawableRight="@drawable/vector_star_sort_down"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="16dp"
+        android:text="@string/topic_star_sort_default"
+        android:textColor="@color/colorGrey2"
+        android:textSize="13sp" />
+
+</LinearLayout>

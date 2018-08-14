@@ -3,6 +3,7 @@ package com.yh.jiran.module.user.view.adapter;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatTextView;
+import android.util.Log;
 
 import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -38,6 +39,8 @@ public class UserStarsAdapter extends BaseQuickAdapter<UserStar, BaseViewHolder>
 
     @Override
     protected void convert(BaseViewHolder helper, UserStar item) {
+        Log.d("jrdd", "item==" + item.toString());
+
         helper.setText(R.id.tv_name, item.getStarName())
                 .setText(R.id.tv_desc, item.getStarDesc())
                 .setText(R.id.tv_elite, "精华" + NumberUtil.parseToK(item.getEliteDynamic()))

@@ -97,7 +97,7 @@
             android:drawableRight="@drawable/vector_right_user_center"
             android:gravity="center_vertical|right"
             android:paddingRight="20dp"
-            android:text="@string/setting_no_phone"
+            android:text="@string/setting_bind_done"
             android:textColor="@color/colorGrey2"
             android:textSize="@dimen/sp_14" />
     </LinearLayout>
