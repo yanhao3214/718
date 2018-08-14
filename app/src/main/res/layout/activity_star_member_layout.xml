@@ -7,37 +7,62 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/statusBarSize"
-        android:background="@color/white" />
+        android:layout_height="@dimen/statusBarSize" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="43dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-        <com.yh.jiran.custom.search.YSearchEdit
-            android:id="@+id/edt_search"
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_search_edit"
-            android:drawablePadding="7dp"
-            android:hint="@string/home_mine_search"
-            android:imeOptions="actionSearch"
-            android:singleLine="true"
-            android:textColor="@color/colorChosen"
-            android:textSize="12sp"
-            custom:clear_icon="@drawable/vector_search_input_clear" />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_cancel"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="@dimen/dp_10"
+            custom:srcCompat="@drawable/vector_user_back_black" />
 
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tv_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:text="@string/home_cancel" />
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/user_edit_title"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
 
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_submit"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="@string/common_submit"
+            android:textColor="@color/text_blue"
+            android:textSize="@dimen/sp_16" />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGrey4" />
+
+    <com.yh.jiran.custom.search.YSearchEdit
+        android:id="@+id/edt_search"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/bg_search_edit"
+        android:drawablePadding="7dp"
+        android:hint="@string/home_mine_search"
+        android:imeOptions="actionSearch"
+        android:singleLine="true"
+        android:textColor="@color/colorChosen"
+        android:textSize="12sp"
+        custom:clear_icon="@drawable/vector_search_input_clear" />
 
 
     <android.support.v4.widget.NestedScrollView

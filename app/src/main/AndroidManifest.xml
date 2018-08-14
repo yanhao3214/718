@@ -106,6 +106,7 @@
         <activity android:name=".module.user.view.UserMutualActivity" />
         <activity android:name=".module.star.view.StarInfoActivity" />
         <activity android:name=".module.dynamic.view.DynamicTweetActivity" />
+        <activity android:name=".module.star.view.StarEditActivity" />
 
         <service
             android:name=".service.PushService"

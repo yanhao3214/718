@@ -4,7 +4,7 @@
     <!--基础主色-->
     <color name="colorChosen">#006AFF</color>
     <color name="colorGrey">#FFA4A4A4</color>
-    <color name="colorBlack">#333333</color>
+    <color name="colorBlack">#FF333333</color>
     <color name="colorRed1">#FF5B49</color>
     <color name="colorRed2">#FFFD3030</color>
     <color name="color_orange">#FFFF6048</color>

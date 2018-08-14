@@ -110,6 +110,11 @@ public class RouterMap {
     public static final String PATH_STAR_INFO_ACTIVITY = "/star/StarInfoActivity";
 
     /**
+     * 星球编辑页
+     */
+    public static final String PATH_STAR_EDIT_ACTIVITY = "/star/StarEditActivity";
+
+    /**
      * 发布动态页
      */
     public static final String PATH_DYNAMIC_TWEET_ACTIVITY = "/dynamic/DynamicTweetActivity";

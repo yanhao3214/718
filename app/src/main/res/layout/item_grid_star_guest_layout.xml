@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="54dp"
+    android:layout_height="61dp"
+    android:orientation="vertical">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_image"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/xxx1" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:layout_marginTop="9dp"
+        android:gravity="center"
+        android:text="嘉宾名字"
+        android:textColor="@color/colorGrey1"
+        android:textSize="11sp" />
+
+</LinearLayout>
