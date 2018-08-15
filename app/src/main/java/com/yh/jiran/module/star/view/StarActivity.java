@@ -1,4 +1,4 @@
-package com.yh.jiran.module.home.view;
+package com.yh.jiran.module.star.view;
 
 import android.content.DialogInterface;
 import android.support.design.widget.TabLayout;

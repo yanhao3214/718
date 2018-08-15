@@ -29,7 +29,7 @@
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/user_edit_title"
+            android:text="@string/topic_star_member"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
 
@@ -39,9 +39,9 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:gravity="center"
-            android:text="@string/common_submit"
             android:textColor="@color/text_blue"
-            android:textSize="@dimen/sp_16" />
+            android:textSize="@dimen/sp_16"
+            android:visibility="invisible" />
     </LinearLayout>
 
     <View
@@ -55,9 +55,10 @@
         android:layout_height="30dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
+        android:layout_marginTop="6dp"
         android:background="@drawable/bg_search_edit"
         android:drawablePadding="7dp"
-        android:hint="@string/home_mine_search"
+        android:hint="@string/topic_star_search_member"
         android:imeOptions="actionSearch"
         android:singleLine="true"
         android:textColor="@color/colorChosen"
@@ -68,69 +69,49 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="6dp">
+        android:layout_marginTop="8dp">
 
         <LinearLayout
-            android:id="@+id/layout_stars"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tv_title_mine"
+                android:id="@+id/tv_host"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorGrey4"
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"
-                android:text="@string/home_mine_star"
+                android:text="@string/topic_star_host_guest"
                 android:textSize="10sp" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/list_mine"
+                android:id="@+id/recycler_host"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="15dp" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tv_title_recent"
+                android:id="@+id/tv_member"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorGrey4"
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"
-                android:text="@string/home_recent_star"
+                android:text="@string/topic_star_list_member"
                 android:textSize="10sp" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/list_recent"
+                android:id="@+id/recycler_member"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp" />
-
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tv_title_hot"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorGrey4"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="5dp"
-                android:text="@string/home_hot_star"
-                android:textSize="10sp" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/list_hot"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="15dp" />
 
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
-
 
 </LinearLayout>

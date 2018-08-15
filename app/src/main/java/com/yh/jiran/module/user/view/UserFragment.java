@@ -13,8 +13,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.yh.core.app.BaseFragment;
 import com.yh.jiran.R;
 import com.yh.jiran.custom.dialog.share.ShareDialog;
-import com.yh.jiran.module.home.view.StarActivity;
-import com.yh.jiran.module.user.view.adapter.UserMutualAdapter;
 import com.yh.jiran.utils.Consts;
 import com.yh.jiran.utils.RouterMap;
 

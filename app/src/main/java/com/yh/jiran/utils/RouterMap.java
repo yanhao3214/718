@@ -118,4 +118,14 @@ public class RouterMap {
      * 发布动态页
      */
     public static final String PATH_DYNAMIC_TWEET_ACTIVITY = "/dynamic/DynamicTweetActivity";
+
+    /**
+     * 星球资料-星球成员页
+     */
+    public static final String PATH_STAR_MEMBERS_ACTIVITY = "/star/StarMembersActivity";
+
+    /**
+     * 星球资料-禁言名单页
+     */
+    public static final String PATH_STAR_MUTES_ACTIVITY = "/star/StarMutesActivity";
 }

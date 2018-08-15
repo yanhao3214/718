@@ -1,4 +1,4 @@
-package com.yh.jiran.custom.dialog.callback;
+package com.yh.jiran.custom.dialog.dynamic.callback;
 
 /**
  * @author: 闫昊

@@ -60,6 +60,7 @@
     <string name="dialog_to_wechat_moments">朋友圈</string>
     <string name="dialog_copy_link">复制链接</string>
     <string name="dialog_make_photo">生成图片</string>
+    <string name="dialog_remove_guest">移除嘉宾</string>
 
     <!-- 动态列表 -->
     <string name="dynamic_join_star">加入星球</string>
@@ -136,5 +137,13 @@
     <string name="topic_star_checking">我们将对你的星球进行审核。审核期间，星球不能被搜索到，你仍然可以在星球内发布动态、邀请成员。</string>
     <string name="topic_star_name_hint">请输入星球名称，10字以内</string>
     <string name="topic_star_desc_hint">请输入星球介绍，80字以内</string>
+    <string name="topic_star_host_guest">主理人、嘉宾</string>
+    <string name="topic_star_list_member">成员</string>
+    <string name="topic_star_search_member">搜索星球成员</string>
+    <string name="topic_star_mute_surplus_3">禁言剩余3天</string>
+    <string name="topic_star_status_host">主理人</string>
+    <string name="topic_star_status_guest">嘉宾</string>
+    <string name="topic_star_relieve_mute">解禁</string>
+    <string name="topic_star_mute_none">暂无禁言成员</string>
 
 </resources>

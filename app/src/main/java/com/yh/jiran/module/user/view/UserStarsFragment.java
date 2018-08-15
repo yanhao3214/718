@@ -16,7 +16,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.yh.core.app.BaseFragment;
 import com.yh.jiran.R;
-import com.yh.jiran.module.home.view.StarActivity;
+import com.yh.jiran.module.star.view.StarActivity;
 import com.yh.jiran.module.user.model.entity.UserStar;
 import com.yh.jiran.module.user.view.adapter.UserStarsAdapter;
 import com.yh.jiran.utils.Consts;

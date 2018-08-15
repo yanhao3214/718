@@ -26,15 +26,14 @@ import com.yh.core.app.BaseFragment;
 import com.yh.core.utils.NumberUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.base.WebViewActivity;
-import com.yh.jiran.custom.dialog.callback.CommonCallback;
-import com.yh.jiran.custom.dialog.callback.MuteCallback;
+import com.yh.jiran.custom.dialog.dynamic.callback.CommonCallback;
+import com.yh.jiran.custom.dialog.dynamic.callback.MuteCallback;
 import com.yh.jiran.custom.dialog.common.JrDialog;
-import com.yh.jiran.custom.dialog.host.HostDialog;
+import com.yh.jiran.custom.dialog.dynamic.HostDialog;
 import com.yh.jiran.custom.dialog.share.ShareDialog;
 import com.yh.jiran.module.dynamic.model.entity.DynamicOut;
 import com.yh.jiran.module.dynamic.view.DynamicConcernFragment;
 import com.yh.jiran.module.dynamic.view.DynamicDetailActivity;
-import com.yh.jiran.module.home.view.StarActivity;
 import com.yh.jiran.module.star.view.adapter.DynamicInAdapter;
 import com.yh.jiran.module.user.view.UserActivity;
 import com.yh.jiran.utils.Consts;
@@ -107,13 +106,14 @@ public class DynamicInFragment extends BaseFragment implements View.OnClickListe
 //        View grey = mAdapter.getViewByPosition(recyclerView, 1, R.id.head_grey);
 //        grey.setVisibility(View.GONE);
         tvNum.setText(mDatas.size() + "条动态");
+        tvSort.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_sort:
-
+                pop();
                 break;
             case R.id.rb_default:
                 sortDefault = true;
@@ -147,9 +147,11 @@ public class DynamicInFragment extends BaseFragment implements View.OnClickListe
                     break;
                 case R.id.btn_join:
                     AppCompatButton btnJoin =
-                            (AppCompatButton) adapter.getViewByPosition(position, R.id.btn_join);
+                            (AppCompatButton) adapter.getViewByPosition(position + 1, R.id.btn_join);
                     AppCompatButton btnMore =
-                            (AppCompatButton) adapter.getViewByPosition(position, R.id.btn_more);
+                            (AppCompatButton) adapter.getViewByPosition(position + 1, R.id.btn_more);
+                    // TODO: 2018/8/15 空指针异常？？？
+
                     btnJoin.setVisibility(View.GONE);
                     btnMore.setVisibility(View.VISIBLE);
                     // TODO: 2018/8/7 发送加入星球消息
@@ -171,12 +173,12 @@ public class DynamicInFragment extends BaseFragment implements View.OnClickListe
                     break;
                 case R.id.tv_like:
                     AppCompatTextView tvLike =
-                            (AppCompatTextView) adapter.getViewByPosition(position, R.id.tv_like);
+                            (AppCompatTextView) adapter.getViewByPosition(position + 1, R.id.tv_like);
                     onLike(dynamic, tvLike);
                     break;
                 case R.id.tv_comment:
                     AppCompatTextView tvComment =
-                            (AppCompatTextView) adapter.getViewByPosition(position, R.id.tv_comment);
+                            (AppCompatTextView) adapter.getViewByPosition(position + 1, R.id.tv_comment);
                     onComment(dynamic, tvComment);
                     break;
                 case R.id.tv_share:
@@ -185,21 +187,17 @@ public class DynamicInFragment extends BaseFragment implements View.OnClickListe
                 default:
                     break;
             }
-        } else if (dynamic.getType().equals(DynamicConcernFragment.DYNAMIC_OUT_TYPE_CONNATE)) {
-
+        } else {
             switch (view.getId()) {
-                case R.id.tv_trigger:
-                    toUserHome(dynamic.getTriggerId());
-                    break;
+                case R.id.iv_author:
                 case R.id.tv_name:
-                case R.id.iv_star:
-                    toStarHome(dynamic.getStarId());
+                    toUserHome(dynamic.getAuthorId());
                     break;
                 case R.id.btn_join:
                     AppCompatButton btnJoin =
-                            (AppCompatButton) adapter.getViewByPosition(position, R.id.btn_join);
+                            (AppCompatButton) adapter.getViewByPosition(position + 1, R.id.btn_join);
                     AppCompatButton btnMore =
-                            (AppCompatButton) adapter.getViewByPosition(position, R.id.btn_more);
+                            (AppCompatButton) adapter.getViewByPosition(position + 1, R.id.btn_more);
                     btnJoin.setVisibility(View.GONE);
                     btnMore.setVisibility(View.VISIBLE);
                     // TODO: 2018/8/7 发送加入星球消息
@@ -210,21 +208,23 @@ public class DynamicInFragment extends BaseFragment implements View.OnClickListe
                 case R.id.tv_text:
                     toDynamicHome(dynamic.getDynamicId());
                     break;
+                case R.id.tv_origin_star:
+                    toStarHome(dynamic.getsStarId());
+                    break;
+                case R.id.tv_source_text:
+                    toDynamicHome(dynamic.getsDynamicId());
+                    break;
                 case R.id.layout_link:
                     toLink(dynamic.getLinkUrl(), dynamic.getLinkTitle());
                     break;
-                case R.id.iv_author:
-                case R.id.tv_author:
-                    toUserHome(dynamic.getAuthorId());
-                    break;
                 case R.id.tv_like:
                     AppCompatTextView tvLike =
-                            (AppCompatTextView) adapter.getViewByPosition(position, R.id.tv_like);
+                            (AppCompatTextView) adapter.getViewByPosition(position + 1, R.id.tv_like);
                     onLike(dynamic, tvLike);
                     break;
                 case R.id.tv_comment:
                     AppCompatTextView tvComment =
-                            (AppCompatTextView) adapter.getViewByPosition(position, R.id.tv_comment);
+                            (AppCompatTextView) adapter.getViewByPosition(position + 1, R.id.tv_comment);
                     onComment(dynamic, tvComment);
                     break;
                 case R.id.tv_share:

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_remove_guest"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_white_button_selector"
+        android:gravity="center"
+        android:text="@string/dialog_remove_guest"
+        android:textColor="@color/status_guest"
+        android:textSize="@dimen/sp_16" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGrey4" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_mute_3"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_white_button_selector"
+        android:gravity="center"
+        android:text="@string/dynamic_mute_3"
+        android:textColor="@color/status_guest"
+        android:textSize="@dimen/sp_16" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGrey4" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_mute_forever"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_white_button_selector"
+        android:gravity="center"
+        android:text="@string/dynamic_mute_forever"
+        android:textColor="@color/textDark2"
+        android:textSize="@dimen/sp_16" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGrey4" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_relieve_mute"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_white_button_selector"
+        android:gravity="center"
+        android:text="@string/dynamic_mute_cancel"
+        android:textColor="@color/status_guest"
+        android:textSize="@dimen/sp_16" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/bg_white_button_selector"
+        android:gravity="center"
+        android:text="@string/common_cancel"
+        android:textColor="@color/textDark2"
+        android:textSize="@dimen/sp_16" />
+
+</LinearLayout>

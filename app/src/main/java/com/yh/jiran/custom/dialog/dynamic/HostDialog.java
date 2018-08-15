@@ -1,4 +1,4 @@
-package com.yh.jiran.custom.dialog.host;
+package com.yh.jiran.custom.dialog.dynamic;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,11 +11,11 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.yh.jiran.R;
-import com.yh.jiran.custom.dialog.callback.CommonCallback;
-import com.yh.jiran.custom.dialog.callback.ConcernCallback;
-import com.yh.jiran.custom.dialog.callback.EliteCallback;
-import com.yh.jiran.custom.dialog.callback.MuteCallback;
-import com.yh.jiran.custom.dialog.callback.MuteType;
+import com.yh.jiran.custom.dialog.dynamic.callback.CommonCallback;
+import com.yh.jiran.custom.dialog.dynamic.callback.ConcernCallback;
+import com.yh.jiran.custom.dialog.dynamic.callback.EliteCallback;
+import com.yh.jiran.custom.dialog.dynamic.callback.MuteCallback;
+import com.yh.jiran.custom.dialog.dynamic.callback.MuteType;
 import com.yh.ui.utils.DimenUtil;
 
 /**

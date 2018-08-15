@@ -59,6 +59,11 @@ public class DynamicInAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHolde
         mSelfCollect = selfCollect;
     }
 
+    @Override
+    public int getItemCount() {
+        return mData.size() + getHeaderLayoutCount();
+    }
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void convert(BaseViewHolder helper, DynamicOut item) {

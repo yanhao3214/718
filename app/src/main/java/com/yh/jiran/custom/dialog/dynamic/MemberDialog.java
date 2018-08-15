@@ -1,4 +1,4 @@
-package com.yh.jiran.custom.dialog.member;
+package com.yh.jiran.custom.dialog.dynamic;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.yh.jiran.R;
-import com.yh.jiran.custom.dialog.callback.CommonCallback;
+import com.yh.jiran.custom.dialog.dynamic.callback.CommonCallback;
 import com.yh.ui.utils.DimenUtil;
 
 /**

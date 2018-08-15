@@ -24,7 +24,7 @@
         <activity android:name=".base.MainActivity" />
         <activity android:name=".module.courier.view.CourierActivity" />
         <activity android:name=".base.RouterActivity" />
-        <activity android:name=".module.home.view.StarActivity" />
+        <activity android:name=".module.star.view.StarActivity" />
         <activity android:name=".module.test.view.TestActivity" />
         <activity android:name=".module.test.view.UrlReceiveActivity1" />
         <activity android:name=".module.wallet.view.WalletActivity" />
@@ -107,6 +107,8 @@
         <activity android:name=".module.star.view.StarInfoActivity" />
         <activity android:name=".module.dynamic.view.DynamicTweetActivity" />
         <activity android:name=".module.star.view.StarEditActivity" />
+        <activity android:name=".module.star.view.StarMembersActivity" />
+        <activity android:name=".module.star.view.StarMutesActivity" />
 
         <service
             android:name=".service.PushService"

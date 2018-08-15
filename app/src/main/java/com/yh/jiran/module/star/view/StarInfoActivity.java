@@ -111,7 +111,8 @@ public class StarInfoActivity extends ImmerseActivity {
                 .navigation());
     }
 
-    @OnClick({R.id.iv_back, R.id.tv_edit, R.id.tv_share, R.id.tv_join, R.id.layout_member, R.id.layout_mute, R.id.layout_invite})
+    @OnClick({R.id.iv_back, R.id.tv_edit, R.id.tv_share, R.id.tv_join, R.id.layout_member,
+            R.id.layout_mute, R.id.layout_invite, R.id.tv_out})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -130,10 +131,22 @@ public class StarInfoActivity extends ImmerseActivity {
                 tvJoin.setVisibility(View.GONE);
                 break;
             case R.id.layout_member:
+                ARouter.getInstance()
+                        .build(RouterMap.PATH_STAR_MEMBERS_ACTIVITY)
+                        .withBoolean(StarMembersActivity.STAR_MEMBER_VIEW, true)
+                        .navigation();
                 break;
             case R.id.layout_mute:
+                ARouter.getInstance()
+                        .build(RouterMap.PATH_STAR_MUTES_ACTIVITY)
+                        .navigation();
                 break;
             case R.id.layout_invite:
+                new ShareDialog(this, false)
+                        .setTitle("邀请你加入星球")
+                        .setText("星球名称+星球介绍")
+                        .setImgUrl(Consts.BING_PIC7)
+                        .show();
                 break;
             case R.id.tv_out:
                 String starName = "比特大陆";

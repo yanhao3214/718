@@ -20,6 +20,7 @@ import com.yh.jiran.module.home.HomeDiscoverContract;
 import com.yh.jiran.module.home.model.entity.HotStar;
 import com.yh.jiran.module.home.presenter.HomeDiscoverPresenter;
 import com.yh.jiran.module.home.view.adapter.DiscoverStarQuickAdapter;
+import com.yh.jiran.module.star.view.StarActivity;
 import com.yh.jiran.utils.RouterMap;
 
 import java.util.ArrayList;
