@@ -14,5 +14,6 @@ public class Consts {
     public static final String BING_PIC5 = "http://cn.bing.com/az/hprichbg/rb/BulgariaPerseids_ZH-CN11638911564_1920x1080.jpg";
     public static final String BING_PIC6 = "http://cn.bing.com/az/hprichbg/rb/GrevysZebra_ZH-CN8656523429_1920x1080.jpg";
     public static final String BING_PIC7 = "http://cn.bing.com/az/hprichbg/rb/OtterChillin_ZH-CN11488013572_1920x1080.jpg";
+    public static final String BING_PIC8 = "http://cn.bing.com/az/hprichbg/rb/Altschlossfelsen_ROW14949645878_1920x1080.jpg";
     public static final String GUOLIN_PIC = "http://guolin.tech/api/bing_pic";
 }

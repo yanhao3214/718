@@ -22,7 +22,7 @@ import com.yh.jiran.custom.text.AllTextView;
 import com.yh.jiran.custom.text.FilterClickMovementMethod;
 import com.yh.jiran.custom.text.InnerURLSpan;
 import com.yh.jiran.module.dynamic.model.entity.DynamicOut;
-import com.yh.jiran.module.dynamic.view.DynamicDetailActivity;
+import com.yh.jiran.module.dynamic.view.DynamicForwardActivity;
 import com.yh.jiran.module.dynamic.view.adapter.NineImageAdapter;
 import com.yh.jiran.utils.RouterMap;
 import com.yh.jiran.utils.image.GlideLoader;
@@ -96,7 +96,7 @@ public class DynamicInAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHolde
                  * 设置正文：1.“全文”跳转；2.超链接 跳转
                  */
                 AllTextView tvText = helper.getView(R.id.tv_text);
-                handleText(tvText, item.getText(), item.getDynamicId());
+                handleText(tvText, item.getText(), item);
 
                 /**
                  * 设置九宫格图片
@@ -155,7 +155,7 @@ public class DynamicInAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHolde
                  * 设置正文：1.“全文”跳转；2.超链接 跳转
                  */
                 AllTextView tvDynamic = helper.getView(R.id.tv_text);
-                handleText(tvDynamic, item.getText(), item.getDynamicId());
+                handleText(tvDynamic, item.getText(), item);
 
                 /**
                  * 原动态是否已删除
@@ -172,7 +172,7 @@ public class DynamicInAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHolde
                      * 设置转发正文：1.“全文”跳转；2.超链接 跳转
                      */
                     AllTextView tvSource = helper.getView(R.id.tv_source_text);
-                    handleText(tvSource, item.getsText(), item.getsDynamicId());
+                    handleText(tvSource, item.getsText(), item);
 
                     /**
                      * 设置转发：九宫格图片
@@ -212,7 +212,7 @@ public class DynamicInAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHolde
      * 设置正文：1.“全文”跳转；2.超链接 跳转
      */
     @SuppressLint("ClickableViewAccessibility")
-    private void handleText(AllTextView textView, String raw, String dynamicId) {
+    private void handleText(AllTextView textView, String raw, DynamicOut dynamic) {
         List<String> urls = new ArrayList<>();
         String text = UrlUtil.handleURLinString(raw, urls);
         SpannableString ss = new SpannableString(text);
@@ -229,8 +229,9 @@ public class DynamicInAdapter extends BaseQuickAdapter<DynamicOut, BaseViewHolde
         textView.setMaxShowLines(6);
         textView.setMyText(textView.getText());
         textView.setOnAllSpanClickListener(widget -> ARouter.getInstance()
-                .build(RouterMap.PATH_DYNAMIC_DETAIL_ACTIVITY)
-                .withString(DynamicDetailActivity.DYNAMIC_ID, dynamicId)
+                .build(dynamic.getType().equals("1") ? RouterMap.PATH_DYNAMIC_CONNATE_ACTIVITY
+                        : RouterMap.PATH_DYNAMIC_FORWARD_ACTIVITY)
+                .withString(DynamicForwardActivity.DYNAMIC_ID, dynamic.getDynamicId())
                 .navigation());
     }
 }

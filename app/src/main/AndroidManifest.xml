@@ -32,7 +32,7 @@
         <activity android:name=".module.login.view.RecStarActivity" />
         <activity android:name=".base.WebViewActivity" />
         <activity android:name=".module.common.PhotoViewActivity" />
-        <activity android:name=".module.dynamic.view.DynamicDetailActivity" />
+        <activity android:name=".module.dynamic.view.DynamicForwardActivity" />
         <activity android:name=".module.user.view.UserTestActivity">
 
         </activity>
@@ -109,6 +109,7 @@
         <activity android:name=".module.star.view.StarEditActivity" />
         <activity android:name=".module.star.view.StarMembersActivity" />
         <activity android:name=".module.star.view.StarMutesActivity" />
+        <activity android:name=".module.dynamic.view.DynamicConnateActivity" />
 
         <service
             android:name=".service.PushService"

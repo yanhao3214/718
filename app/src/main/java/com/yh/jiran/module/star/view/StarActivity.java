@@ -1,6 +1,5 @@
 package com.yh.jiran.module.star.view;
 
-import android.content.DialogInterface;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.AppCompatImageView;
@@ -18,7 +17,6 @@ import com.yh.jiran.custom.dialog.share.ShareDialog;
 import com.yh.jiran.module.home.HomeMineContract;
 import com.yh.jiran.module.home.model.entity.HomeStar;
 import com.yh.jiran.module.home.view.adapter.BaseFragmentPagerAdapter;
-import com.yh.jiran.module.star.view.DynamicInFragment;
 import com.yh.jiran.utils.Consts;
 import com.yh.jiran.utils.RouterMap;
 import com.yh.jiran.utils.image.GlideLoader;

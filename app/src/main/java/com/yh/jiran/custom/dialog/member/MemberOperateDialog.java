@@ -29,7 +29,7 @@ public class MemberOperateDialog extends Dialog implements View.OnClickListener 
      * Data
      */
     private MemberOperationType mType;
-    private RemoveClickListener mRemoveistener;
+    private RemoveClickListener mRemoveListener;
     private MuteClickListener mMuteListener;
     private MuteRelieveClickListener mRelieveListener;
 
@@ -98,7 +98,7 @@ public class MemberOperateDialog extends Dialog implements View.OnClickListener 
     }
 
     public MemberOperateDialog removeGuest(RemoveClickListener removeClickListener) {
-        mRemoveistener = removeClickListener;
+        mRemoveListener = removeClickListener;
         return this;
     }
 
@@ -116,7 +116,7 @@ public class MemberOperateDialog extends Dialog implements View.OnClickListener 
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_remove_guest:
-                mRemoveistener.remove(this);
+                mRemoveListener.remove(this);
                 break;
             case R.id.tv_mute_3:
                 mMuteListener.temp(this);

@@ -80,9 +80,14 @@ public class RouterMap {
     public static final String PATH_PHOTO_VIEW_ACTIVITY = "/common/PhotoViewActivity";
 
     /**
-     * 动态详情页
+     * 动态详情页-原创
      */
-    public static final String PATH_DYNAMIC_DETAIL_ACTIVITY = "/dynamic/DynamicDetailActivity";
+    public static final String PATH_DYNAMIC_CONNATE_ACTIVITY = "/dynamic/DynamicConnateActivity";
+
+    /**
+     * 动态详情页-原创
+     */
+    public static final String PATH_DYNAMIC_FORWARD_ACTIVITY = "/dynamic/DynamicForwardActivity";
 
     /**
      * 个人主页

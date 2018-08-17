@@ -55,6 +55,21 @@ public class DynamicOut {
     private boolean hasCollect;
 
     /**
+     * 是否被我收藏
+     */
+    private boolean myCollection;
+
+    /**
+     * 我在这条动态所属星球的身份
+     */
+    private String myStatus;
+
+    /**
+     * 我是否关注了动态作者
+     */
+    private boolean concernAuthor;
+
+    /**
      * 动态类型（1:自建 2转发）
      */
     public String type;
@@ -152,6 +167,30 @@ public class DynamicOut {
     private String sLinkTitle;
     private String sVisibleRange;
     private boolean sHasDelete;
+
+    public String getMyStatus() {
+        return myStatus;
+    }
+
+    public void setMyStatus(String myStatus) {
+        this.myStatus = myStatus;
+    }
+
+    public boolean isMyCollection() {
+        return myCollection;
+    }
+
+    public void setMyCollection(boolean myCollection) {
+        this.myCollection = myCollection;
+    }
+
+    public boolean isConcernAuthor() {
+        return concernAuthor;
+    }
+
+    public void setConcernAuthor(boolean concernAuthor) {
+        this.concernAuthor = concernAuthor;
+    }
 
     public boolean isHasCollect() {
         return hasCollect;

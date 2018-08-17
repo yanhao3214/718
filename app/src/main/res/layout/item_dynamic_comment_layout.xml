@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_reviewer"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:scaleType="centerCrop"
+            android:src="@drawable/xxx2" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="11dp"
+            android:layout_toLeftOf="@+id/tv_like_num"
+            android:layout_toRightOf="@+id/iv_reviewer"
+            android:text="肉王说币"
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="14dp"
+            android:layout_alignLeft="@+id/tv_name"
+            android:layout_below="@+id/tv_name"
+            android:text="10分钟前"
+            android:textColor="@color/colorGrey"
+            android:textSize="11sp" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_like"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="9dp"
+            app:srcCompat="@drawable/vector_comment_like_normal" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_like_num"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_alignTop="@+id/iv_like"
+            android:layout_toLeftOf="@+id/iv_like"
+            android:gravity="center_vertical"
+            android:text="12.2K"
+            android:textColor="@color/colorGrey2"
+            android:textSize="@dimen/sp_12" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_comment_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="57dp"
+        android:layout_marginRight="@dimen/dp_15"
+        android:lineSpacingExtra="8dp"
+        android:text="机打发票王鹏飞机为配偶服务【今晚【法规及可千万【我GV【是多胡搜文峰"
+        android:textColor="@color/colorBlack"
+        android:textSize="15sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_source_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="57dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginTop="6dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="7dp"
+        android:paddingLeft="@dimen/dp_10"
+        android:text="@string/dynamic_text_test"
+        android:textColor="@color/colorGrey1"
+        android:textSize="15sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_source_deleted"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_marginLeft="57dp"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginTop="6dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp_10"
+        android:text="@string/dynamic_comment_deleted"
+        android:textColor="@color/colorGrey2"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="57dp"
+            android:gravity="center_vertical"
+            android:text="@string/dynamic_comment_reply"
+            android:textColor="@color/text_blue"
+            android:textSize="15sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="28dp"
+            android:gravity="center_vertical"
+            android:text="@string/dynamic_comment_delete"
+            android:textColor="@color/colorGrey2"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorGrey4" />
+</LinearLayout>

@@ -33,7 +33,7 @@ import com.yh.jiran.custom.dialog.dynamic.HostDialog;
 import com.yh.jiran.custom.dialog.share.ShareDialog;
 import com.yh.jiran.module.dynamic.model.entity.DynamicOut;
 import com.yh.jiran.module.dynamic.view.DynamicConcernFragment;
-import com.yh.jiran.module.dynamic.view.DynamicDetailActivity;
+import com.yh.jiran.module.dynamic.view.DynamicForwardActivity;
 import com.yh.jiran.module.star.view.adapter.DynamicInAdapter;
 import com.yh.jiran.module.user.view.UserActivity;
 import com.yh.jiran.utils.Consts;
@@ -160,13 +160,13 @@ public class DynamicInFragment extends BaseFragment implements View.OnClickListe
                     perform();
                     break;
                 case R.id.tv_text:
-                    toDynamicHome(dynamic.getDynamicId());
+                    toDynamicHome(dynamic);
                     break;
                 case R.id.tv_origin_star:
                     toStarHome(dynamic.getsStarId());
                     break;
                 case R.id.tv_source_text:
-                    toDynamicHome(dynamic.getsDynamicId());
+                    toDynamicHome(dynamic);
                     break;
                 case R.id.layout_link:
                     toLink(dynamic.getsLinkUrl(), dynamic.getsLinkTitle());
@@ -206,13 +206,13 @@ public class DynamicInFragment extends BaseFragment implements View.OnClickListe
                     perform();
                     break;
                 case R.id.tv_text:
-                    toDynamicHome(dynamic.getDynamicId());
+                    toDynamicHome(dynamic);
                     break;
                 case R.id.tv_origin_star:
                     toStarHome(dynamic.getsStarId());
                     break;
                 case R.id.tv_source_text:
-                    toDynamicHome(dynamic.getsDynamicId());
+                    toDynamicHome(dynamic);
                     break;
                 case R.id.layout_link:
                     toLink(dynamic.getLinkUrl(), dynamic.getLinkTitle());
@@ -274,10 +274,11 @@ public class DynamicInFragment extends BaseFragment implements View.OnClickListe
     /**
      * 跳转到动态详情页
      */
-    private void toDynamicHome(String dynamicId) {
+    private void toDynamicHome(DynamicOut dynamic) {
         ARouter.getInstance()
-                .build(RouterMap.PATH_DYNAMIC_DETAIL_ACTIVITY)
-                .withString(DynamicDetailActivity.DYNAMIC_ID, dynamicId)
+                .build(dynamic.getType().equals("1") ? RouterMap.PATH_DYNAMIC_CONNATE_ACTIVITY
+                        : RouterMap.PATH_DYNAMIC_FORWARD_ACTIVITY)
+                .withString(DynamicForwardActivity.DYNAMIC_ID, dynamic.getDynamicId())
                 .navigation();
     }
 

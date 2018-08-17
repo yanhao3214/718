@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/statusBarSize" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_cancel"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="@dimen/dp_10"
+            app:srcCompat="@drawable/vector_user_back_black" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="36dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/dynamic_detail"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_collect"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:textColor="@color/text_blue"
+            android:textSize="@dimen/sp_16"
+            app:srcCompat="@drawable/ic_collect_normal" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_operate"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/bg_dynamic_operate_selector" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGrey4" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_author"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/xxx2" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="213dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@+id/iv_author"
+                    android:gravity="center_vertical"
+                    android:text="比特币星球"
+                    android:textColor="@color/textDark1"
+                    android:textSize="@dimen/sp_16"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="213dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tv_name"
+                    android:layout_below="@+id/tv_name"
+                    android:text="10分钟前"
+                    android:textColor="@color/colorGrey3"
+                    android:textSize="@dimen/sp_12" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_concern"
+                    android:layout_width="58dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="21dp"
+                    android:background="@drawable/bg_discover_join_normal"
+                    android:drawableLeft="@drawable/vector_concern"
+                    android:drawablePadding="-4dp"
+                    android:paddingLeft="8dp"
+                    android:text="@string/dynamic_concern"
+                    android:textColor="@color/text_blue"
+                    android:textSize="@dimen/sp_14"
+                    android:visibility="gone" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_concern_done"
+                    android:layout_width="58dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="21dp"
+                    android:background="@drawable/bg_discover_join_done"
+                    android:text="@string/dynamic_concern_done"
+                    android:textColor="@color/colorGrey3"
+                    android:textSize="@dimen/sp_14"
+                    android:visibility="visible" />
+
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_author"
+                    android:layout_margin="15dp"
+                    android:lineSpacingExtra="7dp"
+                    android:text="@string/dynamic_concern"
+                    android:textColor="@color/textDark1"
+                    android:textSize="@dimen/sp_16" />
+
+                <RelativeLayout
+                    android:id="@+id/layout_source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_text"
+                    android:layout_marginTop="-8dp"
+                    android:background="@color/bg_forward"
+                    android:paddingBottom="@dimen/dp_10"
+                    android:paddingLeft="@dimen/dp_15"
+                    android:paddingRight="@dimen/dp_15"
+                    android:paddingTop="@dimen/dp_10">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_null"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_5"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:text="@string/dynamic_been_deleted"
+                        android:textColor="@color/colorGrey2"
+                        android:textSize="15sp"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/layout_source_exist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/tv_author"
+                            android:layout_width="match_parent"
+                            android:layout_height="24dp"
+                            android:gravity="center_vertical"
+                            android:text="区块链大涨哈哈哈"
+                            android:textColor="@color/textDark1"
+                            android:textSize="@dimen/sp_16"
+                            android:textStyle="bold" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/tv_origin_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_below="@+id/tv_author"
+                            android:gravity="center_vertical"
+                            android:text="@string/dynamic_origin_star"
+                            android:textColor="@color/colorGrey2"
+                            android:textSize="13sp" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/tv_origin_star"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/tv_origin_desc"
+                            android:layout_below="@+id/tv_author"
+                            android:layout_marginLeft="1dp"
+                            android:layout_toRightOf="@+id/tv_origin_desc"
+                            android:text="多多公链"
+                            android:textColor="@color/text_blue"
+                            android:textSize="13sp" />
+
+                        <com.yh.jiran.custom.text.AllTextView
+                            android:id="@+id/tv_source_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_origin_desc"
+                            android:layout_marginTop="@dimen/dp_5"
+                            android:maxLines="6"
+                            android:text="@string/dynamic_text_test"
+                            android:textColor="@color/textDark1"
+                            android:textSize="@dimen/sp_16" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_up"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_source_text"
+                            android:orientation="vertical">
+
+                            <com.jaeger.ninegridimageview.NineGridImageView
+                                android:id="@+id/iv_nine"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="9dp"
+                                android:visibility="gone"
+                                app:imgGap="7dp"
+                                app:showStyle="grid"
+                                app:singleImgSize="160dp" />
+
+                            <LinearLayout
+                                android:id="@+id/layout_link"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginTop="9dp"
+                                android:background="@color/bg_white_pressed"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <android.support.v7.widget.AppCompatImageView
+                                    android:id="@+id/iv_link"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_margin="5dp"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/xxx2" />
+
+                                <android.support.v7.widget.AppCompatTextView
+                                    android:id="@+id/tv_link"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="10dp"
+                                    android:ellipsize="end"
+                                    android:maxLines="2"
+                                    android:text="@string/dynamic_text_test"
+                                    android:textColor="@color/colorGrey1"
+                                    android:textSize="@dimen/sp_14" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_from"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/layout_source"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center_vertical"
+                    android:text="来源于weibo.com"
+                    android:textColor="@color/colorGrey2"
+                    android:textSize="@dimen/sp_12" />
+
+                <RelativeLayout
+                    android:id="@+id/layout_star_from"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tv_from"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_marginRight="@dimen/dp_15"
+                    android:background="@color/bg_search_edit">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/iv_star_from"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/xxx1" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_star_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:layout_marginTop="6dp"
+                        android:layout_toLeftOf="@+id/iv_star_more"
+                        android:layout_toRightOf="@+id/iv_star_from"
+                        android:text="多多区块链星球"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_elite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:layout_alignLeft="@+id/tv_star_name"
+                        android:layout_below="@+id/tv_star_name"
+                        android:layout_marginTop="2dp"
+                        android:text="精华 230"
+                        android:textColor="@color/colorGrey2"
+                        android:textSize="11sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_member"
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:layout_alignTop="@+id/tv_elite"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:layout_toRightOf="@+id/tv_elite"
+                        android:text="成员 23.4K"
+                        android:textColor="@color/colorGrey2"
+                        android:textSize="11sp" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/iv_star_more"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="8dp"
+                        app:srcCompat="@drawable/vector_more_right" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_below="@+id/layout_star_from"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:background="@color/bg_search_edit" />
+
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@+id/layout_comment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

@@ -19,11 +19,9 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="height" value="36" />
-                            <entry key="outputName" value="vector_member_list_more" />
+                            <entry key="outputName" value="vector_comment_like_selected" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="D:\项目开发\切图\Star\星球资料-星球成员-主理人视角_svg\vector_memberlist_more.svg" />
-                            <entry key="width" value="36" />
+                            <entry key="sourceFile" value="D:\项目开发\切图\动态详情页-动态详情页_svg\vector_comment_like_selected.svg" />
                           </map>
                         </option>
                       </PersistentState>

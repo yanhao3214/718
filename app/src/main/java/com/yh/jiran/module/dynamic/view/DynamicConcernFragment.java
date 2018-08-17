@@ -121,13 +121,13 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
                         onCollect((AppCompatImageView) adapter.getViewByPosition(position, R.id.iv_collect));
                         break;
                     case R.id.tv_text:
-                        toDynamicHome(dynamic.getDynamicId());
+                        toDynamicHome(dynamic);
                         break;
                     case R.id.tv_origin_star:
                         toStarHome(dynamic.getsStarId());
                         break;
                     case R.id.tv_source_text:
-                        toDynamicHome(dynamic.getsDynamicId());
+                        toDynamicHome(dynamic);
                         break;
                     case R.id.layout_link:
                         toLink(dynamic.getsLinkUrl(), dynamic.getsLinkTitle());
@@ -179,7 +179,7 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
                         onCollect((AppCompatImageView) adapter.getViewByPosition(position, R.id.iv_collect));
                         break;
                     case R.id.tv_text:
-                        toDynamicHome(dynamic.getDynamicId());
+                        toDynamicHome(dynamic);
                         break;
                     case R.id.layout_link:
                         toLink(dynamic.getLinkUrl(), dynamic.getLinkTitle());
@@ -249,10 +249,11 @@ public class DynamicConcernFragment extends BaseFragment implements DynamicConce
     /**
      * 跳转到动态详情页
      */
-    private void toDynamicHome(String dynamicId) {
+    private void toDynamicHome(DynamicOut dynamic) {
         ARouter.getInstance()
-                .build(RouterMap.PATH_DYNAMIC_DETAIL_ACTIVITY)
-                .withString(DynamicDetailActivity.DYNAMIC_ID, dynamicId)
+                .build(dynamic.getType().equals("1") ? RouterMap.PATH_DYNAMIC_CONNATE_ACTIVITY
+                        : RouterMap.PATH_DYNAMIC_FORWARD_ACTIVITY)
+                .withString(DynamicForwardActivity.DYNAMIC_ID, dynamic.getDynamicId())
                 .navigation();
     }
 
