@@ -1,7 +1,6 @@
 package com.yh.jiran.module.dynamic.view;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,18 +8,16 @@ import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.yh.core.app.BaseFragment;
 import com.yh.core.utils.NumberUtil;
 import com.yh.jiran.R;
-import com.yh.jiran.base.ImmerseActivity;
-import com.yh.jiran.custom.dialog.comment.InputDialog;
+import com.yh.jiran.custom.dialog.comment.CommentDialog;
 import com.yh.jiran.custom.dialog.common.JrDialog;
 import com.yh.jiran.module.dynamic.model.entity.Comment;
 import com.yh.jiran.module.dynamic.view.adapter.CommentAdapter;
@@ -28,12 +25,10 @@ import com.yh.jiran.utils.Consts;
 import com.yh.jiran.utils.RouterMap;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * @author: 闫昊
@@ -49,10 +44,9 @@ public class DynamicCommentFragment extends BaseFragment {
     @BindView(R.id.tv_like_num)
     AppCompatTextView tvLikeNum;
     @BindView(R.id.recycler_comment)
-    RecyclerView recyclerComment;
+    public RecyclerView recyclerComment;
 
     private List<Comment> mDatas = new ArrayList<>();
-    private ImmerseActivity mActivity;
     private CommentAdapter mAdapter;
 
     @Nullable
@@ -111,27 +105,15 @@ public class DynamicCommentFragment extends BaseFragment {
                 case R.id.tv_source_text:
                     break;
                 case R.id.tv_reply:
-                    InputDialog inputDialog = new InputDialog(getContext());
-//                    inputDialog.setOnKeyListener((dialogInterface, keyCode, event) -> {
-//                        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-//                            dialogInterface.cancel();
-//                        }
-//                        return false;
-//                    });
-                    inputDialog.show();
+                    new CommentDialog(getContext(), true)
+                            .sourceName(mDatas.get(position).getUserName())
+                            .publish((commentDialog, comment) -> {
+                                Toast.makeText(getContext(), "发布评论", Toast.LENGTH_SHORT).show();
+                                // TODO: 2018/8/17 发送消息：发布评论
 
-//                    JrDialog jrDialog = new JrDialog(getContext(), R.style.CommentDialogStyle)
-//                            .title("评论")
-//                            .negative();
-//                    jrDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
-//                        @Override
-//                        public boolean onKey(DialogInterface dialogInterface, int keyCode, KeyEvent event) {
-//                            if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0)
-//                                dialogInterface.cancel();
-//                            return false;
-//                        }
-//                    });
-//                    jrDialog.show();
+                                commentDialog.dismiss();
+                            })
+                            .show();
                     break;
                 case R.id.tv_delete:
                     new JrDialog(getContext())

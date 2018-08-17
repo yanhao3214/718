@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_reply"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:text="@string/dynamic_comment_reply"
+        android:textColor="@color/colorGrey4"
+        android:textSize="@dimen/sp_16" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_source_name"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_alignBaseline="@+id/tv_reply"
+        android:layout_marginLeft="1dp"
+        android:layout_toRightOf="@+id/tv_reply"
+        android:gravity="center_vertical"
+        android:textColor="@color/text_blue"
+        android:textSize="@dimen/sp_16" />
 
     <android.support.v7.widget.AppCompatEditText
         android:id="@+id/edt_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_reply"
         android:layout_margin="@dimen/dp_10"
         android:background="@drawable/bg_discover_join_done"
         android:gravity="left|top"
@@ -30,7 +53,6 @@
         android:layout_below="@+id/edt_comment"
         android:layout_marginBottom="@dimen/dp_10"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="@dimen/dp_10"
         android:scaleType="centerCrop" />
 
     <android.support.v7.widget.AppCompatTextView
@@ -39,9 +61,7 @@
         android:layout_height="22dp"
         android:layout_below="@+id/edt_comment"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="@dimen/dp_10"
         android:layout_toLeftOf="@+id/tv_publish"
-        android:text="-10"
         android:textColor="@color/color_orange"
         android:textSize="@dimen/sp_16" />
 
@@ -53,7 +73,6 @@
         android:layout_below="@+id/edt_comment"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="22dp"
-        android:layout_marginTop="@dimen/dp_10"
         android:gravity="center_vertical"
         android:text="@string/dynamic_comment_publish"
         android:textColor="@color/colorGrey3"

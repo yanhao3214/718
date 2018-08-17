@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
@@ -26,11 +27,13 @@ import com.yh.core.utils.UrlUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.base.ImmerseActivity;
 import com.yh.jiran.base.WebViewActivity;
+import com.yh.jiran.custom.dialog.comment.CommentDialog;
 import com.yh.jiran.custom.dialog.common.JrDialog;
 import com.yh.jiran.custom.dialog.dynamic.HostDialog;
 import com.yh.jiran.custom.dialog.dynamic.MemberDialog;
 import com.yh.jiran.custom.dialog.dynamic.callback.CommonCallback;
 import com.yh.jiran.custom.dialog.dynamic.callback.MuteCallback;
+import com.yh.jiran.custom.dialog.share.ShareDialog;
 import com.yh.jiran.custom.text.AllTextView;
 import com.yh.jiran.custom.text.FilterClickMovementMethod;
 import com.yh.jiran.custom.text.InnerURLSpan;
@@ -109,6 +112,18 @@ public class DynamicForwardActivity extends ImmerseActivity {
     AppCompatTextView tvSourceText;
     @BindView(R.id.layout_source_exist)
     RelativeLayout layoutSourceExist;
+    @BindView(R.id.tv_comment)
+    AppCompatTextView tvComment;
+    @BindView(R.id.iv_comment)
+    AppCompatImageView ivComment;
+    @BindView(R.id.tv_comment_num)
+    AppCompatTextView tvCommentNum;
+    @BindView(R.id.iv_like)
+    AppCompatImageView ivLike;
+    @BindView(R.id.iv_share)
+    AppCompatImageView ivShare;
+    @BindView(R.id.scroll_view)
+    NestedScrollView scrollView;
     @BindView(R.id.layout_comment)
     FrameLayout layoutComment;
 
@@ -136,7 +151,7 @@ public class DynamicForwardActivity extends ImmerseActivity {
         btnConcernDone.setVisibility(!mDynamic.isConcernAuthor() ? View.GONE : View.VISIBLE);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.layout_comment, new DynamicConcernFragment());
+        ft.replace(R.id.layout_comment, new DynamicCommentFragment());
         ft.commit();
 
         //加载头像
@@ -185,7 +200,8 @@ public class DynamicForwardActivity extends ImmerseActivity {
 
     @OnClick({R.id.iv_cancel, R.id.iv_collect, R.id.tv_operate, R.id.iv_author, R.id.tv_name,
             R.id.btn_concern, R.id.btn_concern_done, R.id.tv_origin_star, R.id.tv_source_text,
-            R.id.layout_link, R.id.tv_from, R.id.layout_star_from,})
+            R.id.layout_link, R.id.tv_from, R.id.layout_star_from, R.id.tv_comment, R.id.iv_comment,
+            R.id.iv_like, R.id.iv_share})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_cancel:
@@ -223,6 +239,31 @@ public class DynamicForwardActivity extends ImmerseActivity {
                 break;
             case R.id.layout_star_from:
                 toStarHome(mDynamic.getStarId());
+                break;
+            case R.id.tv_comment:
+                new CommentDialog(this)
+                        .publish((commentDialog, comment) -> {
+                            Toast.makeText(DynamicForwardActivity.this, "发布评论",
+                                    Toast.LENGTH_SHORT).show();
+                            // TODO: 2018/8/17 发送消息：发布评论
+
+                            commentDialog.dismiss();
+                        })
+                        .show();
+                break;
+            case R.id.iv_comment:
+                Toast.makeText(this, "显示评论", Toast.LENGTH_SHORT).show();
+//                DynamicCommentFragment commentFragment = (DynamicCommentFragment) getSupportFragmentManager().findFragmentById(R.id.layout_comment);
+
+                scrollView.post(() -> scrollView.smoothScrollTo(0, layoutComment.getTop()));
+                break;
+            case R.id.iv_like:
+                ivLike.setImageResource(R.drawable.vector_dynamic_like_selected);
+                // TODO: 2018/8/17 发送消息：点赞动态
+                break;
+            case R.id.iv_share:
+                new ShareDialog(this, false)
+                        .show();
                 break;
             default:
                 break;

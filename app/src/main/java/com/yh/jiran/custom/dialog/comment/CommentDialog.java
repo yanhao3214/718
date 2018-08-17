@@ -3,9 +3,7 @@ package com.yh.jiran.custom.dialog.comment;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatEditText;
@@ -22,10 +20,6 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.yh.jiran.R;
-import com.yh.jiran.custom.dialog.member.callback.MemberOperationType;
-import com.yh.jiran.custom.dialog.member.callback.MuteClickListener;
-import com.yh.jiran.custom.dialog.member.callback.MuteRelieveClickListener;
-import com.yh.jiran.custom.dialog.member.callback.RemoveClickListener;
 import com.yh.ui.utils.DimenUtil;
 
 import io.reactivex.Observable;
@@ -40,7 +34,7 @@ import io.reactivex.functions.Consumer;
  * @date: 2018/8/8
  * @function: 星球资料页-星球成员列表：主理人对人员（嘉宾+成员）的操作弹窗
  */
-public class InputDialog extends Dialog implements View.OnClickListener {
+public class CommentDialog extends Dialog implements View.OnClickListener {
 
     /**
      * Data
@@ -48,6 +42,7 @@ public class InputDialog extends Dialog implements View.OnClickListener {
     public static final int COMMENT_COUNT = 140;
     private boolean mWithSource;
     private OnCommentClickListener mCommentListener;
+    private String mSourceName;
 
     /**
      * View
@@ -61,21 +56,33 @@ public class InputDialog extends Dialog implements View.OnClickListener {
     private AppCompatTextView tvCountDown;
     private AppCompatTextView tvPublish;
 
-    public InputDialog(@Nullable Context context) {
+    public CommentDialog(@Nullable Context context) {
         this(context, false);
     }
 
-    public InputDialog(@Nullable Context context, boolean withSource) {
+    public CommentDialog(@Nullable Context context, boolean withSource) {
         super(context, R.style.CommentDialogStyle);
         mContext = context;
         mWithSource = withSource;
-        init();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.dialog_comment_layout);
+        initView();
+        initData();
+        initEvent();
     }
 
     @SuppressLint("InflateParams")
-    private void init() {
-        mView = LayoutInflater.from(mContext).inflate(R.layout.dialog_comment_layout, null);
-        setContentView(mView);
+    private void initView() {
+
+        Window window = getWindow();
+        window.setGravity(Gravity.BOTTOM);
+        WindowManager.LayoutParams params = window.getAttributes();
+        params.width = DimenUtil.getScreenWidth(mContext);
+        window.setAttributes(params);
 
         tvReply = findViewById(R.id.tv_reply);
         tvSourceName = findViewById(R.id.tv_source_name);
@@ -83,65 +90,58 @@ public class InputDialog extends Dialog implements View.OnClickListener {
         ivImg = findViewById(R.id.iv_img);
         tvCountDown = findViewById(R.id.tv_count_down);
         tvPublish = findViewById(R.id.tv_publish);
-
-        config();
-    }
-
-    private void config() {
-        tvReply.setVisibility(mWithSource ? View.VISIBLE : View.GONE);
-        tvSourceName.setVisibility(mWithSource ? View.VISIBLE : View.GONE);
-        ivImg.setOnClickListener(this);
-        tvPublish.setOnClickListener(this);
-        verifyInput();
-    }
-
-    private void verifyInput() {
-        Disposable disposable = Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-                TextWatcher textWatcher = new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        emitter.onNext(s.length());
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
-                    }
-                };
-                edtComment.addTextChangedListener(textWatcher);
-                emitter.setCancellable(new Cancellable() {
-                    @Override
-                    public void cancel() throws Exception {
-                        edtComment.removeTextChangedListener(textWatcher);
-                    }
-                });
-            }
-        }).subscribe(new Consumer<Integer>() {
-            @Override
-            public void accept(Integer integer) throws Exception {
-                int offset = COMMENT_COUNT - integer;
-                tvCountDown.setText(offset >= 0 ? "" : String.valueOf(offset));
-                tvPublish.setEnabled(integer > 0 && offset >= 0);
-                tvPublish.setTextColor(ContextCompat.getColor(mContext,
-                        (integer > 0 && offset >= 0) ? R.color.text_blue : R.color.colorGrey3));
-            }
-        });
     }
 
     @SuppressLint("SetTextI18n")
-    public InputDialog sourceName(String name) {
-        tvSourceName.setText("@" + name);
+    private void initData() {
+        tvReply.setVisibility(mWithSource ? View.VISIBLE : View.GONE);
+        tvSourceName.setVisibility(mWithSource ? View.VISIBLE : View.GONE);
+        tvPublish.setEnabled(false);
+        if (!TextUtils.isEmpty(mSourceName)) {
+            tvSourceName.setText("@" + mSourceName);
+        }
+        ivImg.setOnClickListener(this);
+        tvPublish.setOnClickListener(this);
+    }
+
+    @SuppressLint("CheckResult")
+    private void initEvent() {
+        Observable
+                .create((ObservableOnSubscribe<Integer>) emitter -> {
+                    TextWatcher textWatcher = new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence s, int start, int before, int count) {
+                            emitter.onNext(s.length());
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable s) {
+                        }
+                    };
+                    edtComment.addTextChangedListener(textWatcher);
+                    emitter.setCancellable(() -> edtComment.removeTextChangedListener(textWatcher));
+                })
+                .subscribe(integer -> {
+                    int offset = COMMENT_COUNT - integer;
+                    tvCountDown.setText(offset >= 0 ? "" : String.valueOf(offset));
+                    tvPublish.setTextColor(ContextCompat.getColor(mContext,
+                            (integer > 0 && offset >= 0) ? R.color.text_blue : R.color.colorGrey3));
+                    tvPublish.setEnabled(integer > 0 && offset >= 0);
+                });
+    }
+
+    @SuppressLint("SetTextI18n")
+    public CommentDialog sourceName(String name) {
+        mSourceName = name;
         return this;
     }
 
-    public InputDialog publish(OnCommentClickListener commentClickListener) {
+    public CommentDialog publish(OnCommentClickListener commentClickListener) {
         mCommentListener = commentClickListener;
-        cancel();
         return this;
     }
 
@@ -152,23 +152,13 @@ public class InputDialog extends Dialog implements View.OnClickListener {
                 break;
             case R.id.tv_publish:
                 if (mCommentListener != null) {
-                    mCommentListener.onPublish(this, edtComment.getText().toString().trim());
+                    mCommentListener.onPublish(
+                            this, edtComment.getText().toString().trim());
                 }
                 break;
             default:
                 break;
         }
-    }
-
-    @Override
-    public void show() {
-        init();
-        super.show();
-        Window window = getWindow();
-        window.setGravity(Gravity.BOTTOM);
-        WindowManager.LayoutParams params = window.getAttributes();
-        params.width = DimenUtil.getScreenWidth(mContext);
-        window.setAttributes(params);
     }
 
     @Override
