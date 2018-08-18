@@ -19,9 +19,11 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="vector_comment_like_selected" />
+                            <entry key="height" value="110" />
+                            <entry key="outputName" value="vector_tweet_add_pic" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="D:\项目开发\切图\动态详情页-动态详情页_svg\vector_comment_like_selected.svg" />
+                            <entry key="sourceFile" value="D:\项目开发\发布动态-发布动态-内容输入-键盘收起_svg\vector_tweet_uploadimg.svg" />
+                            <entry key="width" value="110" />
                           </map>
                         </option>
                       </PersistentState>

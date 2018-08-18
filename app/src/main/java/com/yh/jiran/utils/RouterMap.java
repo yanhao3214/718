@@ -122,7 +122,7 @@ public class RouterMap {
     /**
      * 发布动态页
      */
-    public static final String PATH_DYNAMIC_TWEET_ACTIVITY = "/dynamic/DynamicTweetActivity";
+    public static final String PATH_DYNAMIC_TWEET_ACTIVITY = "/dynamic/TweetActivity";
 
     /**
      * 星球资料-星球成员页

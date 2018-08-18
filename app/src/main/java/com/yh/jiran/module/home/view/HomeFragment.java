@@ -44,7 +44,8 @@ public class HomeFragment extends BaseFragment {
 
     @OnClick(R.id.iv_edit)
     public void pickStar() {
-        ARouter.getInstance().build(RouterMap.PATH_STAR_PICK_ACTIVITY).navigation();
+//        ARouter.getInstance().build(RouterMap.PATH_STAR_PICK_ACTIVITY).navigation();
+        ARouter.getInstance().build(RouterMap.PATH_DYNAMIC_TWEET_ACTIVITY).navigation();
     }
 
     @Override

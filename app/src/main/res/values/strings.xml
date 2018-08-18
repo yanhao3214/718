@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Manifest -->
     <string name="app_name">计然蜂巢</string>
@@ -37,17 +37,20 @@
     <string name="home_tab_user">个人</string>
 
     <!-- 首页/我的 -->
-    <string name="home_mine_search">搜索星球或内容</string>
+    <string name="home_mine_search">搜索我的星球</string>
+    <string name="home_pick_star">选择星球</string>
+    <string name="home_mine_search_null">未搜到相关星球</string>
     <string name="home_cancel">取消</string>
-    <string name="home_mine_star">我的星球</string>
-    <string name="home_recent_star">最近使用</string>
-    <string name="home_hot_star">热门星球</string>
-    <string name="home_cancel_">ss</string>
+    <string name="home_star_me_host">我是主理人</string>
+    <string name="home_star_me_guest">我是嘉宾</string>
+    <string name="home_star_me_member">我是成员</string>
+    <string name="home_star_null">加入星球后才能发表动态 你还没有加入星球</string>
 
     <!-- 首页/发现 -->
     <string name="home_discover_change">换一批</string>
     <string name="home_discover_dynamic">热门动态</string>
     <string name="home_discover_join">加入</string>
+    <string name="home_hot_star">热门星球</string>
 
     <!-- 搜索 -->
     <string name="search_clear_history">清除搜索记录</string>
@@ -97,6 +100,11 @@
     <string name="dynamic_comment_reply">回复</string>
     <string name="dynamic_comment_delete">删除</string>
     <string name="dynamic_comment_publish">发布</string>
+
+    <!-- 动态正文 -->
+    <string name="tweet_publish">发布动态</string>
+    <string name="tweet_where">发布在</string>
+    <string name="tweet_desc" tools:ignore="TypographyEllipsis">分享你的观点...</string>
 
     <!-- 个人主页 -->
     <string name="user_home_edit">编辑</string>
@@ -157,5 +165,6 @@
     <string name="topic_star_status_guest">嘉宾</string>
     <string name="topic_star_relieve_mute">解禁</string>
     <string name="topic_star_mute_none">暂无禁言成员</string>
+    <string name="topic_star_member_null">未搜到相关成员</string>
 
 </resources>

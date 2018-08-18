@@ -46,4 +46,6 @@ dependencies {
     //大图浏览依赖
     //PhotoView依赖
     api 'com.github.chrisbanes:PhotoView:2.1.4'
+    //图片选择依赖
+    api 'com.zhihu.android:matisse:0.5.2-beta2'
 }

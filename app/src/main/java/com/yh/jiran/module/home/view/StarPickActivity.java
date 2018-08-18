@@ -1,12 +1,21 @@
 package com.yh.jiran.module.home.view;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.trello.rxlifecycle2.LifecycleTransformer;
+import com.yh.core.utils.SoftKeyUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.base.ImmerseActivity;
 import com.yh.jiran.module.home.HomeMineContract;
@@ -19,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
@@ -31,23 +41,38 @@ import butterknife.OnClick;
 public class StarPickActivity extends ImmerseActivity implements HomeMineContract.PickStarView {
 
     private HomeMineContract.PickStarPresenter mPresenter;
-    private StarPickQuickAdapter mMineAdapter;
-    private StarPickQuickAdapter mRecentAdapter;
-    private StarPickQuickAdapter mHotAdapter;
-    private List<HomeStar> mMineList = new ArrayList<>();
-    private List<HomeStar> mRecentList = new ArrayList<>();
-    private List<HomeStar> mHotList = new ArrayList<>();
+    private StarPickQuickAdapter mHostAdapter;
+    private StarPickQuickAdapter mGuestAdapter;
+    private StarPickQuickAdapter mMemberAdapter;
+    private StarPickQuickAdapter mResultAdapter;
+    private List<HomeStar> mHostList = new ArrayList<>();
+    private List<HomeStar> mGuestList = new ArrayList<>();
+    private List<HomeStar> mMemberList = new ArrayList<>();
+    private List<HomeStar> mResultList = new ArrayList<>();
 
     @BindView(R.id.edt_search)
     AppCompatEditText edtSearch;
-    @BindView(R.id.list_mine)
-    RecyclerView listMine;
-    @BindView(R.id.list_recent)
-    RecyclerView listRecent;
-    @BindView(R.id.list_hot)
-    RecyclerView listHot;
-    @BindView(R.id.layout_stars)
-    LinearLayout layoutStars;
+    @BindView(R.id.tv_null)
+    AppCompatTextView tvNull;
+    @BindView(R.id.list_host)
+    RecyclerView listHost;
+    @BindView(R.id.list_guest)
+    RecyclerView listGuest;
+    @BindView(R.id.list_member)
+    RecyclerView listMember;
+    @BindView(R.id.layout_my_stars)
+    LinearLayout layoutMyStars;
+    @BindView(R.id.list_result)
+    RecyclerView listResult;
+    @BindView(R.id.scroll_view)
+    NestedScrollView scrollView;
+    @BindView(R.id.layout_nav)
+    LinearLayout layoutNav;
+    @BindView(R.id.tv_cancel)
+    AppCompatTextView tvCancel;
+    @BindView(R.id.layout_frame)
+    FrameLayout layoutFrame;
+
 
     @Override
     protected int setContent() {
@@ -59,39 +84,47 @@ public class StarPickActivity extends ImmerseActivity implements HomeMineContrac
         super.initView();
         mPresenter = new PickStarPresenter(this);
 
-        LinearLayoutManager mineManager = new LinearLayoutManager(this);
-        mineManager.setOrientation(LinearLayoutManager.VERTICAL);
-        listMine.setLayoutManager(mineManager);
-        mMineAdapter = new StarPickQuickAdapter(mMineList);
-        listMine.setAdapter(mMineAdapter);
-        listMine.setNestedScrollingEnabled(false);
+        LinearLayoutManager hostManager = new LinearLayoutManager(this);
+        hostManager.setOrientation(LinearLayoutManager.VERTICAL);
+        listHost.setLayoutManager(hostManager);
+        mHostAdapter = new StarPickQuickAdapter(mHostList);
+        listHost.setAdapter(mHostAdapter);
+        listHost.setNestedScrollingEnabled(false);
 
-        LinearLayoutManager hotManager = new LinearLayoutManager(this);
-        hotManager.setOrientation(LinearLayoutManager.VERTICAL);
-        listHot.setLayoutManager(hotManager);
-        mHotAdapter = new StarPickQuickAdapter(mHotList);
-        listHot.setAdapter(mHotAdapter);
-        listHot.setNestedScrollingEnabled(false);
+        LinearLayoutManager guestManager = new LinearLayoutManager(this);
+        guestManager.setOrientation(LinearLayoutManager.VERTICAL);
+        listGuest.setLayoutManager(guestManager);
+        mMemberAdapter = new StarPickQuickAdapter(mMemberList);
+        listGuest.setAdapter(mMemberAdapter);
+        listGuest.setNestedScrollingEnabled(false);
 
-        LinearLayoutManager recentManager = new LinearLayoutManager(this);
-        recentManager.setOrientation(LinearLayoutManager.VERTICAL);
-        listRecent.setLayoutManager(recentManager);
-        mRecentAdapter = new StarPickQuickAdapter(mRecentList);
-        listRecent.setAdapter(mRecentAdapter);
-        listRecent.setNestedScrollingEnabled(false);
+        LinearLayoutManager memberManager = new LinearLayoutManager(this);
+        memberManager.setOrientation(LinearLayoutManager.VERTICAL);
+        listMember.setLayoutManager(memberManager);
+        mGuestAdapter = new StarPickQuickAdapter(mGuestList);
+        listMember.setAdapter(mGuestAdapter);
+        listMember.setNestedScrollingEnabled(false);
+
+        LinearLayoutManager resultManager = new LinearLayoutManager(this);
+        resultManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mResultAdapter = new StarPickQuickAdapter(mResultList);
+        listResult.setLayoutManager(resultManager);
+        listResult.setAdapter(mResultAdapter);
+        listResult.setNestedScrollingEnabled(false);
+
     }
 
     @Override
     protected void initData() {
-        mMineList.clear();
-        mMineList.addAll(mPresenter.getMyStar());
-        mRecentList.clear();
-        mRecentList.addAll(mPresenter.getRecentStar());
-        mHotList.clear();
-        mHotList.addAll(mPresenter.getHotStar());
-        mMineAdapter.notifyDataSetChanged();
-        mRecentAdapter.notifyDataSetChanged();
-        mHotAdapter.notifyDataSetChanged();
+        mHostList.clear();
+        mHostList.addAll(mPresenter.getMyStar());
+        mGuestList.clear();
+        mGuestList.addAll(mPresenter.getRecentStar());
+        mMemberList.clear();
+        mMemberList.addAll(mPresenter.getHotStar());
+        mHostAdapter.notifyDataSetChanged();
+        mGuestAdapter.notifyDataSetChanged();
+        mMemberAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -114,8 +147,25 @@ public class StarPickActivity extends ImmerseActivity implements HomeMineContrac
 
     }
 
-    @OnClick(R.id.tv_cancel)
-    public void onViewClicked() {
-        finish();
+    @OnClick({R.id.iv_back, R.id.edt_search, R.id.tv_cancel})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.iv_back:
+                finish();
+                break;
+            case R.id.edt_search:
+                layoutNav.setVisibility(View.GONE);
+                tvCancel.setVisibility(View.VISIBLE);
+                layoutFrame.setForeground(new ColorDrawable(0x7F272A33));
+                break;
+            case R.id.tv_cancel:
+                layoutNav.setVisibility(View.VISIBLE);
+                tvCancel.setVisibility(View.GONE);
+                layoutFrame.setForeground(null);
+                SoftKeyUtil.hideSoftKeyboard(this, edtSearch);
+                break;
+            default:
+                break;
+        }
     }
 }

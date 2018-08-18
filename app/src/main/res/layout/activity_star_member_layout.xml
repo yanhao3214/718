@@ -10,108 +10,163 @@
         android:layout_height="@dimen/statusBarSize" />
 
     <LinearLayout
+        android:id="@+id/layout_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/iv_cancel"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="@dimen/dp_10"
+                custom:srcCompat="@drawable/vector_user_back_black" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/topic_star_member"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_submit"
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/sp_16"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorGrey4" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="43dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/iv_cancel"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginLeft="@dimen/dp_10"
-            custom:srcCompat="@drawable/vector_user_back_black" />
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tv_title"
+        <com.yh.jiran.custom.search.YSearchEdit
+            android:id="@+id/edt_search"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="13dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/topic_star_member"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp" />
+            android:background="@drawable/bg_search_edit"
+            android:drawablePadding="7dp"
+            android:hint="@string/home_mine_search"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:textColor="@color/colorChosen"
+            android:textSize="12sp"
+            custom:clear_icon="@drawable/vector_search_input_clear" />
 
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tv_submit"
-            android:layout_width="36dp"
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:textColor="@color/text_blue"
-            android:textSize="@dimen/sp_16"
-            android:visibility="invisible" />
+            android:layout_marginRight="19dp"
+            android:text="@string/common_cancel"
+            android:textColor="@color/colorGrey1"
+            android:textSize="@dimen/sp_14" />
     </LinearLayout>
 
-    <View
+    <FrameLayout
+        android:id="@+id/layout_frame"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/colorGrey4" />
+        android:layout_height="match_parent">
 
-    <com.yh.jiran.custom.search.YSearchEdit
-        android:id="@+id/edt_search"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="6dp"
-        android:background="@drawable/bg_search_edit"
-        android:drawablePadding="7dp"
-        android:hint="@string/topic_star_search_member"
-        android:imeOptions="actionSearch"
-        android:singleLine="true"
-        android:textColor="@color/colorChosen"
-        android:textSize="12sp"
-        custom:clear_icon="@drawable/vector_search_input_clear" />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_null"
+            android:layout_width="172dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:lineSpacingExtra="6dp"
+            android:lines="2"
+            android:text="@string/topic_star_member_null"
+            android:textColor="@color/colorGrey3"
+            android:textSize="15sp"
+            android:visibility="gone" />
 
-
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="8dp">
-
-        <LinearLayout
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tv_host"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorGrey4"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="5dp"
-                android:text="@string/topic_star_host_guest"
-                android:textSize="10sp" />
+                android:orientation="vertical">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_host"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp" />
+                <LinearLayout
+                    android:id="@+id/layout_origin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tv_member"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorGrey4"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="5dp"
-                android:text="@string/topic_star_list_member"
-                android:textSize="10sp" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_host"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorGrey4"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/topic_star_host_guest"
+                        android:textSize="10sp" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_member"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp" />
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_host"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp" />
 
-        </LinearLayout>
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_member"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorGrey4"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/topic_star_list_member"
+                        android:textSize="10sp" />
 
-    </android.support.v4.widget.NestedScrollView>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_member"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp" />
+
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+    </FrameLayout>
 
 </LinearLayout>

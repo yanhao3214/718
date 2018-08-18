@@ -7,19 +7,58 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/statusBarSize"
-        android:background="@color/white" />
+        android:layout_height="@dimen/statusBarSize" />
+
+    <LinearLayout
+        android:id="@+id/layout_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/iv_back"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="@dimen/dp_10"
+                custom:srcCompat="@drawable/vector_close_grey" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="46dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/home_pick_star"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorGrey4" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="43dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <com.yh.jiran.custom.search.YSearchEdit
             android:id="@+id/edt_search"
             android:layout_width="0dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="13dp"
             android:layout_weight="1"
             android:background="@drawable/bg_search_edit"
             android:drawablePadding="7dp"
@@ -34,78 +73,110 @@
             android:id="@+id/tv_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:text="@string/home_cancel" />
-
+            android:layout_marginRight="19dp"
+            android:text="@string/common_cancel"
+            android:textColor="@color/colorGrey1"
+            android:textSize="@dimen/sp_14" />
     </LinearLayout>
 
-
-    <android.support.v4.widget.NestedScrollView
+    <FrameLayout
+        android:id="@+id/layout_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="6dp">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/layout_stars"
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_null"
+            android:layout_width="172dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:lineSpacingExtra="6dp"
+            android:lines="2"
+            android:text="@string/home_star_null"
+            android:textColor="@color/colorGrey3"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:visibility="visible">
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tv_title_mine"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorGrey4"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="5dp"
-                android:text="@string/home_mine_star"
-                android:textSize="10sp" />
+                android:orientation="vertical"
+                android:visibility="visible">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/list_mine"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp" />
+                <LinearLayout
+                    android:id="@+id/layout_my_stars"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tv_title_recent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorGrey4"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="5dp"
-                android:text="@string/home_recent_star"
-                android:textSize="10sp" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_title_host"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bg_search_edit"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/home_star_me_host"
+                        android:textSize="10sp" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/list_recent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp" />
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/list_host"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp" />
 
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_title_guest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bg_search_edit"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/home_star_me_guest"
+                        android:textSize="10sp" />
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tv_title_hot"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorGrey4"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="5dp"
-                android:text="@string/home_hot_star"
-                android:textSize="10sp" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/list_hot"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp" />
-
-        </LinearLayout>
-
-    </android.support.v4.widget.NestedScrollView>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/list_guest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp" />
 
 
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_title_member"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bg_search_edit"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/home_star_me_member"
+                        android:textSize="10sp" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/list_member"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp" />
+
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/list_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </FrameLayout>
 </LinearLayout>

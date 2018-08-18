@@ -48,7 +48,6 @@ public class CommentDialog extends Dialog implements View.OnClickListener {
      * View
      */
     private Context mContext;
-    private View mView;
     private AppCompatTextView tvReply;
     private AppCompatTextView tvSourceName;
     private AppCompatEditText edtComment;

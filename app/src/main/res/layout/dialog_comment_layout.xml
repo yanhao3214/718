@@ -37,7 +37,7 @@
         android:gravity="left|top"
         android:hint="@string/dynamic_publish_comment"
         android:lineSpacingExtra="6dp"
-        android:lines="3"
+        android:minLines="3"
         android:paddingBottom="7dp"
         android:paddingLeft="@dimen/dp_10"
         android:paddingRight="@dimen/dp_10"

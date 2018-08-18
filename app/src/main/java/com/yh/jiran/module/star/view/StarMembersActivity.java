@@ -1,13 +1,20 @@
 package com.yh.jiran.module.star.view;
 
 import android.app.Dialog;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.yh.core.utils.SoftKeyUtil;
 import com.yh.jiran.R;
 import com.yh.jiran.base.ImmerseActivity;
 import com.yh.jiran.custom.dialog.common.JrDialog;
@@ -25,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -41,6 +49,18 @@ public class StarMembersActivity extends ImmerseActivity {
     RecyclerView recyclerHost;
     @BindView(R.id.recycler_member)
     RecyclerView recyclerMember;
+    @BindView(R.id.layout_nav)
+    LinearLayout layoutNav;
+    @BindView(R.id.tv_cancel)
+    AppCompatTextView tvCancel;
+    @BindView(R.id.tv_null)
+    AppCompatTextView tvNull;
+    @BindView(R.id.layout_origin)
+    LinearLayout layoutOrigin;
+    @BindView(R.id.recycler_result)
+    RecyclerView recyclerResult;
+    @BindView(R.id.layout_frame)
+    FrameLayout layoutFrame;
 
     private List<StarMember> mHosts = new ArrayList<>();
     private List<StarMember> mMembers = new ArrayList<>();
@@ -262,5 +282,24 @@ public class StarMembersActivity extends ImmerseActivity {
             members.add(member2);
         }
         return members;
+    }
+
+    @OnClick({R.id.edt_search, R.id.tv_cancel})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.edt_search:
+                layoutNav.setVisibility(View.GONE);
+                tvCancel.setVisibility(View.VISIBLE);
+                layoutFrame.setForeground(new ColorDrawable(0x7F272A33));
+                break;
+            case R.id.tv_cancel:
+                layoutNav.setVisibility(View.VISIBLE);
+                tvCancel.setVisibility(View.GONE);
+                layoutFrame.setForeground(null);
+                SoftKeyUtil.hideSoftKeyboard(this, edtSearch);
+                break;
+            default:
+                break;
+        }
     }
 }
